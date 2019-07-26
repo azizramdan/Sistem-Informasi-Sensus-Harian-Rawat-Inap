@@ -111,6 +111,12 @@
     <Compile Include="PasienForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RegisterMasukForm.Designer.vb">
+      <DependentUpon>RegisterMasukForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterMasukForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TempatTidurForm.Designer.vb">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PasienForm.resx">
       <DependentUpon>PasienForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterMasukForm.resx">
+      <DependentUpon>RegisterMasukForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TempatTidurForm.resx">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
