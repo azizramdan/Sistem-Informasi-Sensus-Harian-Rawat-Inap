@@ -167,7 +167,7 @@ Partial Class PasienForm
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.SplitContainer1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 36)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(770, 249)
         Me.GroupBox1.TabIndex = 13
@@ -330,7 +330,7 @@ Partial Class PasienForm
         Me.GroupBox2.Controls.Add(Me.ComboBox3)
         Me.GroupBox2.Controls.Add(Me.RadioButton2)
         Me.GroupBox2.Controls.Add(Me.RadioButton1)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 291)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 282)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(770, 63)
         Me.GroupBox2.TabIndex = 15
