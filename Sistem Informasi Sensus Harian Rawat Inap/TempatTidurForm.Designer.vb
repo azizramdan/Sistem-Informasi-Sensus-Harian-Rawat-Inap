@@ -27,7 +27,6 @@ Partial Class TempatTidurForm
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
@@ -37,8 +36,11 @@ Partial Class TempatTidurForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.TambahToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ComboBox1
@@ -46,7 +48,7 @@ Partial Class TempatTidurForm
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(141, 22)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(162, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(173, 21)
         Me.ComboBox1.TabIndex = 0
         '
         'ComboBox2
@@ -54,19 +56,19 @@ Partial Class TempatTidurForm
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(141, 49)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(162, 21)
+        Me.ComboBox2.Size = New System.Drawing.Size(173, 21)
         Me.ComboBox2.TabIndex = 1
         '
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(141, 75)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(162, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(173, 20)
         Me.TextBox1.TabIndex = 2
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(117, 112)
+        Me.Button1.Location = New System.Drawing.Point(362, 20)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 3
@@ -75,34 +77,26 @@ Partial Class TempatTidurForm
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(355, 27)
+        Me.Button2.Location = New System.Drawing.Point(362, 52)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Tambah"
+        Me.Button2.Text = "Hapus"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(355, 64)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Hapus"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.ComboBox2)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 36)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(322, 147)
+        Me.GroupBox1.Size = New System.Drawing.Size(469, 119)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Edit"
@@ -113,9 +107,9 @@ Partial Class TempatTidurForm
         Me.GroupBox2.Controls.Add(Me.ComboBox3)
         Me.GroupBox2.Controls.Add(Me.RadioButton2)
         Me.GroupBox2.Controls.Add(Me.RadioButton1)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 175)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 161)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(469, 84)
+        Me.GroupBox2.Size = New System.Drawing.Size(469, 65)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cari berdasarkan"
@@ -134,7 +128,7 @@ Partial Class TempatTidurForm
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(141, 27)
+        Me.RadioButton2.Location = New System.Drawing.Point(118, 27)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(98, 17)
         Me.RadioButton2.TabIndex = 1
@@ -145,14 +139,14 @@ Partial Class TempatTidurForm
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(12, 50)
+        Me.ComboBox3.Location = New System.Drawing.Point(222, 26)
         Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(227, 21)
+        Me.ComboBox3.Size = New System.Drawing.Size(142, 21)
         Me.ComboBox3.TabIndex = 2
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(274, 48)
+        Me.Button4.Location = New System.Drawing.Point(388, 24)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 3
@@ -186,6 +180,21 @@ Partial Class TempatTidurForm
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Jumlah Tempat Tidur"
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TambahToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(493, 24)
+        Me.MenuStrip1.TabIndex = 8
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'TambahToolStripMenuItem
+        '
+        Me.TambahToolStripMenuItem.Name = "TambahToolStripMenuItem"
+        Me.TambahToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.TambahToolStripMenuItem.Text = "Tambah"
+        '
         'TempatTidurForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -193,15 +202,17 @@ Partial Class TempatTidurForm
         Me.ClientSize = New System.Drawing.Size(493, 359)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "TempatTidurForm"
         Me.Text = "Data Tempat Tidur"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
@@ -209,7 +220,6 @@ Partial Class TempatTidurForm
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -219,4 +229,6 @@ Partial Class TempatTidurForm
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents TambahToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
