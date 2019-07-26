@@ -111,10 +111,46 @@
     <Compile Include="PasienForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RegisterKeluarForm.Designer.vb">
+      <DependentUpon>RegisterKeluarForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterKeluarForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RegisterMasukForm.Designer.vb">
       <DependentUpon>RegisterMasukForm.vb</DependentUpon>
     </Compile>
     <Compile Include="RegisterMasukForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahDokterForm.Designer.vb">
+      <DependentUpon>TambahDokterForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TambahDokterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahPasienForm.Designer.vb">
+      <DependentUpon>TambahPasienForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TambahPasienForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahRegisterKeluarForm.Designer.vb">
+      <DependentUpon>TambahRegisterKeluarForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TambahRegisterKeluarForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahRegisterMasukForm.Designer.vb">
+      <DependentUpon>TambahRegisterMasukForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TambahRegisterMasukForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahTempatTidurForm.Designer.vb">
+      <DependentUpon>TambahTempatTidurForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TambahTempatTidurForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TempatTidurForm.Designer.vb">
@@ -140,8 +176,26 @@
     <EmbeddedResource Include="PasienForm.resx">
       <DependentUpon>PasienForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterKeluarForm.resx">
+      <DependentUpon>RegisterKeluarForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterMasukForm.resx">
       <DependentUpon>RegisterMasukForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahDokterForm.resx">
+      <DependentUpon>TambahDokterForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahPasienForm.resx">
+      <DependentUpon>TambahPasienForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahRegisterKeluarForm.resx">
+      <DependentUpon>TambahRegisterKeluarForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahRegisterMasukForm.resx">
+      <DependentUpon>TambahRegisterMasukForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahTempatTidurForm.resx">
+      <DependentUpon>TambahTempatTidurForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TempatTidurForm.resx">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
