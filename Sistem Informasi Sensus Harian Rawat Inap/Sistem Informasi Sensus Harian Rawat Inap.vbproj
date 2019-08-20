@@ -86,7 +86,13 @@
     <Compile Include="DokterForm.Designer.vb">
       <DependentUpon>DokterForm.vb</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="DokterForm.vb" />
+=======
+    <Compile Include="DokterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+>>>>>>> dev
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -98,7 +104,13 @@
     <Compile Include="MenuForm.Designer.vb">
       <DependentUpon>MenuForm.vb</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="MenuForm.vb" />
+=======
+    <Compile Include="MenuForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+>>>>>>> dev
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -117,6 +129,7 @@
     <Compile Include="PasienForm.Designer.vb">
       <DependentUpon>PasienForm.vb</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="PasienForm.vb" />
     <Compile Include="RegisterKeluarForm.Designer.vb">
       <DependentUpon>RegisterKeluarForm.vb</DependentUpon>
@@ -130,15 +143,50 @@
       <DependentUpon>SensusForm.vb</DependentUpon>
     </Compile>
     <Compile Include="SensusForm.vb" />
+=======
+    <Compile Include="PasienForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterKeluarForm.Designer.vb">
+      <DependentUpon>RegisterKeluarForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterKeluarForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterMasukForm.Designer.vb">
+      <DependentUpon>RegisterMasukForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterMasukForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensusForm.Designer.vb">
+      <DependentUpon>SensusForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SensusForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+>>>>>>> dev
     <Compile Include="Settings.vb" />
     <Compile Include="DokterTambahForm.Designer.vb">
       <DependentUpon>DokterTambahForm.vb</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="DokterTambahForm.vb" />
     <Compile Include="PasienTambahForm.Designer.vb">
       <DependentUpon>PasienTambahForm.vb</DependentUpon>
     </Compile>
     <Compile Include="PasienTambahForm.vb" />
+=======
+    <Compile Include="DokterTambahForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasienTambahForm.Designer.vb">
+      <DependentUpon>PasienTambahForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PasienTambahForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+>>>>>>> dev
     <Compile Include="RegisterKeluarTambahForm.Designer.vb">
       <DependentUpon>RegisterKeluarTambahForm.vb</DependentUpon>
     </Compile>
@@ -154,6 +202,7 @@
     <Compile Include="TambahTempatTidurForm.Designer.vb">
       <DependentUpon>TambahTempatTidurForm.vb</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="TambahTempatTidurForm.vb" />
     <Compile Include="TempatTidurForm.Designer.vb">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
@@ -163,6 +212,23 @@
       <DependentUpon>UserForm.vb</DependentUpon>
     </Compile>
     <Compile Include="UserForm.vb" />
+=======
+    <Compile Include="TambahTempatTidurForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TempatTidurForm.Designer.vb">
+      <DependentUpon>TempatTidurForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TempatTidurForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm.Designer.vb">
+      <DependentUpon>UserForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+>>>>>>> dev
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DokterForm.resx">
