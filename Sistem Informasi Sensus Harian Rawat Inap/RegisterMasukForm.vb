@@ -26,16 +26,16 @@
         'End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub btnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSimpan.Click
 
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        TextBox4.Text = ""
+    Private Sub btnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClear.Click
+        tbCari.Text = ""
         Cari()
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+    Private Sub btnCari_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCari.Click
         Cari()
     End Sub
 
@@ -44,7 +44,7 @@
     End Sub
 
     Private Sub Cari()
-        Dim filter As String = TextBox4.Text
+        Dim filter As String = tbCari.Text
         If filter = "" Then
             Register_masukBindingSource.RemoveFilter()
         Else
@@ -52,5 +52,9 @@
         End If
         Me.Register_masukTableAdapter.Fill(Me.DBDataSet.register_masuk)
         Jumlah()
+    End Sub
+
+    Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
+
     End Sub
 End Class
