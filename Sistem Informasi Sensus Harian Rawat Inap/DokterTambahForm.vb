@@ -10,14 +10,14 @@ Public Class DokterTambahForm
         End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub btnTambah_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTambah.Click
         Dim sip, nama, alamat, telp, spesialis, status
-        sip = TextBox1.Text
-        nama = TextBox2.Text
-        alamat = RichTextBox1.Text
-        telp = TextBox3.Text
-        spesialis = ComboBox1.SelectedItem
-        status = ComboBox2.SelectedItem
+        sip = tbSip.Text
+        nama = tbNama.Text
+        alamat = rtbAlamat.Text
+        telp = tbTelp.Text
+        spesialis = cbSpesialis.SelectedItem
+        status = cbStatus.SelectedItem
 
         If sip = "" Or nama = "" Or alamat = "" Or telp = "" Or spesialis = "" Or status = "" Then
             MsgBox("Data harus diisi semua")
@@ -55,12 +55,12 @@ Public Class DokterTambahForm
         End If
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        TextBox1.Text = ""
-        TextBox2.Text = ""
-        RichTextBox1.Text = ""
-        TextBox3.Text = ""
-        ComboBox1.SelectedIndex = -1
-        ComboBox2.SelectedIndex = -1
+    Private Sub btnBersihkan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBersihkan.Click
+        tbSip.Text = ""
+        tbNama.Text = ""
+        rtbAlamat.Text = ""
+        tbTelp.Text = ""
+        cbSpesialis.SelectedIndex = -1
+        cbStatus.SelectedIndex = -1
     End Sub
 End Class
