@@ -32,8 +32,8 @@ Partial Class DokterForm
         Me.AlamatTextBox = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.No_telponTextBox = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnHapus = New System.Windows.Forms.Button()
+        Me.btnSimpan = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -43,15 +43,15 @@ Partial Class DokterForm
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.TambahToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.tbCari = New System.Windows.Forms.TextBox()
+        Me.btnCari = New System.Windows.Forms.Button()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.DokterTableAdapter = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.dokterTableAdapter()
         Me.TableAdapterManager = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager()
         Me.DokterDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -75,8 +75,8 @@ Partial Class DokterForm
         Me.GroupBox1.Controls.Add(Me.AlamatTextBox)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.No_telponTextBox)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnHapus)
+        Me.GroupBox1.Controls.Add(Me.btnSimpan)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -85,7 +85,7 @@ Partial Class DokterForm
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(720, 178)
+        Me.GroupBox1.Size = New System.Drawing.Size(720, 164)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Edit"
@@ -134,7 +134,7 @@ Partial Class DokterForm
         Me.AlamatTextBox.Location = New System.Drawing.Point(95, 74)
         Me.AlamatTextBox.Multiline = True
         Me.AlamatTextBox.Name = "AlamatTextBox"
-        Me.AlamatTextBox.Size = New System.Drawing.Size(242, 61)
+        Me.AlamatTextBox.Size = New System.Drawing.Size(242, 38)
         Me.AlamatTextBox.TabIndex = 23
         '
         'Label6
@@ -154,23 +154,23 @@ Partial Class DokterForm
         Me.No_telponTextBox.Size = New System.Drawing.Size(242, 20)
         Me.No_telponTextBox.TabIndex = 25
         '
-        'Button2
+        'btnHapus
         '
-        Me.Button2.Location = New System.Drawing.Point(374, 141)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 14
-        Me.Button2.Text = "Hapus"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnHapus.Location = New System.Drawing.Point(374, 127)
+        Me.btnHapus.Name = "btnHapus"
+        Me.btnHapus.Size = New System.Drawing.Size(75, 23)
+        Me.btnHapus.TabIndex = 14
+        Me.btnHapus.Text = "Hapus"
+        Me.btnHapus.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnSimpan
         '
-        Me.Button1.Location = New System.Drawing.Point(262, 141)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 13
-        Me.Button1.Text = "Simpan"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSimpan.Location = New System.Drawing.Point(262, 127)
+        Me.btnSimpan.Name = "btnSimpan"
+        Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
+        Me.btnSimpan.TabIndex = 13
+        Me.btnSimpan.Text = "Simpan"
+        Me.btnSimpan.UseVisualStyleBackColor = True
         '
         'ComboBox1
         '
@@ -245,16 +245,26 @@ Partial Class DokterForm
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.btnClear)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.TextBox4)
-        Me.GroupBox2.Controls.Add(Me.Button4)
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 220)
+        Me.GroupBox2.Controls.Add(Me.tbCari)
+        Me.GroupBox2.Controls.Add(Me.btnCari)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 197)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(720, 63)
         Me.GroupBox2.TabIndex = 16
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cari data"
+        '
+        'btnClear
+        '
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Location = New System.Drawing.Point(481, 26)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(29, 23)
+        Me.btnClear.TabIndex = 19
+        Me.btnClear.Text = "X"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -265,21 +275,21 @@ Partial Class DokterForm
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Cari berdasarkan SIP atau Nama"
         '
-        'TextBox4
+        'tbCari
         '
-        Me.TextBox4.Location = New System.Drawing.Point(188, 26)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(287, 20)
-        Me.TextBox4.TabIndex = 5
+        Me.tbCari.Location = New System.Drawing.Point(188, 26)
+        Me.tbCari.Name = "tbCari"
+        Me.tbCari.Size = New System.Drawing.Size(287, 20)
+        Me.tbCari.TabIndex = 5
         '
-        'Button4
+        'btnCari
         '
-        Me.Button4.Location = New System.Drawing.Point(528, 26)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Cari"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnCari.Location = New System.Drawing.Point(528, 26)
+        Me.btnCari.Name = "btnCari"
+        Me.btnCari.Size = New System.Drawing.Size(75, 23)
+        Me.btnCari.TabIndex = 3
+        Me.btnCari.Text = "Cari"
+        Me.btnCari.UseVisualStyleBackColor = True
         '
         'StatusStrip1
         '
@@ -304,7 +314,10 @@ Partial Class DokterForm
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.dokterTableAdapter = Me.DokterTableAdapter
+        Me.TableAdapterManager.kelasTableAdapter = Nothing
         Me.TableAdapterManager.pasienTableAdapter = Nothing
+        Me.TableAdapterManager.register_masuk1TableAdapter = Nothing
+        Me.TableAdapterManager.ruanganTableAdapter = Nothing
         Me.TableAdapterManager.sensusTableAdapter = Nothing
         Me.TableAdapterManager.tempat_tidurTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -318,21 +331,11 @@ Partial Class DokterForm
         Me.DokterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DokterDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
         Me.DokterDataGridView.DataSource = Me.DokterBindingSource
-        Me.DokterDataGridView.Location = New System.Drawing.Point(12, 289)
+        Me.DokterDataGridView.Location = New System.Drawing.Point(12, 266)
         Me.DokterDataGridView.Name = "DokterDataGridView"
         Me.DokterDataGridView.ReadOnly = True
-        Me.DokterDataGridView.Size = New System.Drawing.Size(720, 361)
+        Me.DokterDataGridView.Size = New System.Drawing.Size(720, 384)
         Me.DokterDataGridView.TabIndex = 18
-        '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(481, 26)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(29, 23)
-        Me.Button3.TabIndex = 19
-        Me.Button3.Text = "X"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'DataGridViewTextBoxColumn1
         '
@@ -411,13 +414,13 @@ Partial Class DokterForm
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnHapus As System.Windows.Forms.Button
+    Friend WithEvents btnSimpan As System.Windows.Forms.Button
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents TambahToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents btnCari As System.Windows.Forms.Button
+    Friend WithEvents tbCari As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
@@ -432,7 +435,7 @@ Partial Class DokterForm
     Friend WithEvents Nama_lengkapTextBox As System.Windows.Forms.TextBox
     Friend WithEvents AlamatTextBox As System.Windows.Forms.TextBox
     Friend WithEvents No_telponTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents btnClear As System.Windows.Forms.Button
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
