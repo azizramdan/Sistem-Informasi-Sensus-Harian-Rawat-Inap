@@ -22,88 +22,123 @@ Partial Class MenuForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnTempatTidur = New System.Windows.Forms.Button()
-        Me.btnPasien = New System.Windows.Forms.Button()
-        Me.btnDokter = New System.Windows.Forms.Button()
-        Me.btnPasienMasuk = New System.Windows.Forms.Button()
-        Me.btnPasienKeluar = New System.Windows.Forms.Button()
-        Me.btnSensus = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.DataMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PasienToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DokterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProsesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegisterPasienMasukToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegisterPasienKeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SensusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'btnTempatTidur
+        'MenuStrip1
         '
-        Me.btnTempatTidur.Location = New System.Drawing.Point(39, 40)
-        Me.btnTempatTidur.Name = "btnTempatTidur"
-        Me.btnTempatTidur.Size = New System.Drawing.Size(127, 23)
-        Me.btnTempatTidur.TabIndex = 0
-        Me.btnTempatTidur.Text = "Data Tempat Tidur"
-        Me.btnTempatTidur.UseVisualStyleBackColor = True
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataMasterToolStripMenuItem, Me.ProsesToolStripMenuItem, Me.LaporanToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(520, 24)
+        Me.MenuStrip1.TabIndex = 7
+        Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'btnPasien
+        'DataMasterToolStripMenuItem
         '
-        Me.btnPasien.Location = New System.Drawing.Point(39, 88)
-        Me.btnPasien.Name = "btnPasien"
-        Me.btnPasien.Size = New System.Drawing.Size(75, 23)
-        Me.btnPasien.TabIndex = 1
-        Me.btnPasien.Text = "Data Pasien"
-        Me.btnPasien.UseVisualStyleBackColor = True
+        Me.DataMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.PasienToolStripMenuItem, Me.DokterToolStripMenuItem})
+        Me.DataMasterToolStripMenuItem.Name = "DataMasterToolStripMenuItem"
+        Me.DataMasterToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
+        Me.DataMasterToolStripMenuItem.Text = "Data Master"
         '
-        'btnDokter
+        'UserToolStripMenuItem
         '
-        Me.btnDokter.Location = New System.Drawing.Point(39, 136)
-        Me.btnDokter.Name = "btnDokter"
-        Me.btnDokter.Size = New System.Drawing.Size(75, 23)
-        Me.btnDokter.TabIndex = 2
-        Me.btnDokter.Text = "Data Dokter"
-        Me.btnDokter.UseVisualStyleBackColor = True
+        Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
+        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.UserToolStripMenuItem.Text = "User"
         '
-        'btnPasienMasuk
+        'PasienToolStripMenuItem
         '
-        Me.btnPasienMasuk.Location = New System.Drawing.Point(226, 40)
-        Me.btnPasienMasuk.Name = "btnPasienMasuk"
-        Me.btnPasienMasuk.Size = New System.Drawing.Size(118, 23)
-        Me.btnPasienMasuk.TabIndex = 3
-        Me.btnPasienMasuk.Text = "Data Pasien Masuk"
-        Me.btnPasienMasuk.UseVisualStyleBackColor = True
+        Me.PasienToolStripMenuItem.Name = "PasienToolStripMenuItem"
+        Me.PasienToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.PasienToolStripMenuItem.Text = "Pasien"
         '
-        'btnPasienKeluar
+        'DokterToolStripMenuItem
         '
-        Me.btnPasienKeluar.Location = New System.Drawing.Point(226, 88)
-        Me.btnPasienKeluar.Name = "btnPasienKeluar"
-        Me.btnPasienKeluar.Size = New System.Drawing.Size(116, 23)
-        Me.btnPasienKeluar.TabIndex = 4
-        Me.btnPasienKeluar.Text = "Data Pasien Keluar"
-        Me.btnPasienKeluar.UseVisualStyleBackColor = True
+        Me.DokterToolStripMenuItem.Name = "DokterToolStripMenuItem"
+        Me.DokterToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.DokterToolStripMenuItem.Text = "Dokter"
         '
-        'btnSensus
+        'ProsesToolStripMenuItem
         '
-        Me.btnSensus.Location = New System.Drawing.Point(226, 136)
-        Me.btnSensus.Name = "btnSensus"
-        Me.btnSensus.Size = New System.Drawing.Size(98, 23)
-        Me.btnSensus.TabIndex = 5
-        Me.btnSensus.Text = "Data Sensus"
-        Me.btnSensus.UseVisualStyleBackColor = True
+        Me.ProsesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegisterPasienMasukToolStripMenuItem, Me.RegisterPasienKeluarToolStripMenuItem})
+        Me.ProsesToolStripMenuItem.Name = "ProsesToolStripMenuItem"
+        Me.ProsesToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.ProsesToolStripMenuItem.Text = "Proses"
+        '
+        'RegisterPasienMasukToolStripMenuItem
+        '
+        Me.RegisterPasienMasukToolStripMenuItem.Name = "RegisterPasienMasukToolStripMenuItem"
+        Me.RegisterPasienMasukToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.RegisterPasienMasukToolStripMenuItem.Text = "Register Pasien Masuk"
+        '
+        'RegisterPasienKeluarToolStripMenuItem
+        '
+        Me.RegisterPasienKeluarToolStripMenuItem.Name = "RegisterPasienKeluarToolStripMenuItem"
+        Me.RegisterPasienKeluarToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.RegisterPasienKeluarToolStripMenuItem.Text = "Register Pasien Keluar"
+        '
+        'LaporanToolStripMenuItem
+        '
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SensusToolStripMenuItem})
+        Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
+        Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.LaporanToolStripMenuItem.Text = "Laporan"
+        '
+        'SensusToolStripMenuItem
+        '
+        Me.SensusToolStripMenuItem.Name = "SensusToolStripMenuItem"
+        Me.SensusToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.SensusToolStripMenuItem.Text = "Sensus"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 27)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(520, 283)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.WaitOnLoad = True
         '
         'MenuForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(520, 322)
-        Me.Controls.Add(Me.btnSensus)
-        Me.Controls.Add(Me.btnPasienKeluar)
-        Me.Controls.Add(Me.btnPasienMasuk)
-        Me.Controls.Add(Me.btnDokter)
-        Me.Controls.Add(Me.btnPasien)
-        Me.Controls.Add(Me.btnTempatTidur)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "MenuForm"
-        Me.Text = "Menu"
+        Me.Text = "SISTEM INFORMASI SENSUS RAWAT INAP"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btnTempatTidur As System.Windows.Forms.Button
-    Friend WithEvents btnPasien As System.Windows.Forms.Button
-    Friend WithEvents btnDokter As System.Windows.Forms.Button
-    Friend WithEvents btnPasienMasuk As System.Windows.Forms.Button
-    Friend WithEvents btnPasienKeluar As System.Windows.Forms.Button
-    Friend WithEvents btnSensus As System.Windows.Forms.Button
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents DataMasterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PasienToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DokterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ProsesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegisterPasienMasukToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegisterPasienKeluarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LaporanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SensusToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class
