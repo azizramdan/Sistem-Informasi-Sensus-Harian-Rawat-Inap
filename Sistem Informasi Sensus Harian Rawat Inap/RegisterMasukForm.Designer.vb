@@ -189,6 +189,7 @@ Partial Class RegisterMasukForm
         'Nama_lengkapTextBox
         '
         Me.Nama_lengkapTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Register_masukBindingSource, "nama_lengkap", True))
+        Me.Nama_lengkapTextBox.Enabled = False
         Me.Nama_lengkapTextBox.Location = New System.Drawing.Point(118, 37)
         Me.Nama_lengkapTextBox.Name = "Nama_lengkapTextBox"
         Me.Nama_lengkapTextBox.Size = New System.Drawing.Size(189, 20)
