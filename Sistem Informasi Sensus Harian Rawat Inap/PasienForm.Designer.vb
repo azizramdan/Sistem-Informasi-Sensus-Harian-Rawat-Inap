@@ -455,9 +455,10 @@ Partial Class PasienForm
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.dokterTableAdapter = Nothing
+        Me.TableAdapterManager.kelasTableAdapter = Nothing
         Me.TableAdapterManager.pasienTableAdapter = Me.PasienTableAdapter
-        Me.TableAdapterManager.register_keluarTableAdapter = Nothing
-        Me.TableAdapterManager.register_masukTableAdapter = Nothing
+        Me.TableAdapterManager.register_masuk1TableAdapter = Nothing
+        Me.TableAdapterManager.ruanganTableAdapter = Nothing
         Me.TableAdapterManager.sensusTableAdapter = Nothing
         Me.TableAdapterManager.tempat_tidurTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete

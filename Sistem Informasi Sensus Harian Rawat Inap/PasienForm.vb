@@ -70,5 +70,11 @@
         Me.Validate()
         Me.PasienBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.DBDataSet)
+        MsgBox("Data berhasil disimpan")
+    End Sub
+
+    Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
+        PasienTambahForm.Show()
+        Me.Hide()
     End Sub
 End Class
