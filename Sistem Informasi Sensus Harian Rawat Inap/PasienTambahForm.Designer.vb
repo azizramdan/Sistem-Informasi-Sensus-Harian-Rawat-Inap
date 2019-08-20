@@ -23,29 +23,29 @@ Partial Class PasienTambahForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.dtpTanggalLahir = New System.Windows.Forms.DateTimePicker()
+        Me.tbTempatLahir = New System.Windows.Forms.TextBox()
+        Me.rtbAlamat = New System.Windows.Forms.RichTextBox()
+        Me.tbPasien = New System.Windows.Forms.TextBox()
+        Me.tbMedrec = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.tbTelp = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbAgama = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cbStatus = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.tbPekerjaan = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.tbAyah = New System.Windows.Forms.TextBox()
+        Me.tbIbu = New System.Windows.Forms.TextBox()
+        Me.btnTambah = New System.Windows.Forms.Button()
+        Me.btnBersihkan = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -57,42 +57,42 @@ Partial Class PasienTambahForm
         Me.Label1.TabIndex = 21
         Me.Label1.Text = "No. Medrec"
         '
-        'DateTimePicker1
+        'dtpTanggalLahir
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(151, 87)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(211, 20)
-        Me.DateTimePicker1.TabIndex = 19
+        Me.dtpTanggalLahir.Location = New System.Drawing.Point(151, 87)
+        Me.dtpTanggalLahir.Name = "dtpTanggalLahir"
+        Me.dtpTanggalLahir.Size = New System.Drawing.Size(211, 20)
+        Me.dtpTanggalLahir.TabIndex = 19
         '
-        'TextBox3
+        'tbTempatLahir
         '
-        Me.TextBox3.Location = New System.Drawing.Point(151, 61)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(211, 20)
-        Me.TextBox3.TabIndex = 18
+        Me.tbTempatLahir.Location = New System.Drawing.Point(151, 61)
+        Me.tbTempatLahir.Name = "tbTempatLahir"
+        Me.tbTempatLahir.Size = New System.Drawing.Size(211, 20)
+        Me.tbTempatLahir.TabIndex = 18
         '
-        'RichTextBox1
+        'rtbAlamat
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(151, 113)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(211, 52)
-        Me.RichTextBox1.TabIndex = 20
-        Me.RichTextBox1.Text = ""
+        Me.rtbAlamat.Location = New System.Drawing.Point(151, 113)
+        Me.rtbAlamat.Name = "rtbAlamat"
+        Me.rtbAlamat.Size = New System.Drawing.Size(211, 52)
+        Me.rtbAlamat.TabIndex = 20
+        Me.rtbAlamat.Text = ""
         '
-        'TextBox2
+        'tbPasien
         '
-        Me.TextBox2.Location = New System.Drawing.Point(151, 35)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(211, 20)
-        Me.TextBox2.TabIndex = 17
+        Me.tbPasien.Location = New System.Drawing.Point(151, 35)
+        Me.tbPasien.Name = "tbPasien"
+        Me.tbPasien.Size = New System.Drawing.Size(211, 20)
+        Me.tbPasien.TabIndex = 17
         '
-        'TextBox1
+        'tbMedrec
         '
-        Me.TextBox1.Location = New System.Drawing.Point(151, 6)
-        Me.TextBox1.MaxLength = 6
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(211, 20)
-        Me.TextBox1.TabIndex = 16
+        Me.tbMedrec.Location = New System.Drawing.Point(151, 6)
+        Me.tbMedrec.MaxLength = 6
+        Me.tbMedrec.Name = "tbMedrec"
+        Me.tbMedrec.Size = New System.Drawing.Size(211, 20)
+        Me.tbMedrec.TabIndex = 16
         '
         'Label2
         '
@@ -148,12 +148,12 @@ Partial Class PasienTambahForm
         Me.Label11.TabIndex = 37
         Me.Label11.Text = "Nama Ibu Kandung"
         '
-        'TextBox4
+        'tbTelp
         '
-        Me.TextBox4.Location = New System.Drawing.Point(151, 172)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(211, 20)
-        Me.TextBox4.TabIndex = 26
+        Me.tbTelp.Location = New System.Drawing.Point(151, 172)
+        Me.tbTelp.Name = "tbTelp"
+        Me.tbTelp.Size = New System.Drawing.Size(211, 20)
+        Me.tbTelp.TabIndex = 26
         '
         'Label10
         '
@@ -164,14 +164,14 @@ Partial Class PasienTambahForm
         Me.Label10.TabIndex = 36
         Me.Label10.Text = "Nama Ayah Kandung"
         '
-        'ComboBox1
+        'cbAgama
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Islam", "Buddha", "Protestan", "Hindu", "Katolik", "Khonghucu"})
-        Me.ComboBox1.Location = New System.Drawing.Point(151, 198)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(211, 21)
-        Me.ComboBox1.TabIndex = 27
+        Me.cbAgama.FormattingEnabled = True
+        Me.cbAgama.Items.AddRange(New Object() {"Islam", "Buddha", "Protestan", "Hindu", "Katolik", "Khonghucu"})
+        Me.cbAgama.Location = New System.Drawing.Point(151, 198)
+        Me.cbAgama.Name = "cbAgama"
+        Me.cbAgama.Size = New System.Drawing.Size(211, 21)
+        Me.cbAgama.TabIndex = 27
         '
         'Label9
         '
@@ -182,14 +182,14 @@ Partial Class PasienTambahForm
         Me.Label9.TabIndex = 35
         Me.Label9.Text = "Pekerjaan"
         '
-        'ComboBox2
+        'cbStatus
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Menikah", "Belum menikah", "Cerai hidup", "Cerai mati"})
-        Me.ComboBox2.Location = New System.Drawing.Point(151, 225)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(211, 21)
-        Me.ComboBox2.TabIndex = 28
+        Me.cbStatus.FormattingEnabled = True
+        Me.cbStatus.Items.AddRange(New Object() {"Menikah", "Belum menikah", "Cerai hidup", "Cerai mati"})
+        Me.cbStatus.Location = New System.Drawing.Point(151, 225)
+        Me.cbStatus.Name = "cbStatus"
+        Me.cbStatus.Size = New System.Drawing.Size(211, 21)
+        Me.cbStatus.TabIndex = 28
         '
         'Label8
         '
@@ -200,12 +200,12 @@ Partial Class PasienTambahForm
         Me.Label8.TabIndex = 34
         Me.Label8.Text = "Status"
         '
-        'TextBox5
+        'tbPekerjaan
         '
-        Me.TextBox5.Location = New System.Drawing.Point(151, 252)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(211, 20)
-        Me.TextBox5.TabIndex = 29
+        Me.tbPekerjaan.Location = New System.Drawing.Point(151, 252)
+        Me.tbPekerjaan.Name = "tbPekerjaan"
+        Me.tbPekerjaan.Size = New System.Drawing.Size(211, 20)
+        Me.tbPekerjaan.TabIndex = 29
         '
         'Label7
         '
@@ -216,63 +216,63 @@ Partial Class PasienTambahForm
         Me.Label7.TabIndex = 33
         Me.Label7.Text = "Agama"
         '
-        'TextBox6
+        'tbAyah
         '
-        Me.TextBox6.Location = New System.Drawing.Point(151, 278)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(211, 20)
-        Me.TextBox6.TabIndex = 30
+        Me.tbAyah.Location = New System.Drawing.Point(151, 278)
+        Me.tbAyah.Name = "tbAyah"
+        Me.tbAyah.Size = New System.Drawing.Size(211, 20)
+        Me.tbAyah.TabIndex = 30
         '
-        'TextBox7
+        'tbIbu
         '
-        Me.TextBox7.Location = New System.Drawing.Point(151, 304)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(211, 20)
-        Me.TextBox7.TabIndex = 31
+        Me.tbIbu.Location = New System.Drawing.Point(151, 304)
+        Me.tbIbu.Name = "tbIbu"
+        Me.tbIbu.Size = New System.Drawing.Size(211, 20)
+        Me.tbIbu.TabIndex = 31
         '
-        'Button1
+        'btnTambah
         '
-        Me.Button1.Location = New System.Drawing.Point(93, 342)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 38
-        Me.Button1.Text = "Tambah"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnTambah.Location = New System.Drawing.Point(93, 342)
+        Me.btnTambah.Name = "btnTambah"
+        Me.btnTambah.Size = New System.Drawing.Size(75, 23)
+        Me.btnTambah.TabIndex = 38
+        Me.btnTambah.Text = "Tambah"
+        Me.btnTambah.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnBersihkan
         '
-        Me.Button2.Location = New System.Drawing.Point(186, 342)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 39
-        Me.Button2.Text = "Bersihkan"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnBersihkan.Location = New System.Drawing.Point(186, 342)
+        Me.btnBersihkan.Name = "btnBersihkan"
+        Me.btnBersihkan.Size = New System.Drawing.Size(75, 23)
+        Me.btnBersihkan.TabIndex = 39
+        Me.btnBersihkan.Text = "Bersihkan"
+        Me.btnBersihkan.UseVisualStyleBackColor = True
         '
         'PasienTambahForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(376, 386)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnBersihkan)
+        Me.Controls.Add(Me.btnTambah)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.tbTelp)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbAgama)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.cbStatus)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.tbPekerjaan)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.tbAyah)
+        Me.Controls.Add(Me.tbIbu)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.RichTextBox1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.dtpTanggalLahir)
+        Me.Controls.Add(Me.tbTempatLahir)
+        Me.Controls.Add(Me.rtbAlamat)
+        Me.Controls.Add(Me.tbPasien)
+        Me.Controls.Add(Me.tbMedrec)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
@@ -284,27 +284,27 @@ Partial Class PasienTambahForm
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents dtpTanggalLahir As System.Windows.Forms.DateTimePicker
+    Friend WithEvents tbTempatLahir As System.Windows.Forms.TextBox
+    Friend WithEvents rtbAlamat As System.Windows.Forms.RichTextBox
+    Friend WithEvents tbPasien As System.Windows.Forms.TextBox
+    Friend WithEvents tbMedrec As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents tbTelp As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbAgama As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbStatus As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents tbPekerjaan As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents tbAyah As System.Windows.Forms.TextBox
+    Friend WithEvents tbIbu As System.Windows.Forms.TextBox
+    Friend WithEvents btnTambah As System.Windows.Forms.Button
+    Friend WithEvents btnBersihkan As System.Windows.Forms.Button
 End Class

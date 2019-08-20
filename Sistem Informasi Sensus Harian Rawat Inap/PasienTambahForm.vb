@@ -1,5 +1,6 @@
 ﻿Imports System.Data.OleDb
 Public Class PasienTambahForm
+
     Private Sub PasienTambahForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
     End Sub
@@ -11,19 +12,20 @@ Public Class PasienTambahForm
         End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub btnTambah_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTambah.Click
         Dim medrec, nama, tempat, tanggal, alamat, telp, agama, status, pekerjaan, ayah, ibu
-        medrec = TextBox1.Text
-        nama = TextBox2.Text
-        tempat = TextBox3.Text
-        tanggal = DateTimePicker1.Value.ToString("M/d/yyyy")
-        alamat = RichTextBox1.Text
-        telp = TextBox4.Text
-        agama = ComboBox1.SelectedItem
-        status = ComboBox2.SelectedItem
-        pekerjaan = TextBox5.Text
-        ayah = TextBox6.Text
-        ibu = TextBox7.Text
+        medrec = tbMedrec.Text
+        nama = tbPasien.Text
+        tempat = tbTempatLahir.Text
+        tanggal = dtpTanggalLahir.Value.ToString("M/d/yyyy")
+        alamat = rtbAlamat.Text
+        telp = tbTelp.Text
+        agama = cbAgama.SelectedItem
+        status = cbStatus.SelectedItem
+        pekerjaan = tbPekerjaan.Text
+        ayah = tbAyah.Text
+        ibu = tbIbu.Text
+
         If medrec = "" Or nama = "" Or tempat = "" Or alamat = "" Or telp = "" Or agama = "" Or status = "" Or pekerjaan = "" Or ayah = "" Or ibu = "" Then
             MsgBox("Data harus diisi semua")
         Else
@@ -65,16 +67,16 @@ Public Class PasienTambahForm
         End If
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        TextBox1.Text = ""
-        TextBox2.Text = ""
-        TextBox3.Text = ""
-        RichTextBox1.Text = ""
-        TextBox4.Text = ""
-        ComboBox1.SelectedIndex = -1
-        ComboBox2.SelectedIndex = -1
-        TextBox5.Text = ""
-        TextBox6.Text = ""
-        TextBox7.Text = ""
+    Private Sub btnBersihkan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBersihkan.Click
+        tbMedrec.Text = ""
+        tbPasien.Text = ""
+        tbTempatLahir.Text = ""
+        rtbAlamat.Text = ""
+        tbTelp.Text = ""
+        cbAgama.SelectedIndex = -1
+        cbStatus.SelectedIndex = -1
+        tbPekerjaan.Text = ""
+        tbAyah.Text = ""
+        tbIbu.Text = ""
     End Sub
 End Class
