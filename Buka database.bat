@@ -1,1 +1,1 @@
-start "" "Sistem Informasi Sensus Harian Rawat Inap\bin\Debug\SISHRI.accdb"
+start "" "Sistem Informasi Sensus Harian Rawat Inap\SISHRI.accdb"
