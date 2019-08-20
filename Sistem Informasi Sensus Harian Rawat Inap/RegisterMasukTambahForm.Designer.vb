@@ -23,18 +23,20 @@ Partial Class RegisterMasukTambahForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.tbMedrec = New System.Windows.Forms.TextBox()
+        Me.tbNama = New System.Windows.Forms.TextBox()
+        Me.cbRuangan = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cbKelas = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.dtpTanggalMasuk = New System.Windows.Forms.DateTimePicker()
+        Me.cbCaraMasuk = New System.Windows.Forms.ComboBox()
+        Me.btnTambah = New System.Windows.Forms.Button()
+        Me.btnCek = New System.Windows.Forms.Button()
+        Me.btnBersihkan = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -46,27 +48,30 @@ Partial Class RegisterMasukTambahForm
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "No. Medrec"
         '
-        'TextBox1
+        'tbMedrec
         '
-        Me.TextBox1.Location = New System.Drawing.Point(129, 6)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(181, 20)
-        Me.TextBox1.TabIndex = 9
+        Me.tbMedrec.Location = New System.Drawing.Point(129, 6)
+        Me.tbMedrec.MaxLength = 6
+        Me.tbMedrec.Name = "tbMedrec"
+        Me.tbMedrec.Size = New System.Drawing.Size(181, 20)
+        Me.tbMedrec.TabIndex = 9
         '
-        'TextBox2
+        'tbNama
         '
-        Me.TextBox2.Location = New System.Drawing.Point(129, 32)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(181, 20)
-        Me.TextBox2.TabIndex = 10
+        Me.tbNama.Enabled = False
+        Me.tbNama.Location = New System.Drawing.Point(129, 32)
+        Me.tbNama.Name = "tbNama"
+        Me.tbNama.Size = New System.Drawing.Size(225, 20)
+        Me.tbNama.TabIndex = 10
         '
-        'ComboBox1
+        'cbRuangan
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(129, 58)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox1.TabIndex = 11
+        Me.cbRuangan.FormattingEnabled = True
+        Me.cbRuangan.Items.AddRange(New Object() {"Berlian Timur", "Berlian Barat", "Maternity", "Nursery", "Perinatologi", "Picu", "Ruby Barat", "Ruby Timur A", "Ruby Timur B", "Safir Barat", "Safir Timur", "Topas"})
+        Me.cbRuangan.Location = New System.Drawing.Point(129, 58)
+        Me.cbRuangan.Name = "cbRuangan"
+        Me.cbRuangan.Size = New System.Drawing.Size(225, 21)
+        Me.cbRuangan.TabIndex = 11
         '
         'Label3
         '
@@ -104,13 +109,14 @@ Partial Class RegisterMasukTambahForm
         Me.Label6.TabIndex = 20
         Me.Label6.Text = "Cara Pasien Masuk"
         '
-        'ComboBox2
+        'cbKelas
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(129, 85)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox2.TabIndex = 15
+        Me.cbKelas.FormattingEnabled = True
+        Me.cbKelas.Items.AddRange(New Object() {"President Suite", "Suite", "Junior Suite", "Premiere", "Kelas I", "Kelas II", "Kelas III"})
+        Me.cbKelas.Location = New System.Drawing.Point(129, 85)
+        Me.cbKelas.Name = "cbKelas"
+        Me.cbKelas.Size = New System.Drawing.Size(225, 21)
+        Me.cbKelas.TabIndex = 15
         '
         'Label5
         '
@@ -121,65 +127,88 @@ Partial Class RegisterMasukTambahForm
         Me.Label5.TabIndex = 19
         Me.Label5.Text = "Tanggal Masuk"
         '
-        'DateTimePicker1
+        'dtpTanggalMasuk
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(129, 112)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(181, 20)
-        Me.DateTimePicker1.TabIndex = 16
+        Me.dtpTanggalMasuk.Location = New System.Drawing.Point(129, 112)
+        Me.dtpTanggalMasuk.Name = "dtpTanggalMasuk"
+        Me.dtpTanggalMasuk.Size = New System.Drawing.Size(225, 20)
+        Me.dtpTanggalMasuk.TabIndex = 16
         '
-        'ComboBox3
+        'cbCaraMasuk
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(129, 138)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox3.TabIndex = 17
+        Me.cbCaraMasuk.FormattingEnabled = True
+        Me.cbCaraMasuk.Items.AddRange(New Object() {"OPD", "UGD", "Rujukan RS lain"})
+        Me.cbCaraMasuk.Location = New System.Drawing.Point(129, 138)
+        Me.cbCaraMasuk.Name = "cbCaraMasuk"
+        Me.cbCaraMasuk.Size = New System.Drawing.Size(225, 21)
+        Me.cbCaraMasuk.TabIndex = 17
         '
-        'Button1
+        'btnTambah
         '
-        Me.Button1.Location = New System.Drawing.Point(104, 181)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 21
-        Me.Button1.Text = "Tambah"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnTambah.Location = New System.Drawing.Point(108, 181)
+        Me.btnTambah.Name = "btnTambah"
+        Me.btnTambah.Size = New System.Drawing.Size(75, 23)
+        Me.btnTambah.TabIndex = 21
+        Me.btnTambah.Text = "Tambah"
+        Me.btnTambah.UseVisualStyleBackColor = True
         '
-        'TambahRegisterMasukForm
+        'btnCek
+        '
+        Me.btnCek.Location = New System.Drawing.Point(316, 4)
+        Me.btnCek.Name = "btnCek"
+        Me.btnCek.Size = New System.Drawing.Size(38, 23)
+        Me.btnCek.TabIndex = 22
+        Me.btnCek.Text = "Cek"
+        Me.btnCek.UseVisualStyleBackColor = True
+        '
+        'btnBersihkan
+        '
+        Me.btnBersihkan.Location = New System.Drawing.Point(201, 181)
+        Me.btnBersihkan.Name = "btnBersihkan"
+        Me.btnBersihkan.Size = New System.Drawing.Size(75, 23)
+        Me.btnBersihkan.TabIndex = 42
+        Me.btnBersihkan.Text = "Bersihkan"
+        Me.btnBersihkan.UseVisualStyleBackColor = True
+        '
+        'RegisterMasukTambahForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(323, 216)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(390, 216)
+        Me.Controls.Add(Me.btnBersihkan)
+        Me.Controls.Add(Me.btnCek)
+        Me.Controls.Add(Me.btnTambah)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.cbKelas)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.ComboBox3)
+        Me.Controls.Add(Me.dtpTanggalMasuk)
+        Me.Controls.Add(Me.cbCaraMasuk)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.tbMedrec)
+        Me.Controls.Add(Me.tbNama)
+        Me.Controls.Add(Me.cbRuangan)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Name = "TambahRegisterMasukForm"
+        Me.Name = "RegisterMasukTambahForm"
         Me.Text = "Tambah Data Pasien Masuk Rawat Inap"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents tbMedrec As System.Windows.Forms.TextBox
+    Friend WithEvents tbNama As System.Windows.Forms.TextBox
+    Friend WithEvents cbRuangan As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbKelas As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents dtpTanggalMasuk As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cbCaraMasuk As System.Windows.Forms.ComboBox
+    Friend WithEvents btnTambah As System.Windows.Forms.Button
+    Friend WithEvents btnCek As System.Windows.Forms.Button
+    Friend WithEvents btnBersihkan As System.Windows.Forms.Button
 End Class
