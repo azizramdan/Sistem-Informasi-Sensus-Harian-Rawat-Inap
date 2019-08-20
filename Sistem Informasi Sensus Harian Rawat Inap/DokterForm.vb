@@ -49,6 +49,7 @@
         Me.Validate()
         Me.DokterBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.DBDataSet)
+        MsgBox("Data berhasil disimpan")
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
