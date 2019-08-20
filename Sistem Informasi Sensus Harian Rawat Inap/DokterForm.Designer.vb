@@ -305,8 +305,6 @@ Partial Class DokterForm
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.dokterTableAdapter = Me.DokterTableAdapter
         Me.TableAdapterManager.pasienTableAdapter = Nothing
-        Me.TableAdapterManager.register_keluarTableAdapter = Nothing
-        Me.TableAdapterManager.register_masukTableAdapter = Nothing
         Me.TableAdapterManager.sensusTableAdapter = Nothing
         Me.TableAdapterManager.tempat_tidurTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete

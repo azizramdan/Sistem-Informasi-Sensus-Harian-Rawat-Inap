@@ -27,7 +27,8 @@
     End Sub
 
     Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
-        TambahDokterForm.Show()
+        DokterTambahForm.Show()
+        Me.Hide()
     End Sub
     Private Sub Jumlah()
         ToolStripStatusLabel1.Text = "Jumlah data " & DokterDataGridView.RowCount
