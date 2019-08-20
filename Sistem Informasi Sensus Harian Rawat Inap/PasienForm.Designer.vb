@@ -30,8 +30,8 @@ Partial Class PasienForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnHapus = New System.Windows.Forms.Button()
+        Me.btnSimpan = New System.Windows.Forms.Button()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.No_medrecTextBox = New System.Windows.Forms.TextBox()
         Me.Nama_lengkapTextBox = New System.Windows.Forms.TextBox()
@@ -56,10 +56,10 @@ Partial Class PasienForm
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.tbCari = New System.Windows.Forms.TextBox()
+        Me.btnCari = New System.Windows.Forms.Button()
         Me.PasienTableAdapter = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.pasienTableAdapter()
         Me.TableAdapterManager = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager()
         Me.PasienDataGridView = New System.Windows.Forms.DataGridView()
@@ -150,8 +150,8 @@ Partial Class PasienForm
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnHapus)
+        Me.GroupBox1.Controls.Add(Me.btnSimpan)
         Me.GroupBox1.Controls.Add(Me.SplitContainer1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
@@ -160,23 +160,23 @@ Partial Class PasienForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Edit"
         '
-        'Button2
+        'btnHapus
         '
-        Me.Button2.Location = New System.Drawing.Point(403, 203)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 24
-        Me.Button2.Text = "Hapus"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnHapus.Location = New System.Drawing.Point(403, 203)
+        Me.btnHapus.Name = "btnHapus"
+        Me.btnHapus.Size = New System.Drawing.Size(75, 23)
+        Me.btnHapus.TabIndex = 24
+        Me.btnHapus.Text = "Hapus"
+        Me.btnHapus.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnSimpan
         '
-        Me.Button1.Location = New System.Drawing.Point(294, 203)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 23
-        Me.Button1.Text = "Simpan"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSimpan.Location = New System.Drawing.Point(294, 203)
+        Me.btnSimpan.Name = "btnSimpan"
+        Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
+        Me.btnSimpan.TabIndex = 23
+        Me.btnSimpan.Text = "Simpan"
+        Me.btnSimpan.UseVisualStyleBackColor = True
         '
         'SplitContainer1
         '
@@ -401,10 +401,10 @@ Partial Class PasienForm
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.btnClear)
         Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Controls.Add(Me.TextBox8)
-        Me.GroupBox2.Controls.Add(Me.Button4)
+        Me.GroupBox2.Controls.Add(Me.tbCari)
+        Me.GroupBox2.Controls.Add(Me.btnCari)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 270)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(770, 63)
@@ -412,15 +412,15 @@ Partial Class PasienForm
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cari data"
         '
-        'Button3
+        'btnClear
         '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(557, 24)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(29, 23)
-        Me.Button3.TabIndex = 18
-        Me.Button3.Text = "X"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Location = New System.Drawing.Point(557, 24)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(29, 23)
+        Me.btnClear.TabIndex = 18
+        Me.btnClear.Text = "X"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'Label12
         '
@@ -431,21 +431,21 @@ Partial Class PasienForm
         Me.Label12.TabIndex = 17
         Me.Label12.Text = "Cari berdasarkan No. Medrec atau Nama Pasien"
         '
-        'TextBox8
+        'tbCari
         '
-        Me.TextBox8.Location = New System.Drawing.Point(264, 26)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(287, 20)
-        Me.TextBox8.TabIndex = 5
+        Me.tbCari.Location = New System.Drawing.Point(264, 26)
+        Me.tbCari.Name = "tbCari"
+        Me.tbCari.Size = New System.Drawing.Size(287, 20)
+        Me.tbCari.TabIndex = 5
         '
-        'Button4
+        'btnCari
         '
-        Me.Button4.Location = New System.Drawing.Point(611, 24)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Cari"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnCari.Location = New System.Drawing.Point(611, 24)
+        Me.btnCari.Name = "btnCari"
+        Me.btnCari.Size = New System.Drawing.Size(75, 23)
+        Me.btnCari.TabIndex = 3
+        Me.btnCari.Text = "Cari"
+        Me.btnCari.UseVisualStyleBackColor = True
         '
         'PasienTableAdapter
         '
@@ -637,16 +637,16 @@ Partial Class PasienForm
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnHapus As System.Windows.Forms.Button
+    Friend WithEvents btnSimpan As System.Windows.Forms.Button
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents TambahToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents tbCari As System.Windows.Forms.TextBox
+    Friend WithEvents btnCari As System.Windows.Forms.Button
     Friend WithEvents DBDataSet As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet
     Friend WithEvents PasienBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents PasienTableAdapter As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.pasienTableAdapter
@@ -663,7 +663,7 @@ Partial Class PasienForm
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents btnClear As System.Windows.Forms.Button
     Friend WithEvents No_medrecTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Nama_lengkapTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Tempat_lahirTextBox As System.Windows.Forms.TextBox
