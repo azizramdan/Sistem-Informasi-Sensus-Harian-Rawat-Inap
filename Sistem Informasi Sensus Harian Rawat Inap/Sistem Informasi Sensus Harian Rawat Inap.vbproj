@@ -49,6 +49,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Sistem Informasi Sensus Harian Rawat Inap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <ExecutableExtension>.exe</ExecutableExtension>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -77,6 +80,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DBDataSet.vb">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DokterForm.Designer.vb">
       <DependentUpon>DokterForm.vb</DependentUpon>
     </Compile>
@@ -88,6 +94,13 @@
     </Compile>
     <Compile Include="Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connection.vb" />
+    <Compile Include="MenuForm.Designer.vb">
+      <DependentUpon>MenuForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -123,28 +136,35 @@
     <Compile Include="RegisterMasukForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TambahDokterForm.Designer.vb">
-      <DependentUpon>TambahDokterForm.vb</DependentUpon>
+    <Compile Include="SensusForm.Designer.vb">
+      <DependentUpon>SensusForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="TambahDokterForm.vb">
+    <Compile Include="SensusForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TambahPasienForm.Designer.vb">
-      <DependentUpon>TambahPasienForm.vb</DependentUpon>
+    <Compile Include="Settings.vb" />
+    <Compile Include="DokterTambahForm.Designer.vb">
+      <DependentUpon>DokterTambahForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="TambahPasienForm.vb">
+    <Compile Include="DokterTambahForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TambahRegisterKeluarForm.Designer.vb">
-      <DependentUpon>TambahRegisterKeluarForm.vb</DependentUpon>
+    <Compile Include="PasienTambahForm.Designer.vb">
+      <DependentUpon>PasienTambahForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="TambahRegisterKeluarForm.vb">
+    <Compile Include="PasienTambahForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TambahRegisterMasukForm.Designer.vb">
-      <DependentUpon>TambahRegisterMasukForm.vb</DependentUpon>
+    <Compile Include="RegisterKeluarTambahForm.Designer.vb">
+      <DependentUpon>RegisterKeluarTambahForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="TambahRegisterMasukForm.vb">
+    <Compile Include="RegisterKeluarTambahForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterMasukTambahForm.Designer.vb">
+      <DependentUpon>RegisterMasukTambahForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterMasukTambahForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TambahTempatTidurForm.Designer.vb">
@@ -159,6 +179,12 @@
     <Compile Include="TempatTidurForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserForm.Designer.vb">
+      <DependentUpon>UserForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DokterForm.resx">
@@ -166,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -182,23 +211,26 @@
     <EmbeddedResource Include="RegisterMasukForm.resx">
       <DependentUpon>RegisterMasukForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TambahDokterForm.resx">
-      <DependentUpon>TambahDokterForm.vb</DependentUpon>
+    <EmbeddedResource Include="DokterTambahForm.resx">
+      <DependentUpon>DokterTambahForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TambahPasienForm.resx">
-      <DependentUpon>TambahPasienForm.vb</DependentUpon>
+    <EmbeddedResource Include="PasienTambahForm.resx">
+      <DependentUpon>PasienTambahForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TambahRegisterKeluarForm.resx">
-      <DependentUpon>TambahRegisterKeluarForm.vb</DependentUpon>
+    <EmbeddedResource Include="RegisterKeluarTambahForm.resx">
+      <DependentUpon>RegisterKeluarTambahForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TambahRegisterMasukForm.resx">
-      <DependentUpon>TambahRegisterMasukForm.vb</DependentUpon>
+    <EmbeddedResource Include="RegisterMasukTambahForm.resx">
+      <DependentUpon>RegisterMasukTambahForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TambahTempatTidurForm.resx">
       <DependentUpon>TambahTempatTidurForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TempatTidurForm.resx">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -223,11 +255,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SISHRI.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
