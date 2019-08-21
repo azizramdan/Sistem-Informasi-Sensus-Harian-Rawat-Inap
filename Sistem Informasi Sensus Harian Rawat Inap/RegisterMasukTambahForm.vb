@@ -50,7 +50,7 @@ Public Class RegisterMasukTambahForm
         tanggalMasuk = dtpTanggalMasuk.Value.ToString("M/d/yyyy")
         caraMasuk = cbCaraMasuk.SelectedItem
 
-        If nama = "" Then
+        If Not btnCek_Clicked Then
             MsgBox("Cek No. Medrec terlebih dahulu!")
         ElseIf medrec = "" Or ruangan = -1 Or kelas = -1 Or tanggalMasuk = "" Or caraMasuk = "" Then
             MsgBox("Data harus diisi semua")
@@ -81,6 +81,11 @@ Public Class RegisterMasukTambahForm
     End Sub
 
     Private Sub btnBersihkan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBersihkan.Click
+        If btnCek_Clicked Then
+            btnCek_Clicked = False
+            btnCek.Text = "Cek"
+            tbMedrec.Enabled = True
+        End If
         tbMedrec.Text = ""
         tbNama.Text = ""
         cbRuangan.SelectedIndex = -1
