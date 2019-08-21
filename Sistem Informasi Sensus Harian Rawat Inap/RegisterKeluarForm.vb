@@ -7,12 +7,12 @@
         Jumlah()
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        TextBox4.Text = ""
+    Private Sub btnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClear.Click
+        tbCari.Text = ""
         Cari()
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+    Private Sub btnCari_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCari.Click
         Cari()
     End Sub
     Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
@@ -39,7 +39,7 @@
     End Sub
 
     Private Sub Cari()
-        Dim filter As String = TextBox4.Text
+        Dim filter As String = tbCari.Text
         If filter = "" Then
             Register_keluarBindingSource.RemoveFilter()
         Else
@@ -47,5 +47,10 @@
         End If
         Me.Register_keluarTableAdapter.Fill(Me.DBDataSet.register_keluar)
         Jumlah()
+    End Sub
+
+    Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
+        RegisterKeluarTambahForm.Show()
+        Me.Hide()
     End Sub
 End Class

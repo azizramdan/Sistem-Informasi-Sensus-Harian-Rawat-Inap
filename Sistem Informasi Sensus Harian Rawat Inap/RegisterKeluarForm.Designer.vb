@@ -26,8 +26,8 @@ Partial Class RegisterKeluarForm
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.TambahToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnHapus = New System.Windows.Forms.Button()
+        Me.btnSimpan = New System.Windows.Forms.Button()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -40,10 +40,10 @@ Partial Class RegisterKeluarForm
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Tanggal_keluarDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.tbCari = New System.Windows.Forms.TextBox()
+        Me.btnCari = New System.Windows.Forms.Button()
         Me.Register_keluarTableAdapter = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.register_keluarTableAdapter()
         Me.TableAdapterManager = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager()
         Me.Register_keluarDataGridView = New System.Windows.Forms.DataGridView()
@@ -84,8 +84,8 @@ Partial Class RegisterKeluarForm
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnHapus)
+        Me.GroupBox1.Controls.Add(Me.btnSimpan)
         Me.GroupBox1.Controls.Add(Me.SplitContainer1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
@@ -94,23 +94,23 @@ Partial Class RegisterKeluarForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Edit"
         '
-        'Button2
+        'btnHapus
         '
-        Me.Button2.Location = New System.Drawing.Point(346, 88)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 26
-        Me.Button2.Text = "Hapus"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnHapus.Location = New System.Drawing.Point(346, 88)
+        Me.btnHapus.Name = "btnHapus"
+        Me.btnHapus.Size = New System.Drawing.Size(75, 23)
+        Me.btnHapus.TabIndex = 26
+        Me.btnHapus.Text = "Hapus"
+        Me.btnHapus.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnSimpan
         '
-        Me.Button1.Location = New System.Drawing.Point(238, 88)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 25
-        Me.Button1.Text = "Simpan"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSimpan.Location = New System.Drawing.Point(238, 88)
+        Me.btnSimpan.Name = "btnSimpan"
+        Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
+        Me.btnSimpan.TabIndex = 25
+        Me.btnSimpan.Text = "Simpan"
+        Me.btnSimpan.UseVisualStyleBackColor = True
         '
         'SplitContainer1
         '
@@ -219,10 +219,10 @@ Partial Class RegisterKeluarForm
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.btnClear)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.TextBox4)
-        Me.GroupBox2.Controls.Add(Me.Button4)
+        Me.GroupBox2.Controls.Add(Me.tbCari)
+        Me.GroupBox2.Controls.Add(Me.btnCari)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 154)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(664, 63)
@@ -230,15 +230,15 @@ Partial Class RegisterKeluarForm
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cari data"
         '
-        'Button3
+        'btnClear
         '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(532, 26)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(29, 23)
-        Me.Button3.TabIndex = 19
-        Me.Button3.Text = "X"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Location = New System.Drawing.Point(532, 26)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(29, 23)
+        Me.btnClear.TabIndex = 19
+        Me.btnClear.Text = "X"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -249,21 +249,21 @@ Partial Class RegisterKeluarForm
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Cari berdasarkan No. Medrec atau Nama Pasien"
         '
-        'TextBox4
+        'tbCari
         '
-        Me.TextBox4.Location = New System.Drawing.Point(248, 26)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(278, 20)
-        Me.TextBox4.TabIndex = 5
+        Me.tbCari.Location = New System.Drawing.Point(248, 26)
+        Me.tbCari.Name = "tbCari"
+        Me.tbCari.Size = New System.Drawing.Size(278, 20)
+        Me.tbCari.TabIndex = 5
         '
-        'Button4
+        'btnCari
         '
-        Me.Button4.Location = New System.Drawing.Point(579, 26)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Cari"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnCari.Location = New System.Drawing.Point(579, 26)
+        Me.btnCari.Name = "btnCari"
+        Me.btnCari.Size = New System.Drawing.Size(75, 23)
+        Me.btnCari.TabIndex = 3
+        Me.btnCari.Text = "Cari"
+        Me.btnCari.UseVisualStyleBackColor = True
         '
         'Register_keluarTableAdapter
         '
@@ -384,8 +384,8 @@ Partial Class RegisterKeluarForm
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents TambahToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnHapus As System.Windows.Forms.Button
+    Friend WithEvents btnSimpan As System.Windows.Forms.Button
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -393,10 +393,10 @@ Partial Class RegisterKeluarForm
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents btnClear As System.Windows.Forms.Button
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents tbCari As System.Windows.Forms.TextBox
+    Friend WithEvents btnCari As System.Windows.Forms.Button
     Friend WithEvents DBDataSet As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet
     Friend WithEvents Register_keluarBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Register_keluarTableAdapter As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.register_keluarTableAdapter
