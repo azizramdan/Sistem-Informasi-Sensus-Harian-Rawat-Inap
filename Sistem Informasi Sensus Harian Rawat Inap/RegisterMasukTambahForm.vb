@@ -1,5 +1,6 @@
 ﻿Imports System.Data.OleDb
 Public Class RegisterMasukTambahForm
+    Dim btnCek_Clicked As Boolean
     Private Sub RegisterMasukTambahForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
     End Sub
@@ -12,20 +13,31 @@ Public Class RegisterMasukTambahForm
     End Sub
 
     Private Sub btnCek_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCek.Click
-        Dim medrec As String = tbMedrec.Text
-        Dim source As String = My.Settings.DBConnectionString
-        Dim conn = New OleDbConnection(source)
-        If conn.State = ConnectionState.Closed Then
-            conn.Open()
-            Dim query As String = "SELECT nama_lengkap FROM [pasien] WHERE no_medrec=@medrec"
-            Dim cmd As New OleDbCommand(query, conn)
-            cmd.Parameters.AddWithValue("@medrec", medrec)
-            Dim result As OleDbDataReader = cmd.ExecuteReader
-            If result.Read Then
-                tbNama.Text = result.GetString(0)
-            End If
+        If btnCek_Clicked Then
+            btnCek_Clicked = False
+            btnCek.Text = "Cek"
+            tbMedrec.Enabled = True
+            tbMedrec.Text = ""
+            tbNama.Text = ""
         Else
-            MsgBox("Koneksi database gagal!")
+            Dim medrec As String = tbMedrec.Text
+            Dim source As String = My.Settings.DBConnectionString
+            Dim conn = New OleDbConnection(source)
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+                Dim query As String = "SELECT nama_lengkap FROM [pasien] WHERE no_medrec=@medrec"
+                Dim cmd As New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@medrec", medrec)
+                Dim result As OleDbDataReader = cmd.ExecuteReader
+                If result.Read Then
+                    tbNama.Text = result.GetString(0)
+                    btnCek_Clicked = True
+                    btnCek.Text = "X"
+                    tbMedrec.Enabled = False
+                End If
+            Else
+                MsgBox("Koneksi database gagal!")
+            End If
         End If
     End Sub
 
