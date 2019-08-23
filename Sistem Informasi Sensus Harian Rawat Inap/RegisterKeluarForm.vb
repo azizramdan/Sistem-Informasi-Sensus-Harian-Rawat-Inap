@@ -1,4 +1,5 @@
-﻿Public Class RegisterKeluarForm
+﻿Imports System.Data.OleDb
+Public Class RegisterKeluarForm
     Private Sub RegisterKeluarForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
     End Sub
@@ -29,17 +30,6 @@
         ToolStripStatusLabel1.Text = "Jumlah data " & Register_keluar_QueryDataGridView.RowCount
     End Sub
 
-    Private Sub Cari()
-        Dim filter As String = tbCari.Text
-        If filter = "" Then
-            Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL"
-        Else
-            Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL AND (no_medrec = '" & filter & "' OR nama_lengkap LIKE '%" & filter & "%')"
-        End If
-        Me.Register_keluar_QueryTableAdapter.Fill(Me.DBDataSet.register_keluar_Query)
-        Jumlah()
-    End Sub
-
     Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
         RegisterKeluarTambahForm.Show()
         Me.Hide()
@@ -56,5 +46,45 @@
         Dim form As New RegisterKeluarEditForm(id, idRegMasuk, medrec, nama, tanggal, caraKeluar)
         form.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub btnHapus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHapus.Click
+        Dim response As MsgBoxResult
+        response = MsgBox("Apakah Anda yakin ingin menghapus data ini?", MsgBoxStyle.YesNo)
+        If response = MsgBoxResult.Yes Then
+            Dim source As String = My.Settings.DBConnectionString
+            Dim conn = New OleDbConnection(source)
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+                Dim now As Date = Today
+                Dim id As String = Register_keluar_QueryDataGridView(0, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
+                Dim query As String = "UPDATE [register_keluar] SET [deleted_at]=@now WHERE id=@id"
+                Dim cmd As New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@now", now.ToString("M/d/yyyy"))
+                cmd.Parameters.AddWithValue("@id", id)
+                Dim result As Integer = cmd.ExecuteNonQuery
+                If result > 0 Then
+                    MsgBox("Data berhasil dihapus")
+                    Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL"
+                    Me.Register_keluar_QueryTableAdapter.Fill(Me.DBDataSet.register_keluar_Query)
+                    Jumlah()
+                Else
+                    MsgBox("Data gagal dihapus")
+                End If
+            Else
+                MsgBox("Koneksi database gagal!")
+            End If
+        End If
+    End Sub
+
+    Private Sub Cari()
+        Dim filter As String = tbCari.Text
+        If filter = "" Then
+            Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL"
+        Else
+            Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL AND (no_medrec = '" & filter & "' OR nama_lengkap LIKE '%" & filter & "%')"
+        End If
+        Me.Register_keluar_QueryTableAdapter.Fill(Me.DBDataSet.register_keluar_Query)
+        Jumlah()
     End Sub
 End Class
