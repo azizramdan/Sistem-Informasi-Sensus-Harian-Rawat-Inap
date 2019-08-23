@@ -3,6 +3,7 @@ Public Class RegisterKeluarForm
     Private Sub RegisterKeluarForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
     End Sub
+
     Private Sub Form_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible Then
             Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL"
@@ -25,9 +26,6 @@ Public Class RegisterKeluarForm
 
     Private Sub btnCari_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCari.Click
         Cari()
-    End Sub
-    Private Sub Jumlah()
-        ToolStripStatusLabel1.Text = "Jumlah data " & Register_keluar_QueryDataGridView.RowCount
     End Sub
 
     Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
@@ -86,5 +84,9 @@ Public Class RegisterKeluarForm
         End If
         Me.Register_keluar_QueryTableAdapter.Fill(Me.DBDataSet.register_keluar_Query)
         Jumlah()
+    End Sub
+
+    Private Sub Jumlah()
+        ToolStripStatusLabel1.Text = "Jumlah data " & Register_keluar_QueryDataGridView.RowCount
     End Sub
 End Class
