@@ -124,10 +124,22 @@
     <Compile Include="PasienForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RegisterKeluarEditForm.Designer.vb">
+      <DependentUpon>RegisterKeluarEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterKeluarEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RegisterKeluarForm.Designer.vb">
       <DependentUpon>RegisterKeluarForm.vb</DependentUpon>
     </Compile>
     <Compile Include="RegisterKeluarForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterMasukEditForm.Designer.vb">
+      <DependentUpon>RegisterMasukEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterMasukEditForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegisterMasukForm.Designer.vb">
@@ -205,8 +217,14 @@
     <EmbeddedResource Include="PasienForm.resx">
       <DependentUpon>PasienForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterKeluarEditForm.resx">
+      <DependentUpon>RegisterKeluarEditForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterKeluarForm.resx">
       <DependentUpon>RegisterKeluarForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterMasukEditForm.resx">
+      <DependentUpon>RegisterMasukEditForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterMasukForm.resx">
       <DependentUpon>RegisterMasukForm.vb</DependentUpon>
