@@ -19,4 +19,11 @@
         Nama = _nama
         Username = _username
     End Sub
+
+    Sub ShowCenter(ByVal form1 As Form, ByVal form2 As Form)
+        form2.StartPosition = FormStartPosition.Manual
+        form2.Location = New Point(form1.Location.X + form1.Width / 2 - form2.Width / 2, form1.Location.Y + form1.Height / 2 - form2.Height / 2)
+        form2.Show()
+        form1.Hide()
+    End Sub
 End Module
