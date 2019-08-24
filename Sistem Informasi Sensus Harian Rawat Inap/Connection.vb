@@ -22,7 +22,15 @@
 
     Sub ShowCenter(ByVal form1 As Form, ByVal form2 As Form)
         form2.StartPosition = FormStartPosition.Manual
-        form2.Location = New Point(form1.Location.X + form1.Width / 2 - form2.Width / 2, form1.Location.Y + form1.Height / 2 - form2.Height / 2)
+        Dim x As Integer = form1.Location.X + form1.Width / 2 - form2.Width / 2
+        Dim y As Integer = form1.Location.Y + form1.Height / 2 - form2.Height / 2
+        If x < 0 Then
+            x = 0
+        End If
+        If y < 0 Then
+            y = 0
+        End If
+        form2.Location = New Point(x, y)
         form2.Show()
         form1.Hide()
     End Sub
