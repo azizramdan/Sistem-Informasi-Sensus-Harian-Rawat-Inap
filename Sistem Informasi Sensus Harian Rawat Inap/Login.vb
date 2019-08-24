@@ -3,9 +3,6 @@
 Public Class Login
     Private Sub Login_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
-        Dim akun As String = "admin1"
-        tbUsername.Text = akun
-        tbPassword.Text = akun
         Image()
         PictureBox1.ImageLocation = ImagePath & "user-login.png"
     End Sub
@@ -34,8 +31,7 @@ Public Class Login
                     uname = result.GetString(3)
                     UserData(id, nik, nama, uname)
                     Dim form As New MenuForm
-                    form.Show()
-                    Me.Close()
+                    ShowMenu(form)
                 Else
                     MsgBox("Login gagal")
                 End If
@@ -44,5 +40,20 @@ Public Class Login
             End If
             conn.Close()
         End If
+    End Sub
+
+    Sub ShowMenu(ByVal form As Form)
+        form.StartPosition = FormStartPosition.Manual
+        Dim x As Integer = Me.Location.X + Me.Width / 2 - form.Width / 2
+        Dim y As Integer = Me.Location.Y + Me.Height / 2 - form.Height / 2
+        If x < 0 Then
+            x = 0
+        End If
+        If y < 0 Then
+            y = 0
+        End If
+        form.Location = New Point(x, y)
+        form.Show()
+        Me.Close()
     End Sub
 End Class
