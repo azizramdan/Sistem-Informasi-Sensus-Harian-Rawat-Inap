@@ -25,7 +25,7 @@ Public Class RegisterMasukTambahForm
             Dim conn = New OleDbConnection(source)
             If conn.State = ConnectionState.Closed Then
                 conn.Open()
-                Dim query As String = "SELECT nama_lengkap FROM [pasien] WHERE no_medrec=@medrec"
+                Dim query As String = "SELECT nama_lengkap FROM [pasien] WHERE no_medrec=@medrec AND deleted_at IS NULL"
                 Dim cmd As New OleDbCommand(query, conn)
                 cmd.Parameters.AddWithValue("@medrec", medrec)
                 Dim result As OleDbDataReader = cmd.ExecuteReader
