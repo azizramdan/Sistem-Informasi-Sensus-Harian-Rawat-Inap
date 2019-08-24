@@ -74,12 +74,8 @@ Partial Class PasienForm
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PasienBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PasienBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.PasienregistermasukBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Register_masukTableAdapter = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.register_masukTableAdapter()
-        Me.PasienBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PasienBindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.PasienBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -91,11 +87,7 @@ Partial Class PasienForm
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PasienDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PasienBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PasienBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PasienregistermasukBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PasienBindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PasienBindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ComboBox1
@@ -457,10 +449,7 @@ Partial Class PasienForm
         Me.TableAdapterManager.dokterTableAdapter = Nothing
         Me.TableAdapterManager.kelasTableAdapter = Nothing
         Me.TableAdapterManager.pasienTableAdapter = Me.PasienTableAdapter
-        Me.TableAdapterManager.register_masuk1TableAdapter = Nothing
         Me.TableAdapterManager.ruanganTableAdapter = Nothing
-        Me.TableAdapterManager.sensusTableAdapter = Nothing
-        Me.TableAdapterManager.tempat_tidurTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.userTableAdapter = Nothing
         '
@@ -555,34 +544,9 @@ Partial Class PasienForm
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.ReadOnly = True
         '
-        'PasienBindingSource1
-        '
-        Me.PasienBindingSource1.DataMember = "pasien"
-        Me.PasienBindingSource1.DataSource = Me.DBDataSet
-        '
-        'PasienBindingSource2
-        '
-        Me.PasienBindingSource2.DataMember = "pasien"
-        Me.PasienBindingSource2.DataSource = Me.DBDataSet
-        '
-        'PasienregistermasukBindingSource
-        '
-        Me.PasienregistermasukBindingSource.DataMember = "pasienregister_masuk"
-        Me.PasienregistermasukBindingSource.DataSource = Me.PasienBindingSource2
-        '
         'Register_masukTableAdapter
         '
         Me.Register_masukTableAdapter.ClearBeforeFill = True
-        '
-        'PasienBindingSource3
-        '
-        Me.PasienBindingSource3.DataMember = "pasien"
-        Me.PasienBindingSource3.DataSource = Me.DBDataSet
-        '
-        'PasienBindingSource4
-        '
-        Me.PasienBindingSource4.DataMember = "pasien"
-        Me.PasienBindingSource4.DataSource = Me.DBDataSet
         '
         'PasienForm
         '
@@ -613,11 +577,7 @@ Partial Class PasienForm
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PasienDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PasienBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PasienBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PasienregistermasukBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PasienBindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PasienBindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -673,10 +633,6 @@ Partial Class PasienForm
     Friend WithEvents PekerjaanTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Nama_ayahTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Nama_ibuTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents PasienBindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents PasienBindingSource2 As System.Windows.Forms.BindingSource
     Friend WithEvents PasienregistermasukBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Register_masukTableAdapter As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.register_masukTableAdapter
-    Friend WithEvents PasienBindingSource3 As System.Windows.Forms.BindingSource
-    Friend WithEvents PasienBindingSource4 As System.Windows.Forms.BindingSource
 End Class

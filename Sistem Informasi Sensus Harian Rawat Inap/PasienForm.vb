@@ -1,32 +1,20 @@
-﻿Public Class PasienForm
-    Dim DataChanged As Boolean
-
+﻿Imports System.Data.OleDb
+Public Class PasienForm
     Private Sub PasienForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DBDataSet.pasien' table. You can move, or remove it, as needed.
         connect()
-        Me.PasienTableAdapter.Fill(Me.DBDataSet.pasien)
-        Jumlah()
-        DataChanged = False
+    End Sub
+
+    Private Sub Form_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Me.VisibleChanged
+        If Me.Visible Then
+            Tampil()
+        End If
     End Sub
 
     Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
-        If DataChanged Then
-            Dim response As MsgBoxResult
-            response = MsgBox("Data belum disimpan, keluar tanpa menyimpan data?", MsgBoxStyle.YesNo)
-            If response = MsgBoxResult.Yes Then
-                MenuForm.Show()
-                e.Cancel = False
-            End If
-        Else
-            If e.CloseReason = CloseReason.UserClosing Then
-                MenuForm.Show()
-                e.Cancel = False
-            End If
+        If e.CloseReason = CloseReason.UserClosing Then
+            MenuForm.Show()
+            e.Cancel = False
         End If
-        'If e.CloseReason = CloseReason.UserClosing Then
-        '    MenuForm.Show()
-        '    e.Cancel = False
-        'End If
     End Sub
 
     Private Sub btnCari_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCari.Click
@@ -44,34 +32,34 @@
     End Sub
 
     Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
-        PasienTambahForm.Show()
-        Me.Hide()
+        ShowCenter(Me, PasienTambahForm)
     End Sub
 
     Private Sub btnHapus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHapus.Click
         Dim response As MsgBoxResult
         response = MsgBox("Apakah Anda yakin ingin menghapus data ini?", MsgBoxStyle.YesNo)
         If response = MsgBoxResult.Yes Then
-            Dim index As Integer
-            index = PasienDataGridView.CurrentCell.RowIndex
-            PasienDataGridView.Rows.RemoveAt(index)
-            Simpan()
+            Dim source As String = My.Settings.DBConnectionString
+            Dim conn = New OleDbConnection(source)
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+                Dim now As Date = Today
+                Dim medrec As String = PasienDataGridView(0, PasienDataGridView.CurrentRow.Index).Value
+                Dim query As String = "UPDATE [pasien] SET [deleted_at]=@now WHERE no_medrec=@medrec"
+                Dim cmd As New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@now", now.ToString("M/d/yyyy"))
+                cmd.Parameters.AddWithValue("@medrec", medrec)
+                Dim result As Integer = cmd.ExecuteNonQuery
+                If result > 0 Then
+                    MsgBox("Data berhasil dihapus")
+                    Tampil()
+                Else
+                    MsgBox("Data gagal dihapus")
+                End If
+            Else
+                MsgBox("Koneksi database gagal!")
+            End If
         End If
-    End Sub
-
-    Private Sub Jumlah()
-        ToolStripStatusLabel1.Text = "Jumlah data " & PasienDataGridView.RowCount
-    End Sub
-
-    Private Sub Cari()
-        Dim filter As String = tbCari.Text
-        If filter = "" Then
-            PasienBindingSource.RemoveFilter()
-        Else
-            PasienBindingSource.Filter = "no_medrec = '" & filter & "' OR nama_lengkap LIKE '%" & filter & "%'"
-        End If
-        Me.PasienTableAdapter.Fill(Me.DBDataSet.pasien)
-        Jumlah()
     End Sub
 
     Private Sub Simpan()
@@ -79,5 +67,27 @@
         Me.PasienBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.DBDataSet)
         Jumlah()
+    End Sub
+
+    Private Sub Tampil(Optional ByVal filter As String = "deleted_at IS NULL")
+        PasienBindingSource.Filter = filter
+        PasienBindingSource.Sort = "no_medrec"
+        Me.PasienTableAdapter.Fill(Me.DBDataSet.pasien)
+        Jumlah()
+    End Sub
+
+    Private Sub Cari()
+        Dim cari As String = tbCari.Text
+        Dim filter As String
+        If cari = "" Then
+            Tampil()
+        Else
+            filter = "deleted_at IS NULL AND (no_medrec = '" & cari & "' OR nama_lengkap LIKE '%" & cari & "%')"
+            Tampil(filter)
+        End If
+    End Sub
+
+    Private Sub Jumlah()
+        ToolStripStatusLabel1.Text = "Jumlah data " & PasienDataGridView.RowCount
     End Sub
 End Class
