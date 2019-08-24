@@ -107,6 +107,7 @@ Partial Class Login
         Me.Controls.Add(Me.tbPassword)
         Me.Controls.Add(Me.tbUsername)
         Me.Name = "Login"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login Petugas"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
