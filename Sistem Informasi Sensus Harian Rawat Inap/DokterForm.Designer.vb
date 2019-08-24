@@ -24,17 +24,9 @@ Partial Class DokterForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.DokterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
-        Me.SipTextBox = New System.Windows.Forms.TextBox()
-        Me.Nama_lengkapTextBox = New System.Windows.Forms.TextBox()
-        Me.AlamatTextBox = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.No_telponTextBox = New System.Windows.Forms.TextBox()
         Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnSimpan = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -52,32 +44,40 @@ Partial Class DokterForm
         Me.DokterTableAdapter = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.dokterTableAdapter()
         Me.TableAdapterManager = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager()
         Me.DokterDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DokterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
+        Me.SipTextBox = New System.Windows.Forms.TextBox()
+        Me.Nama_lengkapTextBox = New System.Windows.Forms.TextBox()
+        Me.AlamatTextBox = New System.Windows.Forms.TextBox()
+        Me.No_telponTextBox = New System.Windows.Forms.TextBox()
+        Me.SpesialisComboBox = New System.Windows.Forms.ComboBox()
+        Me.Status_kepegawaianComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DokterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.DokterDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DokterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.ComboBox2)
+        Me.GroupBox1.Controls.Add(Me.Status_kepegawaianComboBox)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.SpesialisComboBox)
         Me.GroupBox1.Controls.Add(Me.SipTextBox)
         Me.GroupBox1.Controls.Add(Me.Nama_lengkapTextBox)
         Me.GroupBox1.Controls.Add(Me.AlamatTextBox)
-        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.No_telponTextBox)
         Me.GroupBox1.Controls.Add(Me.btnHapus)
         Me.GroupBox1.Controls.Add(Me.btnSimpan)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
@@ -85,57 +85,10 @@ Partial Class DokterForm
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(720, 164)
+        Me.GroupBox1.Size = New System.Drawing.Size(720, 166)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Edit"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.DokterBindingSource, "status_kepegawaian", True))
-        Me.ComboBox2.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.DokterBindingSource, "status_kepegawaian", True))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Aktif", "Tidak aktif", "Cuti"})
-        Me.ComboBox2.Location = New System.Drawing.Point(460, 74)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(242, 21)
-        Me.ComboBox2.TabIndex = 26
-        '
-        'DokterBindingSource
-        '
-        Me.DokterBindingSource.DataMember = "dokter"
-        Me.DokterBindingSource.DataSource = Me.DBDataSet
-        '
-        'DBDataSet
-        '
-        Me.DBDataSet.DataSetName = "DBDataSet"
-        Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SipTextBox
-        '
-        Me.SipTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "sip", True))
-        Me.SipTextBox.Enabled = False
-        Me.SipTextBox.Location = New System.Drawing.Point(95, 19)
-        Me.SipTextBox.Name = "SipTextBox"
-        Me.SipTextBox.Size = New System.Drawing.Size(242, 20)
-        Me.SipTextBox.TabIndex = 19
-        '
-        'Nama_lengkapTextBox
-        '
-        Me.Nama_lengkapTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "nama_lengkap", True))
-        Me.Nama_lengkapTextBox.Location = New System.Drawing.Point(95, 45)
-        Me.Nama_lengkapTextBox.Name = "Nama_lengkapTextBox"
-        Me.Nama_lengkapTextBox.Size = New System.Drawing.Size(242, 20)
-        Me.Nama_lengkapTextBox.TabIndex = 21
-        '
-        'AlamatTextBox
-        '
-        Me.AlamatTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "alamat", True))
-        Me.AlamatTextBox.Location = New System.Drawing.Point(95, 74)
-        Me.AlamatTextBox.Multiline = True
-        Me.AlamatTextBox.Name = "AlamatTextBox"
-        Me.AlamatTextBox.Size = New System.Drawing.Size(242, 38)
-        Me.AlamatTextBox.TabIndex = 23
         '
         'Label6
         '
@@ -146,17 +99,9 @@ Partial Class DokterForm
         Me.Label6.TabIndex = 15
         Me.Label6.Text = "Status"
         '
-        'No_telponTextBox
-        '
-        Me.No_telponTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "no_telpon", True))
-        Me.No_telponTextBox.Location = New System.Drawing.Point(460, 19)
-        Me.No_telponTextBox.Name = "No_telponTextBox"
-        Me.No_telponTextBox.Size = New System.Drawing.Size(242, 20)
-        Me.No_telponTextBox.TabIndex = 25
-        '
         'btnHapus
         '
-        Me.btnHapus.Location = New System.Drawing.Point(374, 127)
+        Me.btnHapus.Location = New System.Drawing.Point(385, 127)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
         Me.btnHapus.TabIndex = 14
@@ -165,23 +110,12 @@ Partial Class DokterForm
         '
         'btnSimpan
         '
-        Me.btnSimpan.Location = New System.Drawing.Point(262, 127)
+        Me.btnSimpan.Location = New System.Drawing.Point(273, 127)
         Me.btnSimpan.Name = "btnSimpan"
         Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
         Me.btnSimpan.TabIndex = 13
         Me.btnSimpan.Text = "Simpan"
         Me.btnSimpan.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.DokterBindingSource, "spesialis", True))
-        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.DokterBindingSource, "spesialis", True))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Gigi", "THT", "Mata", "Kulit"})
-        Me.ComboBox1.Location = New System.Drawing.Point(460, 45)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(242, 21)
-        Me.ComboBox1.TabIndex = 12
         '
         'Label5
         '
@@ -215,9 +149,9 @@ Partial Class DokterForm
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(6, 48)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 13)
+        Me.Label2.Size = New System.Drawing.Size(80, 13)
         Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Nama Dokter"
+        Me.Label2.Text = "Nama Lengkap"
         '
         'Label1
         '
@@ -233,7 +167,7 @@ Partial Class DokterForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TambahToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(749, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(750, 24)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -249,7 +183,7 @@ Partial Class DokterForm
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.tbCari)
         Me.GroupBox2.Controls.Add(Me.btnCari)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 197)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 199)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(720, 63)
         Me.GroupBox2.TabIndex = 16
@@ -294,9 +228,9 @@ Partial Class DokterForm
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 670)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 687)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(749, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(750, 22)
         Me.StatusStrip1.TabIndex = 18
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -316,10 +250,9 @@ Partial Class DokterForm
         Me.TableAdapterManager.dokterTableAdapter = Me.DokterTableAdapter
         Me.TableAdapterManager.kelasTableAdapter = Nothing
         Me.TableAdapterManager.pasienTableAdapter = Nothing
-        Me.TableAdapterManager.register_masuk1TableAdapter = Nothing
+        Me.TableAdapterManager.register_keluarTableAdapter = Nothing
+        Me.TableAdapterManager.register_masukTableAdapter = Nothing
         Me.TableAdapterManager.ruanganTableAdapter = Nothing
-        Me.TableAdapterManager.sensusTableAdapter = Nothing
-        Me.TableAdapterManager.tempat_tidurTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.userTableAdapter = Nothing
         '
@@ -328,62 +261,127 @@ Partial Class DokterForm
         Me.DokterDataGridView.AllowUserToAddRows = False
         Me.DokterDataGridView.AllowUserToDeleteRows = False
         Me.DokterDataGridView.AutoGenerateColumns = False
+        Me.DokterDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DokterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DokterDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
+        Me.DokterDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12})
         Me.DokterDataGridView.DataSource = Me.DokterBindingSource
-        Me.DokterDataGridView.Location = New System.Drawing.Point(12, 266)
+        Me.DokterDataGridView.Location = New System.Drawing.Point(12, 268)
         Me.DokterDataGridView.Name = "DokterDataGridView"
         Me.DokterDataGridView.ReadOnly = True
-        Me.DokterDataGridView.Size = New System.Drawing.Size(720, 384)
-        Me.DokterDataGridView.TabIndex = 18
+        Me.DokterDataGridView.Size = New System.Drawing.Size(720, 399)
+        Me.DokterDataGridView.TabIndex = 19
         '
-        'DataGridViewTextBoxColumn1
+        'DataGridViewTextBoxColumn7
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "sip"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "SIP"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "sip"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "No. SIP"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn2
+        'DataGridViewTextBoxColumn8
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nama_lengkap"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Nama Lengkap"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "nama_lengkap"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Nama Lengkap"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn3
+        'DataGridViewTextBoxColumn9
         '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "alamat"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Alamat"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "alamat"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Alamat"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn4
+        'DataGridViewTextBoxColumn10
         '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "no_telpon"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "No. Telp"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "no_telpon"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "No. Telpon"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn5
+        'DataGridViewTextBoxColumn11
         '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "spesialis"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Spesialis"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "spesialis"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Spesialis"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn6
+        'DataGridViewTextBoxColumn12
         '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "status_kepegawaian"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Status"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "status_kepegawaian"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Status"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        '
+        'DokterBindingSource
+        '
+        Me.DokterBindingSource.DataMember = "dokter"
+        Me.DokterBindingSource.DataSource = Me.DBDataSet
+        '
+        'DBDataSet
+        '
+        Me.DBDataSet.DataSetName = "DBDataSet"
+        Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'SipTextBox
+        '
+        Me.SipTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "sip", True))
+        Me.SipTextBox.Location = New System.Drawing.Point(101, 19)
+        Me.SipTextBox.Name = "SipTextBox"
+        Me.SipTextBox.ReadOnly = True
+        Me.SipTextBox.Size = New System.Drawing.Size(246, 20)
+        Me.SipTextBox.TabIndex = 20
+        '
+        'Nama_lengkapTextBox
+        '
+        Me.Nama_lengkapTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "nama_lengkap", True))
+        Me.Nama_lengkapTextBox.Location = New System.Drawing.Point(101, 45)
+        Me.Nama_lengkapTextBox.Name = "Nama_lengkapTextBox"
+        Me.Nama_lengkapTextBox.Size = New System.Drawing.Size(246, 20)
+        Me.Nama_lengkapTextBox.TabIndex = 22
+        '
+        'AlamatTextBox
+        '
+        Me.AlamatTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "alamat", True))
+        Me.AlamatTextBox.Location = New System.Drawing.Point(101, 74)
+        Me.AlamatTextBox.Multiline = True
+        Me.AlamatTextBox.Name = "AlamatTextBox"
+        Me.AlamatTextBox.Size = New System.Drawing.Size(246, 47)
+        Me.AlamatTextBox.TabIndex = 24
+        '
+        'No_telponTextBox
+        '
+        Me.No_telponTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "no_telpon", True))
+        Me.No_telponTextBox.Location = New System.Drawing.Point(447, 15)
+        Me.No_telponTextBox.Name = "No_telponTextBox"
+        Me.No_telponTextBox.Size = New System.Drawing.Size(252, 20)
+        Me.No_telponTextBox.TabIndex = 26
+        '
+        'SpesialisComboBox
+        '
+        Me.SpesialisComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "spesialis", True))
+        Me.SpesialisComboBox.FormattingEnabled = True
+        Me.SpesialisComboBox.Items.AddRange(New Object() {"Gigi", "THT", "Mata", "Kulit"})
+        Me.SpesialisComboBox.Location = New System.Drawing.Point(447, 45)
+        Me.SpesialisComboBox.Name = "SpesialisComboBox"
+        Me.SpesialisComboBox.Size = New System.Drawing.Size(252, 21)
+        Me.SpesialisComboBox.TabIndex = 20
+        '
+        'Status_kepegawaianComboBox
+        '
+        Me.Status_kepegawaianComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DokterBindingSource, "status_kepegawaian", True))
+        Me.Status_kepegawaianComboBox.FormattingEnabled = True
+        Me.Status_kepegawaianComboBox.Items.AddRange(New Object() {"Aktif", "Tidak aktif", "Cuti"})
+        Me.Status_kepegawaianComboBox.Location = New System.Drawing.Point(447, 74)
+        Me.Status_kepegawaianComboBox.Name = "Status_kepegawaianComboBox"
+        Me.Status_kepegawaianComboBox.Size = New System.Drawing.Size(252, 21)
+        Me.Status_kepegawaianComboBox.TabIndex = 21
         '
         'DokterForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(749, 692)
+        Me.ClientSize = New System.Drawing.Size(750, 709)
         Me.Controls.Add(Me.DokterDataGridView)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox2)
@@ -394,8 +392,6 @@ Partial Class DokterForm
         Me.Text = "Master Data Dokter"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.DokterBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -403,12 +399,13 @@ Partial Class DokterForm
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         CType(Me.DokterDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DokterBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -425,16 +422,6 @@ Partial Class DokterForm
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents DBDataSet As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet
-    Friend WithEvents DokterBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DokterTableAdapter As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.dokterTableAdapter
-    Friend WithEvents TableAdapterManager As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents DokterDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents SipTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents Nama_lengkapTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents AlamatTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents No_telponTextBox As System.Windows.Forms.TextBox
     Friend WithEvents btnClear As System.Windows.Forms.Button
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -442,4 +429,21 @@ Partial Class DokterForm
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DBDataSet As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet
+    Friend WithEvents DokterBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents DokterTableAdapter As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.dokterTableAdapter
+    Friend WithEvents TableAdapterManager As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents DokterDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SipTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Nama_lengkapTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents AlamatTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents No_telponTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Status_kepegawaianComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents SpesialisComboBox As System.Windows.Forms.ComboBox
 End Class

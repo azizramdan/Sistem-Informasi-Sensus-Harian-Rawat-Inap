@@ -2,35 +2,27 @@
     Dim DataChanged As Boolean
 
     Private Sub DokterForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DBDataSet.dokter' table. You can move, or remove it, as needed.
+        'TODO: This line of code loads data into the 'DBDataSet1.dokter' table. You can move, or remove it, as needed.
         connect()
         Me.DokterTableAdapter.Fill(Me.DBDataSet.dokter)
         Jumlah()
     End Sub
 
-    Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
-        If DataChanged Then
-            Dim response As MsgBoxResult
-            response = MsgBox("Data belum disimpan, keluar tanpa menyimpan data?", MsgBoxStyle.YesNo)
-            If response = MsgBoxResult.Yes Then
-                MenuForm.Show()
-                e.Cancel = False
-            End If
-        Else
-            If e.CloseReason = CloseReason.UserClosing Then
-                MenuForm.Show()
-                e.Cancel = False
-            End If
+    Private Sub Form_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Me.VisibleChanged
+        If Me.Visible Then
+            Me.DokterTableAdapter.Fill(Me.DBDataSet.dokter)
         End If
-        'If e.CloseReason = CloseReason.UserClosing Then
-        '    MenuForm.Show()
-        '    e.Cancel = False
-        'End If
+    End Sub
+
+    Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            MenuForm.Show()
+            e.Cancel = False
+        End If
     End Sub
 
     Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
-        DokterTambahForm.Show()
-        Me.Hide()
+        ShowCenter(Me, DokterTambahForm)
     End Sub
 
     Private Sub btnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSimpan.Click
