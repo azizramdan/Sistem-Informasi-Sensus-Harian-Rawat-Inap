@@ -94,7 +94,7 @@ Partial Class RegisterKeluarForm
         Me.GroupBox1.Size = New System.Drawing.Size(664, 121)
         Me.GroupBox1.TabIndex = 17
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Edit"
+        Me.GroupBox1.Text = "Detail"
         '
         'btnHapus
         '
@@ -187,17 +187,17 @@ Partial Class RegisterKeluarForm
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(12, 39)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(97, 13)
+        Me.Label6.Size = New System.Drawing.Size(62, 13)
         Me.Label6.TabIndex = 11
-        Me.Label6.Text = "Cara Pasien Keluar"
+        Me.Label6.Text = "Cara Keluar"
         '
         'Tanggal_keluarTextBox
         '
         Me.Tanggal_keluarTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Register_keluar_QueryBindingSource, "tanggal_keluar", True))
-        Me.Tanggal_keluarTextBox.Location = New System.Drawing.Point(118, 10)
+        Me.Tanggal_keluarTextBox.Location = New System.Drawing.Point(106, 10)
         Me.Tanggal_keluarTextBox.Name = "Tanggal_keluarTextBox"
         Me.Tanggal_keluarTextBox.ReadOnly = True
-        Me.Tanggal_keluarTextBox.Size = New System.Drawing.Size(191, 20)
+        Me.Tanggal_keluarTextBox.Size = New System.Drawing.Size(203, 20)
         Me.Tanggal_keluarTextBox.TabIndex = 23
         '
         'Label5
@@ -212,10 +212,10 @@ Partial Class RegisterKeluarForm
         'Cara_pasien_keluarTextBox
         '
         Me.Cara_pasien_keluarTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Register_keluar_QueryBindingSource, "cara_pasien_keluar", True))
-        Me.Cara_pasien_keluarTextBox.Location = New System.Drawing.Point(118, 36)
+        Me.Cara_pasien_keluarTextBox.Location = New System.Drawing.Point(106, 36)
         Me.Cara_pasien_keluarTextBox.Name = "Cara_pasien_keluarTextBox"
         Me.Cara_pasien_keluarTextBox.ReadOnly = True
-        Me.Cara_pasien_keluarTextBox.Size = New System.Drawing.Size(191, 20)
+        Me.Cara_pasien_keluarTextBox.Size = New System.Drawing.Size(203, 20)
         Me.Cara_pasien_keluarTextBox.TabIndex = 33
         '
         'GroupBox2

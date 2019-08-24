@@ -6,9 +6,7 @@ Public Class RegisterKeluarForm
 
     Private Sub Form_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible Then
-            Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL"
-            Me.Register_keluar_QueryTableAdapter.Fill(Me.DBDataSet.register_keluar_Query)
-            Jumlah()
+            Tampil()
         End If
     End Sub
 
@@ -29,8 +27,7 @@ Public Class RegisterKeluarForm
     End Sub
 
     Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
-        RegisterKeluarTambahForm.Show()
-        Me.Hide()
+        ShowCenter(Me, RegisterKeluarTambahForm)
     End Sub
 
     Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
@@ -42,8 +39,7 @@ Public Class RegisterKeluarForm
         Dim caraKeluar As String = Register_keluar_QueryDataGridView(5, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
 
         Dim form As New RegisterKeluarEditForm(id, idRegMasuk, medrec, nama, tanggal, caraKeluar)
-        form.Show()
-        Me.Hide()
+        ShowCenter(Me, form)
     End Sub
 
     Private Sub btnHapus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHapus.Click
@@ -63,9 +59,7 @@ Public Class RegisterKeluarForm
                 Dim result As Integer = cmd.ExecuteNonQuery
                 If result > 0 Then
                     MsgBox("Data berhasil dihapus")
-                    Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL"
-                    Me.Register_keluar_QueryTableAdapter.Fill(Me.DBDataSet.register_keluar_Query)
-                    Jumlah()
+                    Tampil()
                 Else
                     MsgBox("Data gagal dihapus")
                 End If
@@ -75,15 +69,21 @@ Public Class RegisterKeluarForm
         End If
     End Sub
 
-    Private Sub Cari()
-        Dim filter As String = tbCari.Text
-        If filter = "" Then
-            Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL"
-        Else
-            Register_keluar_QueryBindingSource.Filter = "deleted_at IS NULL AND (no_medrec = '" & filter & "' OR nama_lengkap LIKE '%" & filter & "%')"
-        End If
+    Private Sub Tampil(Optional ByVal filter As String = "deleted_at IS NULL")
+        Register_keluar_QueryBindingSource.Filter = filter
         Me.Register_keluar_QueryTableAdapter.Fill(Me.DBDataSet.register_keluar_Query)
         Jumlah()
+    End Sub
+
+    Private Sub Cari()
+        Dim cari As String = tbCari.Text
+        Dim filter As String
+        If cari = "" Then
+            Tampil()
+        Else
+            filter = "deleted_at IS NULL AND (no_medrec = '" & cari & "' OR nama_lengkap LIKE '%" & cari & "%')"
+            Tampil(filter)
+        End If
     End Sub
 
     Private Sub Jumlah()
