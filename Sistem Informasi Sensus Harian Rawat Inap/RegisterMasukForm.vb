@@ -1,33 +1,20 @@
-﻿Public Class RegisterMasukForm
-    Dim DataChanged As Boolean
+﻿Imports System.Data.OleDb
+Public Class RegisterMasukForm
     Private Sub RegisterMasukForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DBDataSet.register_masuk' table. You can move, or remove it, as needed.
         connect()
-        Me.Register_masukTableAdapter.Fill(Me.DBDataSet.register_masuk)
-        Jumlah()
     End Sub
-    Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
-        If DataChanged Then
-            Dim response As MsgBoxResult
-            response = MsgBox("Data belum disimpan, keluar tanpa menyimpan data?", MsgBoxStyle.YesNo)
-            If response = MsgBoxResult.Yes Then
-                MenuForm.Show()
-                e.Cancel = False
-            End If
-        Else
-            If e.CloseReason = CloseReason.UserClosing Then
-                MenuForm.Show()
-                e.Cancel = False
-            End If
+
+    Private Sub Form_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Me.VisibleChanged
+        If Me.Visible Then
+            Tampil()
         End If
-        'If e.CloseReason = CloseReason.UserClosing Then
-        '    MenuForm.Show()
-        '    e.Cancel = False
-        'End If
     End Sub
 
-    Private Sub btnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSimpan.Click
-
+    Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            MenuForm.Show()
+            e.Cancel = False
+        End If
     End Sub
 
     Private Sub btnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClear.Click
@@ -39,22 +26,68 @@
         Cari()
     End Sub
 
-    Private Sub Jumlah()
-        ToolStripStatusLabel1.Text = "Jumlah data " & Register_masukDataGridView.RowCount
+    Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
+        ShowCenter(Me, RegisterMasukTambahForm)
     End Sub
 
-    Private Sub Cari()
-        Dim filter As String = tbCari.Text
-        If filter = "" Then
-            Register_masukBindingSource.RemoveFilter()
-        Else
-            Register_masukBindingSource.Filter = "no_medrec = '" & filter & "' OR nama_lengkap LIKE '%" & filter & "%'"
+    Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
+        Dim id As String = Register_masuk_QueryDataGridView(0, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+        Dim medrec As String = Register_masuk_QueryDataGridView(1, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+        Dim nama As String = Register_masuk_QueryDataGridView(2, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+        Dim tanggal As Date = Register_masuk_QueryDataGridView(3, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+        Dim ruangan As String = Register_masuk_QueryDataGridView(4, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+        Dim kelas As String = Register_masuk_QueryDataGridView(5, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+        Dim caraMasuk As String = Register_masuk_QueryDataGridView(6, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+
+        Dim form As New RegisterMasukEditForm(id, medrec, nama, tanggal, ruangan, kelas, caraMasuk)
+        ShowCenter(Me, form)
+    End Sub
+
+    Private Sub btnHapus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHapus.Click
+        Dim response As MsgBoxResult
+        response = MsgBox("Apakah Anda yakin ingin menghapus data ini?", MsgBoxStyle.YesNo)
+        If response = MsgBoxResult.Yes Then
+            Dim source As String = My.Settings.DBConnectionString
+            Dim conn = New OleDbConnection(source)
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+                Dim now As Date = Today
+                Dim id As String = Register_masuk_QueryDataGridView(0, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+                Dim query As String = "UPDATE [register_masuk] SET [deleted_at]=@now WHERE id=@id"
+                Dim cmd As New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@now", now.ToString("M/d/yyyy"))
+                cmd.Parameters.AddWithValue("@id", id)
+                Dim result As Integer = cmd.ExecuteNonQuery
+                If result > 0 Then
+                    MsgBox("Data berhasil dihapus")
+                    Tampil()
+                Else
+                    MsgBox("Data gagal dihapus")
+                End If
+            Else
+                MsgBox("Koneksi database gagal!")
+            End If
         End If
-        Me.Register_masukTableAdapter.Fill(Me.DBDataSet.register_masuk)
+    End Sub
+
+    Private Sub Tampil(Optional ByVal filter As String = "deleted_at IS NULL")
+        Register_masuk_QueryBindingSource.Filter = filter
+        Me.Register_masuk_QueryTableAdapter.Fill(Me.DBDataSet.register_masuk_Query)
         Jumlah()
     End Sub
 
-    Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
+    Private Sub Cari()
+        Dim cari As String = tbCari.Text
+        Dim filter As String
+        If cari = "" Then
+            Tampil()
+        Else
+            filter = "deleted_at IS NULL AND (no_medrec = '" & cari & "' OR nama_lengkap LIKE '%" & cari & "%')"
+            Tampil(filter)
+        End If
+    End Sub
 
+    Private Sub Jumlah()
+        ToolStripStatusLabel1.Text = "Jumlah data " & Register_masuk_QueryDataGridView.RowCount
     End Sub
 End Class
