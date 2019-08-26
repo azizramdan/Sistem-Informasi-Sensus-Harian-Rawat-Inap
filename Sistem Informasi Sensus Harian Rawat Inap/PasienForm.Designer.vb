@@ -209,9 +209,9 @@ Partial Class PasienForm
         'No_medrecTextBox
         '
         Me.No_medrecTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PasienBindingSource, "no_medrec", True))
-        Me.No_medrecTextBox.Enabled = False
         Me.No_medrecTextBox.Location = New System.Drawing.Point(152, 14)
         Me.No_medrecTextBox.Name = "No_medrecTextBox"
+        Me.No_medrecTextBox.ReadOnly = True
         Me.No_medrecTextBox.Size = New System.Drawing.Size(211, 20)
         Me.No_medrecTextBox.TabIndex = 19
         '
@@ -449,6 +449,8 @@ Partial Class PasienForm
         Me.TableAdapterManager.dokterTableAdapter = Nothing
         Me.TableAdapterManager.kelasTableAdapter = Nothing
         Me.TableAdapterManager.pasienTableAdapter = Me.PasienTableAdapter
+        Me.TableAdapterManager.register_keluarTableAdapter = Nothing
+        Me.TableAdapterManager.register_masukTableAdapter = Nothing
         Me.TableAdapterManager.ruanganTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.userTableAdapter = Nothing
