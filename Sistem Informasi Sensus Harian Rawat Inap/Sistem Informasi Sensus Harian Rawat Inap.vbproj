@@ -80,9 +80,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DBDataSet.vb">
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DokterForm.Designer.vb">
       <DependentUpon>DokterForm.vb</DependentUpon>
     </Compile>
@@ -240,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterMasukTambahForm.resx">
       <DependentUpon>RegisterMasukTambahForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensusForm.resx">
+      <DependentUpon>SensusForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TambahTempatTidurForm.resx">
       <DependentUpon>TambahTempatTidurForm.vb</DependentUpon>
