@@ -6,6 +6,13 @@ Public Class SensusForm
         rbHarian.Checked = True
     End Sub
 
+    Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            MenuForm.Show()
+            e.Cancel = False
+        End If
+    End Sub
+
     Private Sub rbHarian_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbHarian.CheckedChanged
         dtpTanggal.Format = DateTimePickerFormat.Custom
         dtpTanggal.CustomFormat = "dddd, d MMMM yyyy"
