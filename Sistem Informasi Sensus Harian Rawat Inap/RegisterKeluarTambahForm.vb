@@ -26,7 +26,7 @@ Public Class RegisterKeluarTambahForm
         Dim conn = New OleDbConnection(source)
         If conn.State = ConnectionState.Closed Then
             conn.Open()
-            Dim query As String = "SELECT rm.no_medrec, p.nama_lengkap FROM [register_masuk] AS rm, [pasien] AS p WHERE rm.id=@id AND p.no_medrec = rm.no_medrec"
+            Dim query As String = "SELECT rm.no_medrec, p.nama_lengkap FROM [register_masuk] AS rm, [pasien] AS p WHERE rm.id=@id AND rm.keluar = FALSE AND rm.deleted_at IS NULL AND p.no_medrec = rm.no_medrec"
             Dim cmd As New OleDbCommand(query, conn)
             cmd.Parameters.AddWithValue("@id", id)
             Dim result As OleDbDataReader = cmd.ExecuteReader
@@ -65,7 +65,16 @@ Public Class RegisterKeluarTambahForm
                 cmd.Parameters.AddWithValue("@caraKeluar", caraKeluar)
                 Dim result As Integer = cmd.ExecuteNonQuery
                 If result > 0 Then
-                    MsgBox("Data berhasil disimpan")
+                    query = "UPDATE register_masuk, tempat_tidur SET keluar=TRUE, kosong=kosong+1 WHERE register_masuk.id=@id AND tempat_tidur.id = register_masuk.id_tempat_tidur"
+                    cmd = New OleDbCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@id", id)
+                    result = cmd.ExecuteNonQuery
+                    If result > 0 Then
+                        MsgBox("Data berhasil disimpan")
+                        btnBersihkan_Click(Me, e)
+                    Else
+                        MsgBox("Data gagal disimpan")
+                    End If
                 Else
                     MsgBox("Data gagal disimpan")
                 End If
