@@ -1,7 +1,10 @@
-﻿Module Connection
+﻿Imports System.Data.OleDb
+Module Connection
     Public ImagePath As String
     Public Id As Integer
     Public Nik, Nama, Username As String
+    Public IsKosong As Boolean
+    Public IdTempatTidur As String
     Sub connect()
         Dim path As String = AppDomain.CurrentDomain.BaseDirectory
         path = path.Replace("bin\Debug\", "SISHRI.accdb")
@@ -33,5 +36,51 @@
         form2.Location = New Point(x, y)
         form2.Show()
         form1.Hide()
+    End Sub
+
+    Function UpdateTempatTidur(ByVal id As String, ByVal op As String)
+        Dim ret As Boolean
+        Dim source As String = My.Settings.DBConnectionString
+        Dim conn = New OleDbConnection(source)
+        If conn.State = ConnectionState.Closed Then
+            conn.Open()
+            Dim query As String = "UPDATE tempat_tidur SET kosong = kosong " & op & " 1 WHERE id=@id"
+            Dim cmd As New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Dim result As Integer = cmd.ExecuteNonQuery
+            If result > 0 Then
+                ret = True
+            Else
+                ret = False
+            End If
+        Else
+            MsgBox("Koneksi database gagal!")
+        End If
+        Return ret
+    End Function
+
+    Sub getTempatTidur(ByVal ruangan As String, ByVal kelas As String)
+        IsKosong = False
+        IdTempatTidur = 0
+        Dim source As String = My.Settings.DBConnectionString
+        Dim conn = New OleDbConnection(source)
+        If conn.State = ConnectionState.Closed Then
+            conn.Open()
+            Dim query As String = "SELECT tempat_tidur.id, tempat_tidur.kosong FROM tempat_tidur, ruangan, kelas WHERE tempat_tidur.id_ruangan = ruangan.id AND tempat_tidur.id_kelas = kelas.id AND ruangan.ruangan = @ruangan AND kelas.kelas = @kelas"
+            Dim cmd As New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@ruangan", ruangan)
+            cmd.Parameters.AddWithValue("@kelas", kelas)
+            Dim result As OleDbDataReader = cmd.ExecuteReader
+            If result.Read Then
+                If result.GetValue(1) = 0 Then
+                    IsKosong = False
+                Else
+                    IsKosong = True
+                    IdTempatTidur = result.GetValue(0)
+                End If
+            End If
+        Else
+            MsgBox("Koneksi database gagal!")
+        End If
     End Sub
 End Module
