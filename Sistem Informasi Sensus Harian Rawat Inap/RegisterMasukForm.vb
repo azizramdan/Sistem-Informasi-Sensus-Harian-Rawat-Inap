@@ -56,10 +56,11 @@ Public Class RegisterMasukForm
                 conn.Open()
                 Dim now As Date = Today
                 Dim id As String = Register_masuk_QueryDataGridView(0, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
-                Dim query As String = "UPDATE [register_masuk], [tempat_tidur] SET register_masuk.deleted_at=@now, tempat_tidur.kosong=tempat_tidur.kosong+1 WHERE register_masuk.id=@id"
+                Dim query As String = "UPDATE [register_masuk], [tempat_tidur] SET register_masuk.deleted_at=@now, tempat_tidur.kosong=tempat_tidur.kosong+1 WHERE register_masuk.id=@id AND tempat_tidur.id=@IdTempatTidur"
                 Dim cmd As New OleDbCommand(query, conn)
                 cmd.Parameters.AddWithValue("@now", now.ToString("M/d/yyyy"))
                 cmd.Parameters.AddWithValue("@id", id)
+                cmd.Parameters.AddWithValue("@IdTempatTidur", IdTempatTidur)
                 Dim result As Integer = cmd.ExecuteNonQuery
                 If result > 0 Then
                     MsgBox("Data berhasil dihapus")
