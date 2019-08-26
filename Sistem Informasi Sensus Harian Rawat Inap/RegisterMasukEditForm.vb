@@ -1,6 +1,6 @@
 ﻿Imports System.Data.OleDb
 Public Class RegisterMasukEditForm
-    Dim idRegMasuk As String
+    Dim idRegMasuk, namaRuangan, namaKelas As String
 
     Public Sub New(ByVal id As String, ByVal medrec As String, ByVal nama As String, ByVal tanggal As Date, ByVal ruangan As String, ByVal kelas As String, ByVal caraMasuk As String)
         InitializeComponent()
@@ -9,7 +9,9 @@ Public Class RegisterMasukEditForm
         tbNama.Text = nama
         dtpTanggal.Value = tanggal
         cbRuangan.SelectedItem = ruangan
+        namaRuangan = ruangan
         cbKelas.SelectedItem = kelas
+        namaKelas = kelas
         cbCaraMasuk.SelectedItem = caraMasuk
     End Sub
 
@@ -21,30 +23,40 @@ Public Class RegisterMasukEditForm
     End Sub
 
     Private Sub btnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSimpan.Click
-        Dim source As String = My.Settings.DBConnectionString
-        Dim conn = New OleDbConnection(source)
-        If conn.State = ConnectionState.Closed Then
-            conn.Open()
-            Dim tanggalMasuk, ruangan, kelas, caraMasuk As String
-            tanggalMasuk = dtpTanggal.Value.ToString("M/d/yyyy")
-            ruangan = cbRuangan.SelectedIndex + 1
-            kelas = cbKelas.SelectedIndex + 1
-            caraMasuk = cbCaraMasuk.SelectedItem
-            Dim query As String = "UPDATE [register_masuk] SET [id_ruangan]=@ruangan, [id_kelas]=@kelas, [tanggal_masuk]=@tanggalMasuk, [cara_pasien_masuk]=@caraMasuk WHERE id=@id"
-            Dim cmd As New OleDbCommand(query, conn)
-            cmd.Parameters.AddWithValue("@ruangan", ruangan)
-            cmd.Parameters.AddWithValue("@kelas", kelas)
-            cmd.Parameters.AddWithValue("@tanggalMasuk", tanggalMasuk)
-            cmd.Parameters.AddWithValue("@caraMasuk", caraMasuk)
-            cmd.Parameters.AddWithValue("@id", idRegMasuk)
-            Dim result As Integer = cmd.ExecuteNonQuery
-            If result > 0 Then
-                MsgBox("Data berhasil diubah")
+        getTempatTidur(cbRuangan.SelectedItem, cbKelas.SelectedItem)
+        If IsKosong Then
+            Dim source As String = My.Settings.DBConnectionString
+            Dim conn = New OleDbConnection(source)
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+                Dim tanggalMasuk, caraMasuk As String
+                tanggalMasuk = dtpTanggal.Value.ToString("M/d/yyyy")
+                caraMasuk = cbCaraMasuk.SelectedItem
+                Dim query As String = "UPDATE [register_masuk] SET [id_tempat_tidur]=@idTempatTidur, [tanggal_masuk]=@tanggalMasuk, [cara_pasien_masuk]=@caraMasuk WHERE id=@id"
+                Dim cmd As New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@idTempatTidur", IdTempatTidur)
+                cmd.Parameters.AddWithValue("@tanggalMasuk", tanggalMasuk)
+                cmd.Parameters.AddWithValue("@caraMasuk", caraMasuk)
+                cmd.Parameters.AddWithValue("@id", idRegMasuk)
+                Dim result As Integer = cmd.ExecuteNonQuery
+                If result > 0 Then
+                    If cbRuangan.SelectedItem = namaRuangan And cbKelas.SelectedItem = namaKelas Then
+                    Else
+                        UpdateTempatTidur(IdTempatTidur, "-")
+                        getTempatTidur(namaRuangan, namaKelas)
+                        UpdateTempatTidur(IdTempatTidur, "+")
+                        namaRuangan = cbRuangan.SelectedItem
+                        namaKelas = cbKelas.SelectedItem
+                    End If
+                    MsgBox("Data berhasil diubah")
+                Else
+                    MsgBox("Data gagal diubah")
+                End If
             Else
-                MsgBox("Data gagal diubah")
+                MsgBox("Koneksi database gagal!")
             End If
         Else
-            MsgBox("Koneksi database gagal!")
+            MsgBox("Data gagal disimpan!, tempat tidur penuh!")
         End If
     End Sub
 End Class

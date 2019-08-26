@@ -1,6 +1,7 @@
 ﻿Imports System.Data.OleDb
 Public Class RegisterMasukTambahForm
     Dim btnCek_Clicked As Boolean
+
     Private Sub RegisterMasukTambahForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
     End Sub
@@ -55,26 +56,34 @@ Public Class RegisterMasukTambahForm
         ElseIf medrec = "" Or ruangan = -1 Or kelas = -1 Or tanggalMasuk = "" Or caraMasuk = "" Then
             MsgBox("Data harus diisi semua")
         Else
-            Dim source As String = My.Settings.DBConnectionString
-            Dim conn = New OleDbConnection(source)
-            If conn.State = ConnectionState.Closed Then
-                conn.Open()
-                Dim query As String = "INSERT INTO register_masuk (no_medrec, id_ruangan, id_kelas, tanggal_masuk, cara_pasien_masuk) "
-                query &= "VALUES (@medrec, @ruangan, @kelas, @tanggalMasuk, @caraMasuk)"
-                Dim cmd As New OleDbCommand(query, conn)
-                cmd.Parameters.AddWithValue("@medrec", medrec)
-                cmd.Parameters.AddWithValue("@ruangan", ruangan)
-                cmd.Parameters.AddWithValue("@kelas", kelas)
-                cmd.Parameters.AddWithValue("@tanggalMasuk", tanggalMasuk)
-                cmd.Parameters.AddWithValue("@caraMasuk", caraMasuk)
-                Dim result As Integer = cmd.ExecuteNonQuery
-                If result > 0 Then
-                    MsgBox("Data berhasil disimpan")
+            getTempatTidur(cbRuangan.SelectedItem, cbKelas.SelectedItem)
+            If IsKosong Then
+                Dim source As String = My.Settings.DBConnectionString
+                Dim conn = New OleDbConnection(source)
+                If conn.State = ConnectionState.Closed Then
+                    conn.Open()
+                    Dim query As String = "INSERT INTO register_masuk (no_medrec, id_tempat_tidur, tanggal_masuk, cara_pasien_masuk) "
+                    query &= "VALUES (@medrec, @idTempatTidur, @tanggalMasuk, @caraMasuk)"
+                    Dim cmd As New OleDbCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@medrec", medrec)
+                    cmd.Parameters.AddWithValue("@idTempatTidur", IdTempatTidur)
+                    cmd.Parameters.AddWithValue("@tanggalMasuk", tanggalMasuk)
+                    cmd.Parameters.AddWithValue("@caraMasuk", caraMasuk)
+                    Dim result As Integer = cmd.ExecuteNonQuery
+                    If result > 0 Then
+                        If UpdateTempatTidur(IdTempatTidur, "-") Then
+                            MsgBox("Data berhasil disimpan")
+                        Else
+                            MsgBox("Data gagal disimpan")
+                        End If
+                    Else
+                        MsgBox("Data gagal disimpan")
+                    End If
                 Else
-                    MsgBox("Data gagal disimpan")
+                    MsgBox("Koneksi database gagal!")
                 End If
             Else
-                MsgBox("Koneksi database gagal!")
+                MsgBox("Data gagal disimpan!, tempat tidur penuh!")
             End If
         End If
 

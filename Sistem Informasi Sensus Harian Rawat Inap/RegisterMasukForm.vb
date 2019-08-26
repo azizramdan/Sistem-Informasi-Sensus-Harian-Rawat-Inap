@@ -47,13 +47,16 @@ Public Class RegisterMasukForm
         Dim response As MsgBoxResult
         response = MsgBox("Apakah Anda yakin ingin menghapus data ini?", MsgBoxStyle.YesNo)
         If response = MsgBoxResult.Yes Then
+            Dim ruangan As String = Register_masuk_QueryDataGridView(4, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+            Dim kelas As String = Register_masuk_QueryDataGridView(5, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+            getTempatTidur(ruangan, kelas)
             Dim source As String = My.Settings.DBConnectionString
             Dim conn = New OleDbConnection(source)
             If conn.State = ConnectionState.Closed Then
                 conn.Open()
                 Dim now As Date = Today
                 Dim id As String = Register_masuk_QueryDataGridView(0, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
-                Dim query As String = "UPDATE [register_masuk] SET [deleted_at]=@now WHERE id=@id"
+                Dim query As String = "UPDATE [register_masuk], [tempat_tidur] SET register_masuk.deleted_at=@now, tempat_tidur.kosong=tempat_tidur.kosong+1 WHERE register_masuk.id=@id"
                 Dim cmd As New OleDbCommand(query, conn)
                 cmd.Parameters.AddWithValue("@now", now.ToString("M/d/yyyy"))
                 cmd.Parameters.AddWithValue("@id", id)
@@ -72,6 +75,7 @@ Public Class RegisterMasukForm
 
     Private Sub Tampil(Optional ByVal filter As String = "deleted_at IS NULL")
         Register_masuk_QueryBindingSource.Filter = filter
+        Register_masuk_QueryBindingSource.Sort = "id"
         Me.Register_masuk_QueryTableAdapter.Fill(Me.DBDataSet.register_masuk_Query)
         Jumlah()
     End Sub
