@@ -52,10 +52,12 @@ Public Class RegisterKeluarForm
                 conn.Open()
                 Dim now As Date = Today
                 Dim id As String = Register_keluar_QueryDataGridView(0, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
-                Dim query As String = "UPDATE [register_keluar] SET [deleted_at]=@now WHERE id=@id"
+                Dim idRegMasuk As String = Register_keluar_QueryDataGridView(1, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
+                Dim query As String = "UPDATE register_keluar, register_masuk, tempat_tidur SET register_keluar.deleted_at = @now, register_masuk.keluar = False, tempat_tidur.kosong = tempat_tidur.kosong+1 WHERE (((register_keluar.id)=[@id]) AND ((register_masuk.id)=[@idRegMasuk]) AND ((tempat_tidur.id)=[register_masuk].[id_tempat_tidur]))"
                 Dim cmd As New OleDbCommand(query, conn)
                 cmd.Parameters.AddWithValue("@now", now.ToString("M/d/yyyy"))
                 cmd.Parameters.AddWithValue("@id", id)
+                cmd.Parameters.AddWithValue("@idRegMasuk", idRegMasuk)
                 Dim result As Integer = cmd.ExecuteNonQuery
                 If result > 0 Then
                     MsgBox("Data berhasil dihapus")
@@ -71,6 +73,7 @@ Public Class RegisterKeluarForm
 
     Private Sub Tampil(Optional ByVal filter As String = "deleted_at IS NULL")
         Register_keluar_QueryBindingSource.Filter = filter
+        Register_keluar_QueryBindingSource.Sort = "id"
         Me.Register_keluar_QueryTableAdapter.Fill(Me.DBDataSet.register_keluar_Query)
         Jumlah()
     End Sub
