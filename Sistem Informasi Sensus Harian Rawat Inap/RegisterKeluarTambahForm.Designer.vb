@@ -99,7 +99,7 @@ Partial Class RegisterKeluarTambahForm
         'cbCaraKeluar
         '
         Me.cbCaraKeluar.FormattingEnabled = True
-        Me.cbCaraKeluar.Items.AddRange(New Object() {"Dipulangkan", "Permintaan sendiri", "Melarikan diri", "Dirujuk"})
+        Me.cbCaraKeluar.Items.AddRange(New Object() {"Diizinkan pulang", "Dirujuk", "Pindah RS lain", "Pulang paksa", "Melarikan diri", "Dipindahkan", "Meninggal <48 jam", "Meninggal >48 jam"})
         Me.cbCaraKeluar.Location = New System.Drawing.Point(129, 110)
         Me.cbCaraKeluar.Name = "cbCaraKeluar"
         Me.cbCaraKeluar.Size = New System.Drawing.Size(181, 21)

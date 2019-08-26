@@ -144,7 +144,7 @@ Partial Class RegisterMasukEditForm
         'cbCaraMasuk
         '
         Me.cbCaraMasuk.FormattingEnabled = True
-        Me.cbCaraMasuk.Items.AddRange(New Object() {"OPD", "UGD", "Rujukan RS lain"})
+        Me.cbCaraMasuk.Items.AddRange(New Object() {"Rujukan", "UGD", "OPD/POLI"})
         Me.cbCaraMasuk.Location = New System.Drawing.Point(110, 144)
         Me.cbCaraMasuk.Name = "cbCaraMasuk"
         Me.cbCaraMasuk.Size = New System.Drawing.Size(200, 21)
