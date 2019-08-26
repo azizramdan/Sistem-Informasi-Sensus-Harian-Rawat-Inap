@@ -33,6 +33,8 @@ Partial Class MenuForm
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SensusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PasienMasukRawatInapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PasienKeluarRawatInapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -56,19 +58,19 @@ Partial Class MenuForm
         'UserToolStripMenuItem
         '
         Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.UserToolStripMenuItem.Text = "User"
         '
         'PasienToolStripMenuItem
         '
         Me.PasienToolStripMenuItem.Name = "PasienToolStripMenuItem"
-        Me.PasienToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.PasienToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PasienToolStripMenuItem.Text = "Pasien"
         '
         'DokterToolStripMenuItem
         '
         Me.DokterToolStripMenuItem.Name = "DokterToolStripMenuItem"
-        Me.DokterToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.DokterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DokterToolStripMenuItem.Text = "Dokter"
         '
         'ProsesToolStripMenuItem
@@ -92,7 +94,7 @@ Partial Class MenuForm
         '
         'LaporanToolStripMenuItem
         '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SensusToolStripMenuItem})
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SensusToolStripMenuItem, Me.PasienMasukRawatInapToolStripMenuItem, Me.PasienKeluarRawatInapToolStripMenuItem})
         Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
@@ -100,7 +102,7 @@ Partial Class MenuForm
         'SensusToolStripMenuItem
         '
         Me.SensusToolStripMenuItem.Name = "SensusToolStripMenuItem"
-        Me.SensusToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.SensusToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.SensusToolStripMenuItem.Text = "Sensus"
         '
         'PictureBox1
@@ -112,6 +114,18 @@ Partial Class MenuForm
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.WaitOnLoad = True
+        '
+        'PasienMasukRawatInapToolStripMenuItem
+        '
+        Me.PasienMasukRawatInapToolStripMenuItem.Name = "PasienMasukRawatInapToolStripMenuItem"
+        Me.PasienMasukRawatInapToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.PasienMasukRawatInapToolStripMenuItem.Text = "Register Pasien Masuk"
+        '
+        'PasienKeluarRawatInapToolStripMenuItem
+        '
+        Me.PasienKeluarRawatInapToolStripMenuItem.Name = "PasienKeluarRawatInapToolStripMenuItem"
+        Me.PasienKeluarRawatInapToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.PasienKeluarRawatInapToolStripMenuItem.Text = "Register Pasien Keluar"
         '
         'MenuForm
         '
@@ -141,4 +155,6 @@ Partial Class MenuForm
     Friend WithEvents LaporanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SensusToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PasienMasukRawatInapToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PasienKeluarRawatInapToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
