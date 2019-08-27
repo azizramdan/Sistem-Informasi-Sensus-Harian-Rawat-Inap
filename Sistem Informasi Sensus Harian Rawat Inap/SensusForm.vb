@@ -1,9 +1,13 @@
 ﻿Imports System.Data.OleDb
 Public Class SensusForm
+    Dim btnCari_isClicked As Boolean
+    Dim periode As String
 
     Private Sub SensusForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
         rbHarian.Checked = True
+        cbRuangan.SelectedIndex = 0
+        cbKelas.SelectedIndex = 0
     End Sub
 
     Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
@@ -26,6 +30,7 @@ Public Class SensusForm
     End Sub
 
     Private Sub btnCari_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCari.Click
+        btnCari_isClicked = True
         If cbRuangan.SelectedIndex = -1 Or cbKelas.SelectedIndex = -1 Then
             MsgBox("Data harus diisi semua")
         Else
@@ -35,8 +40,10 @@ Public Class SensusForm
                 conn.Open()
                 Dim query As String
                 If rbHarian.Checked Then
+                    periode = "Periode: " & dtpTanggal.Value.ToString("d MMMM yyyy")
                     query = SensusHarian()
                 Else
+                    periode = "Periode: " & dtpTanggal.Value.ToString("MMMM yyyy")
                     query = SensusBulanan()
                 End If
                 getTempatTidur(cbRuangan.SelectedItem, cbKelas.SelectedItem)
@@ -104,5 +111,36 @@ Public Class SensusForm
         Else
             MsgBox("Koneksi database gagal!")
         End If
+    End Sub
+
+    Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
+        If btnCari_isClicked Then
+            Dim ppd As New PrintPreviewDialog
+            ppd.Document = PrintDocument1
+            ppd.Document.DefaultPageSettings.Landscape = True
+            ppd.WindowState = FormWindowState.Maximized
+            ppd.ShowDialog()
+        Else
+            MsgBox("Lakukan sensus terlebih dahulu")
+        End If
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Dim rect As New Rectangle(20, 20, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), 50)
+        Dim sf As New StringFormat
+        Dim startX As Integer = 50
+        Dim startY As Integer = rect.Bottom
+
+        sf.Alignment = StringAlignment.Center
+        sf.LineAlignment = StringAlignment.Center
+
+        e.Graphics.DrawString("Laporan Sensus", New Font("Microsoft Sans Serif", 20, FontStyle.Bold), Brushes.Black, rect, sf)
+        startY += 10
+        e.Graphics.DrawString(periode, New Font("Microsoft Sans Serif", 10, FontStyle.Bold), Brushes.Black, New Rectangle(20, startY, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), Label1.Height), sf)
+        startY += 20
+        e.Graphics.DrawString("Ruangan: " & cbRuangan.SelectedItem, New Font("Microsoft Sans Serif", 10, FontStyle.Bold), Brushes.Black, New Rectangle(20, startY, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), Label1.Height), sf)
+        startY += 20
+        e.Graphics.DrawString("Kelas: " & cbKelas.SelectedItem, New Font("Microsoft Sans Serif", 10, FontStyle.Bold), Brushes.Black, New Rectangle(20, startY, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), Label1.Height), sf)
+
     End Sub
 End Class

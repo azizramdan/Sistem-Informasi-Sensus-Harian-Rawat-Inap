@@ -66,6 +66,7 @@ Partial Class SensusForm
         Me.tbKeluarMasuk = New System.Windows.Forms.TextBox()
         Me.tbLamaRawat = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -480,6 +481,9 @@ Partial Class SensusForm
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Lama dirawat"
         '
+        'PrintDocument1
+        '
+        '
         'SensusForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -559,4 +563,5 @@ Partial Class SensusForm
     Friend WithEvents tbKeluarMasuk As System.Windows.Forms.TextBox
     Friend WithEvents tbLamaRawat As System.Windows.Forms.TextBox
     Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
 End Class
