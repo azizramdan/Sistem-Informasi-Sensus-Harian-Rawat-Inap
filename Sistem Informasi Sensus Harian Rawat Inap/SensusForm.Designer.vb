@@ -38,6 +38,12 @@ Partial Class SensusForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.tbJumlahKeluarHidup = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.tbMelarikanDiri = New System.Windows.Forms.TextBox()
+        Me.tbPulangPaksa = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.tbPindahRS = New System.Windows.Forms.TextBox()
         Me.tbDirujuk = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -47,23 +53,17 @@ Partial Class SensusForm
         Me.btnCari = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.btnPrint = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.tbPulangPaksa = New System.Windows.Forms.TextBox()
-        Me.tbMelarikanDiri = New System.Windows.Forms.TextBox()
         Me.tbDipindahkan = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.tbJumlahKeluarHidup = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.tbJumlahPasienKeluar = New System.Windows.Forms.TextBox()
+        Me.tbJumlahKeluarMati = New System.Windows.Forms.TextBox()
         Me.tbLebih48 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.tbKurang48 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.tbKeluarMasuk = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -212,9 +212,11 @@ Partial Class SensusForm
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.tbJumlahKeluarHidup)
+        Me.GroupBox2.Controls.Add(Me.Label14)
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.Controls.Add(Me.tbMelarikanDiri)
         Me.GroupBox2.Controls.Add(Me.tbPulangPaksa)
+        Me.GroupBox2.Controls.Add(Me.tbDipindahkan)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.tbPindahRS)
@@ -225,10 +227,61 @@ Partial Class SensusForm
         Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Location = New System.Drawing.Point(277, 113)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(236, 183)
+        Me.GroupBox2.Size = New System.Drawing.Size(236, 211)
         Me.GroupBox2.TabIndex = 8
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Total Pasien Keluar Hidup"
+        '
+        'tbJumlahKeluarHidup
+        '
+        Me.tbJumlahKeluarHidup.Location = New System.Drawing.Point(99, 175)
+        Me.tbJumlahKeluarHidup.Name = "tbJumlahKeluarHidup"
+        Me.tbJumlahKeluarHidup.ReadOnly = True
+        Me.tbJumlahKeluarHidup.Size = New System.Drawing.Size(100, 20)
+        Me.tbJumlahKeluarHidup.TabIndex = 17
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(12, 126)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(69, 13)
+        Me.Label13.TabIndex = 15
+        Me.Label13.Text = "Melarikan diri"
+        '
+        'tbMelarikanDiri
+        '
+        Me.tbMelarikanDiri.Location = New System.Drawing.Point(99, 123)
+        Me.tbMelarikanDiri.Name = "tbMelarikanDiri"
+        Me.tbMelarikanDiri.ReadOnly = True
+        Me.tbMelarikanDiri.Size = New System.Drawing.Size(100, 20)
+        Me.tbMelarikanDiri.TabIndex = 13
+        '
+        'tbPulangPaksa
+        '
+        Me.tbPulangPaksa.Location = New System.Drawing.Point(99, 97)
+        Me.tbPulangPaksa.Name = "tbPulangPaksa"
+        Me.tbPulangPaksa.ReadOnly = True
+        Me.tbPulangPaksa.Size = New System.Drawing.Size(100, 20)
+        Me.tbPulangPaksa.TabIndex = 12
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(12, 100)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(72, 13)
+        Me.Label8.TabIndex = 11
+        Me.Label8.Text = "Pulang paksa"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(12, 74)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(77, 13)
+        Me.Label7.TabIndex = 10
+        Me.Label7.Text = "Pindah RS lain"
         '
         'tbPindahRS
         '
@@ -249,7 +302,7 @@ Partial Class SensusForm
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(12, 152)
+        Me.Label10.Location = New System.Drawing.Point(12, 178)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(40, 13)
         Me.Label10.TabIndex = 9
@@ -308,102 +361,49 @@ Partial Class SensusForm
         Me.btnPrint.Text = "Print"
         Me.btnPrint.UseVisualStyleBackColor = True
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 74)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(77, 13)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Pindah RS lain"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(12, 100)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(72, 13)
-        Me.Label8.TabIndex = 11
-        Me.Label8.Text = "Pulang paksa"
-        '
-        'tbPulangPaksa
-        '
-        Me.tbPulangPaksa.Location = New System.Drawing.Point(99, 97)
-        Me.tbPulangPaksa.Name = "tbPulangPaksa"
-        Me.tbPulangPaksa.ReadOnly = True
-        Me.tbPulangPaksa.Size = New System.Drawing.Size(100, 20)
-        Me.tbPulangPaksa.TabIndex = 12
-        '
-        'tbMelarikanDiri
-        '
-        Me.tbMelarikanDiri.Location = New System.Drawing.Point(99, 123)
-        Me.tbMelarikanDiri.Name = "tbMelarikanDiri"
-        Me.tbMelarikanDiri.ReadOnly = True
-        Me.tbMelarikanDiri.Size = New System.Drawing.Size(100, 20)
-        Me.tbMelarikanDiri.TabIndex = 13
-        '
         'tbDipindahkan
         '
-        Me.tbDipindahkan.Location = New System.Drawing.Point(93, 19)
+        Me.tbDipindahkan.Location = New System.Drawing.Point(99, 149)
         Me.tbDipindahkan.Name = "tbDipindahkan"
         Me.tbDipindahkan.ReadOnly = True
         Me.tbDipindahkan.Size = New System.Drawing.Size(100, 20)
         Me.tbDipindahkan.TabIndex = 14
         '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(12, 126)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(69, 13)
-        Me.Label13.TabIndex = 15
-        Me.Label13.Text = "Melarikan diri"
-        '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 22)
+        Me.Label14.Location = New System.Drawing.Point(12, 152)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(67, 13)
         Me.Label14.TabIndex = 16
         Me.Label14.Text = "Dipindahkan"
         '
-        'tbJumlahKeluarHidup
-        '
-        Me.tbJumlahKeluarHidup.Location = New System.Drawing.Point(99, 149)
-        Me.tbJumlahKeluarHidup.Name = "tbJumlahKeluarHidup"
-        Me.tbJumlahKeluarHidup.ReadOnly = True
-        Me.tbJumlahKeluarHidup.Size = New System.Drawing.Size(100, 20)
-        Me.tbJumlahKeluarHidup.TabIndex = 17
-        '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.tbJumlahPasienKeluar)
-        Me.GroupBox3.Controls.Add(Me.Label14)
+        Me.GroupBox3.Controls.Add(Me.tbJumlahKeluarMati)
         Me.GroupBox3.Controls.Add(Me.tbLebih48)
         Me.GroupBox3.Controls.Add(Me.Label15)
-        Me.GroupBox3.Controls.Add(Me.tbDipindahkan)
         Me.GroupBox3.Controls.Add(Me.tbKurang48)
         Me.GroupBox3.Controls.Add(Me.Label16)
         Me.GroupBox3.Controls.Add(Me.Label17)
         Me.GroupBox3.Location = New System.Drawing.Point(15, 221)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(225, 130)
+        Me.GroupBox3.Size = New System.Drawing.Size(225, 103)
         Me.GroupBox3.TabIndex = 8
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Total Pasien Keluar"
+        Me.GroupBox3.Text = "Total Pasien Keluar Mati"
         '
-        'tbJumlahPasienKeluar
+        'tbJumlahKeluarMati
         '
-        Me.tbJumlahPasienKeluar.Location = New System.Drawing.Point(93, 97)
-        Me.tbJumlahPasienKeluar.Name = "tbJumlahPasienKeluar"
-        Me.tbJumlahPasienKeluar.ReadOnly = True
-        Me.tbJumlahPasienKeluar.Size = New System.Drawing.Size(100, 20)
-        Me.tbJumlahPasienKeluar.TabIndex = 2
+        Me.tbJumlahKeluarMati.Location = New System.Drawing.Point(93, 71)
+        Me.tbJumlahKeluarMati.Name = "tbJumlahKeluarMati"
+        Me.tbJumlahKeluarMati.ReadOnly = True
+        Me.tbJumlahKeluarMati.Size = New System.Drawing.Size(100, 20)
+        Me.tbJumlahKeluarMati.TabIndex = 2
         '
         'tbLebih48
         '
-        Me.tbLebih48.Location = New System.Drawing.Point(93, 71)
+        Me.tbLebih48.Location = New System.Drawing.Point(93, 45)
         Me.tbLebih48.Name = "tbLebih48"
         Me.tbLebih48.ReadOnly = True
         Me.tbLebih48.Size = New System.Drawing.Size(100, 20)
@@ -412,7 +412,7 @@ Partial Class SensusForm
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(6, 100)
+        Me.Label15.Location = New System.Drawing.Point(6, 74)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(40, 13)
         Me.Label15.TabIndex = 3
@@ -420,7 +420,7 @@ Partial Class SensusForm
         '
         'tbKurang48
         '
-        Me.tbKurang48.Location = New System.Drawing.Point(93, 45)
+        Me.tbKurang48.Location = New System.Drawing.Point(93, 19)
         Me.tbKurang48.Name = "tbKurang48"
         Me.tbKurang48.ReadOnly = True
         Me.tbKurang48.Size = New System.Drawing.Size(100, 20)
@@ -429,7 +429,7 @@ Partial Class SensusForm
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(6, 48)
+        Me.Label16.Location = New System.Drawing.Point(6, 22)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(47, 13)
         Me.Label16.TabIndex = 1
@@ -438,7 +438,7 @@ Partial Class SensusForm
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(6, 74)
+        Me.Label17.Location = New System.Drawing.Point(6, 48)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(47, 13)
         Me.Label17.TabIndex = 2
@@ -447,26 +447,26 @@ Partial Class SensusForm
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(21, 371)
+        Me.Label18.Location = New System.Drawing.Point(21, 349)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(187, 13)
         Me.Label18.TabIndex = 4
         Me.Label18.Text = "Pasien keluar masuk dihari yang sama"
         '
-        'TextBox1
+        'tbKeluarMasuk
         '
-        Me.TextBox1.Location = New System.Drawing.Point(222, 368)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 4
+        Me.tbKeluarMasuk.Location = New System.Drawing.Point(222, 346)
+        Me.tbKeluarMasuk.Name = "tbKeluarMasuk"
+        Me.tbKeluarMasuk.ReadOnly = True
+        Me.tbKeluarMasuk.Size = New System.Drawing.Size(100, 20)
+        Me.tbKeluarMasuk.TabIndex = 4
         '
         'SensusForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(530, 410)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.tbKeluarMasuk)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.btnPrint)
@@ -528,12 +528,12 @@ Partial Class SensusForm
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents tbJumlahPasienKeluar As System.Windows.Forms.TextBox
+    Friend WithEvents tbJumlahKeluarMati As System.Windows.Forms.TextBox
     Friend WithEvents tbLebih48 As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents tbKurang48 As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents tbKeluarMasuk As System.Windows.Forms.TextBox
 End Class
