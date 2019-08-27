@@ -35,14 +35,14 @@ Public Class SensusForm
                 conn.Open()
                 Dim query As String
                 If rbHarian.Checked Then
-                    query = Harian()
+                    query = SensusHarian()
                 Else
-                    query = Bulanan()
+                    query = SensusBulanan()
                 End If
-
+                getTempatTidur(cbRuangan.SelectedItem, cbKelas.SelectedItem)
                 Dim cmd As New OleDbCommand(query, conn)
                 cmd.Parameters.AddWithValue("@tgl", dtpTanggal.Value.ToString("M/d/yyyy"))
-                cmd.Parameters.AddWithValue("@idTempatTidur", getIdTempatTidur())
+                cmd.Parameters.AddWithValue("@idTempatTidur", IdTempatTidur)
                 Dim result As OleDbDataReader = cmd.ExecuteReader
                 If result.Read Then
                     tbPasienAwal.Text = result.GetValue(0)
@@ -62,6 +62,8 @@ Public Class SensusForm
                     tbJumlahKeluarMati.Text = Val(tbKurang48.Text) + Val(tbLebih48.Text)
 
                     tbKeluarMasuk.Text = Val(tbJumlahDirawat.Text) - (Val(tbJumlahKeluarHidup.Text) + Val(tbJumlahKeluarMati.Text))
+
+                    LamaRawat()
                 End If
             Else
                 MsgBox("Koneksi database gagal!")
@@ -69,45 +71,38 @@ Public Class SensusForm
         End If
     End Sub
 
-    Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
-
-    End Sub
-
-    Private Sub tbJumlahKeluarHidup_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbJumlahKeluarHidup.TextChanged
-
-    End Sub
-
-    Private Sub Label10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label10.Click
-
-    End Sub
-    Private Function getIdTempatTidur()
-        Dim idTempatTidur As String = 0
-        Dim source As String = My.Settings.DBConnectionString
-        Dim conn = New OleDbConnection(source)
-        If conn.State = ConnectionState.Closed Then
-            conn.Open()
-            Dim query As String = "SELECT tempat_tidur.id FROM tempat_tidur, ruangan, kelas WHERE tempat_tidur.id_ruangan = ruangan.id AND tempat_tidur.id_kelas = kelas.id AND ruangan.ruangan = @ruangan AND kelas.kelas = @kelas"
-            Dim cmd As New OleDbCommand(query, conn)
-            cmd.Parameters.AddWithValue("@ruangan", cbRuangan.SelectedItem)
-            cmd.Parameters.AddWithValue("@kelas", cbKelas.SelectedItem)
-            Dim result As OleDbDataReader = cmd.ExecuteReader
-            If result.Read Then
-                idTempatTidur = result.GetValue(0)
-            End If
-        Else
-            MsgBox("Koneksi database gagal!")
-        End If
-        Return idTempatTidur
-    End Function
-    Private Function Harian()
+    Private Function SensusHarian()
         Dim query As String
         query = "SELECT Sum(awal) AS [Pasien Awal], Sum(masuk) AS [Pasien Masuk], Sum(izin) AS [Diizinkan Pulang], Sum(rujuk) AS Dirujuk, Sum(pindah) AS [Pindah RS], Sum(pulang) AS [Pulang Paksa], Sum(melarikan) AS [Melarikan Diri], Sum(dipindah) AS Dipindahkan, Sum(kurang) AS KurangJam, Sum(lebih) AS LebihJam FROM (  SELECT COUNT(id) AS awal, 0 AS masuk, 0 AS izin, 0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_masuk WHERE tanggal_masuk < @tgl AND deleted_at IS NULL AND id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, COUNT(id) AS masuk, 0 AS izin, 0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_masuk WHERE tanggal_masuk = @tgl AND deleted_at IS NULL AND id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, COUNT(register_keluar.id) AS izin, 0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Diizinkan pulang' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  COUNT(register_keluar.id) AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Dirujuk' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, COUNT(register_keluar.id) AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Pindah RS lain' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, COUNT(register_keluar.id) AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Pulang paksa' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, 0 AS pulang, COUNT(register_keluar.id) AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Melarikan diri' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, COUNT(register_keluar.id) AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Dipindahkan' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, COUNT(register_keluar.id) AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Meninggal <48 jam' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, COUNT(register_keluar.id) AS lebih FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Meninggal >48 jam' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  )  AS [%$##@_Alias]"
         Return query
     End Function
 
-    Private Function Bulanan()
+    Private Function SensusBulanan()
         Dim query As String
         query = "SELECT Sum(awal) AS [Pasien Awal], Sum(masuk) AS [Pasien Masuk], Sum(izin) AS [Diizinkan Pulang], Sum(rujuk) AS Dirujuk, Sum(pindah) AS [Pindah RS], Sum(pulang) AS [Pulang Paksa], Sum(melarikan) AS [Melarikan Diri], Sum(dipindah) AS Dipindahkan, Sum(kurang) AS KurangJam, Sum(lebih) AS LebihJam FROM (SELECT COUNT(id) AS awal, 0 AS masuk, 0 AS izin, 0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_masuk WHERE MONTH(tanggal_masuk) < MONTH(@tgl) AND YEAR(tanggal_masuk) = YEAR(@tgl) AND deleted_at IS NULL AND id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, COUNT(id) AS masuk, 0 AS izin, 0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_masuk WHERE MONTH(tanggal_masuk) = MONTH(@tgl) AND YEAR(tanggal_masuk) = YEAR(@tgl) AND deleted_at IS NULL AND id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, COUNT(register_keluar.id) AS izin, 0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Diizinkan pulang' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  COUNT(register_keluar.id) AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Dirujuk' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, COUNT(register_keluar.id) AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Pindah RS lain' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, COUNT(register_keluar.id) AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Pulang paksa' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, 0 AS pulang, COUNT(register_keluar.id) AS melarikan, 0 AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Melarikan diri' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, COUNT(register_keluar.id) AS dipindah, 0 AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Dipindahkan' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, COUNT(register_keluar.id) AS kurang, 0 AS lebih FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Meninggal <48 jam' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT 0 AS awal, 0 AS masuk, 0 AS izin,  0 AS rujuk, 0 AS pindah, 0 AS pulang, 0 AS melarikan, 0 AS dipindah, 0 AS kurang, COUNT(register_keluar.id) AS lebih FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Meninggal >48 jam' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  )  AS [%$##@_Alias]"
         Return query
     End Function
+
+    Private Sub LamaRawat()
+        Dim source As String = My.Settings.DBConnectionString
+        Dim conn = New OleDbConnection(source)
+        If conn.State = ConnectionState.Closed Then
+            conn.Open()
+            Dim query As String
+            If rbHarian.Checked Then
+                query = "SELECT sum(lama) AS [Lama dirawat] FROM (  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_masuk WHERE tanggal_masuk < @tgl AND deleted_at IS NULL AND id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_masuk WHERE tanggal_masuk = @tgl AND deleted_at IS NULL AND id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Diizinkan pulang' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Dirujuk' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Pindah RS lain' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Pulang paksa' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Melarikan diri' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Dipindahkan' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Meninggal <48 jam' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE tanggal_keluar = @tgl AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Meninggal >48 jam' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  )  AS [%$##@_Alias]"
+            Else
+                query = "SELECT sum(lama) AS [Lama dirawat] FROM (SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_masuk WHERE MONTH(tanggal_masuk) < MONTH(@tgl) AND YEAR(tanggal_masuk) = YEAR(@tgl) AND deleted_at IS NULL AND id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_masuk WHERE MONTH(tanggal_masuk) = MONTH(@tgl) AND YEAR(tanggal_masuk) = YEAR(@tgl) AND deleted_at IS NULL AND id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Diizinkan pulang' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Dirujuk' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Pindah RS lain' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Pulang paksa' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Melarikan diri' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Dipindahkan' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Meninggal <48 jam' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  UNION ALL  SELECT DATEDIFF('y', [tanggal_masuk], @tgl) AS lama FROM register_keluar, register_masuk WHERE MONTH(tanggal_keluar) = MONTH(@tgl) AND YEAR(tanggal_keluar) = YEAR(@tgl) AND register_keluar.deleted_at IS NULL AND cara_pasien_keluar = 'Meninggal >48 jam' AND register_keluar.id_register_masuk = register_masuk.id AND register_masuk.id_tempat_tidur = @idTempatTidur  )  AS [%$##@_Alias]"
+            End If
+            Dim cmd As New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@tgl", dtpTanggal.Value.ToString("M/d/yyyy"))
+            cmd.Parameters.AddWithValue("@idTempatTidur", IdTempatTidur)
+            Dim result As OleDbDataReader = cmd.ExecuteReader
+            If result.Read Then
+                tbLamaRawat.Text = result.GetValue(0)
+            End If
+        Else
+            MsgBox("Koneksi database gagal!")
+        End If
+    End Sub
 End Class
