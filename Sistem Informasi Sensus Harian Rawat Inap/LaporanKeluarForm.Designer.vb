@@ -50,6 +50,7 @@ Partial Class LaporanKeluarForm
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Laporan_keluar_QueryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.Laporan_keluar_QueryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Laporan_keluar_QueryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -281,6 +282,9 @@ Partial Class LaporanKeluarForm
         Me.DBDataSet.DataSetName = "DBDataSet"
         Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'PrintDocument1
+        '
+        '
         'LaporanKeluarForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -337,4 +341,5 @@ Partial Class LaporanKeluarForm
     Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
 End Class
