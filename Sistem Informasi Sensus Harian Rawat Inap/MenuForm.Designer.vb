@@ -32,9 +32,9 @@ Partial Class MenuForm
         Me.RegisterPasienKeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SensusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PasienMasukRawatInapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PasienKeluarRawatInapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -58,19 +58,19 @@ Partial Class MenuForm
         'UserToolStripMenuItem
         '
         Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.UserToolStripMenuItem.Text = "User"
         '
         'PasienToolStripMenuItem
         '
         Me.PasienToolStripMenuItem.Name = "PasienToolStripMenuItem"
-        Me.PasienToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PasienToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.PasienToolStripMenuItem.Text = "Pasien"
         '
         'DokterToolStripMenuItem
         '
         Me.DokterToolStripMenuItem.Name = "DokterToolStripMenuItem"
-        Me.DokterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DokterToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.DokterToolStripMenuItem.Text = "Dokter"
         '
         'ProsesToolStripMenuItem
@@ -102,18 +102,8 @@ Partial Class MenuForm
         'SensusToolStripMenuItem
         '
         Me.SensusToolStripMenuItem.Name = "SensusToolStripMenuItem"
-        Me.SensusToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.SensusToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
         Me.SensusToolStripMenuItem.Text = "Sensus"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 27)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(520, 283)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 8
-        Me.PictureBox1.TabStop = False
-        Me.PictureBox1.WaitOnLoad = True
         '
         'PasienMasukRawatInapToolStripMenuItem
         '
@@ -126,6 +116,16 @@ Partial Class MenuForm
         Me.PasienKeluarRawatInapToolStripMenuItem.Name = "PasienKeluarRawatInapToolStripMenuItem"
         Me.PasienKeluarRawatInapToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
         Me.PasienKeluarRawatInapToolStripMenuItem.Text = "Register Pasien Keluar"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 27)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(520, 283)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.WaitOnLoad = True
         '
         'MenuForm
         '
