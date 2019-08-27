@@ -34,4 +34,12 @@
     Private Sub SensusToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SensusToolStripMenuItem.Click
         ShowCenter(Me, SensusForm)
     End Sub
+
+    Private Sub PasienMasukRawatInapToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasienMasukRawatInapToolStripMenuItem.Click
+        ShowCenter(Me, LaporanMasukForm)
+    End Sub
+
+    Private Sub PasienKeluarRawatInapToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasienKeluarRawatInapToolStripMenuItem.Click
+        ShowCenter(Me, LaporanKeluarForm)
+    End Sub
 End Class
