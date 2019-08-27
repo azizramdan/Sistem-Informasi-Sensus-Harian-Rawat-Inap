@@ -567,6 +567,30 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="laporan keluar QueryTableAdapter" GeneratorDataComponentClassName="laporan_keluar_QueryTableAdapter" Name="laporan keluar Query" UserDataComponentName="laporan keluar QueryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="laporan keluar Query" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, id_register_masuk, no_medrec, nama_lengkap, ruangan, kelas, tanggal_keluar, cara_pasien_keluar, deleted_at FROM [laporan keluar Query]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_register_masuk" DataSetColumn="id_register_masuk" />
+              <Mapping SourceColumn="no_medrec" DataSetColumn="no_medrec" />
+              <Mapping SourceColumn="nama_lengkap" DataSetColumn="nama_lengkap" />
+              <Mapping SourceColumn="ruangan" DataSetColumn="ruangan" />
+              <Mapping SourceColumn="kelas" DataSetColumn="kelas" />
+              <Mapping SourceColumn="tanggal_keluar" DataSetColumn="tanggal_keluar" />
+              <Mapping SourceColumn="cara_pasien_keluar" DataSetColumn="cara_pasien_keluar" />
+              <Mapping SourceColumn="deleted_at" DataSetColumn="deleted_at" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="register_keluar QueryTableAdapter" GeneratorDataComponentClassName="register_keluar_QueryTableAdapter" Name="register_keluar Query" UserDataComponentName="register_keluar QueryTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="register_keluar Query" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -860,6 +884,51 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laporan_x0020_keluar_x0020_Query" msprop:Generator_TableClassName="laporan_keluar_QueryDataTable" msprop:Generator_TableVarName="tablelaporan_keluar_Query" msprop:Generator_TablePropName="laporan_keluar_Query" msprop:Generator_RowDeletingName="laporan_keluar_QueryRowDeleting" msprop:Generator_RowChangingName="laporan_keluar_QueryRowChanging" msprop:Generator_RowEvHandlerName="laporan_keluar_QueryRowChangeEventHandler" msprop:Generator_RowDeletedName="laporan_keluar_QueryRowDeleted" msprop:Generator_UserTableName="laporan keluar Query" msprop:Generator_RowChangedName="laporan_keluar_QueryRowChanged" msprop:Generator_RowEvArgName="laporan_keluar_QueryRowChangeEvent" msprop:Generator_RowClassName="laporan_keluar_QueryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_register_masuk" msprop:Generator_ColumnVarNameInTable="columnid_register_masuk" msprop:Generator_ColumnPropNameInRow="id_register_masuk" msprop:Generator_ColumnPropNameInTable="id_register_masukColumn" msprop:Generator_UserColumnName="id_register_masuk" type="xs:int" minOccurs="0" />
+              <xs:element name="no_medrec" msprop:Generator_ColumnVarNameInTable="columnno_medrec" msprop:Generator_ColumnPropNameInRow="no_medrec" msprop:Generator_ColumnPropNameInTable="no_medrecColumn" msprop:Generator_UserColumnName="no_medrec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nama_lengkap" msprop:Generator_ColumnVarNameInTable="columnnama_lengkap" msprop:Generator_ColumnPropNameInRow="nama_lengkap" msprop:Generator_ColumnPropNameInTable="nama_lengkapColumn" msprop:Generator_UserColumnName="nama_lengkap" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ruangan" msprop:Generator_ColumnVarNameInTable="columnruangan" msprop:Generator_ColumnPropNameInRow="ruangan" msprop:Generator_ColumnPropNameInTable="ruanganColumn" msprop:Generator_UserColumnName="ruangan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kelas" msprop:Generator_ColumnVarNameInTable="columnkelas" msprop:Generator_ColumnPropNameInRow="kelas" msprop:Generator_ColumnPropNameInTable="kelasColumn" msprop:Generator_UserColumnName="kelas" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tanggal_keluar" msprop:Generator_ColumnVarNameInTable="columntanggal_keluar" msprop:Generator_ColumnPropNameInRow="tanggal_keluar" msprop:Generator_ColumnPropNameInTable="tanggal_keluarColumn" msprop:Generator_UserColumnName="tanggal_keluar" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cara_pasien_keluar" msprop:Generator_ColumnVarNameInTable="columncara_pasien_keluar" msprop:Generator_ColumnPropNameInRow="cara_pasien_keluar" msprop:Generator_ColumnPropNameInTable="cara_pasien_keluarColumn" msprop:Generator_UserColumnName="cara_pasien_keluar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="deleted_at" msprop:Generator_ColumnVarNameInTable="columndeleted_at" msprop:Generator_ColumnPropNameInRow="deleted_at" msprop:Generator_ColumnPropNameInTable="deleted_atColumn" msprop:Generator_UserColumnName="deleted_at" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
