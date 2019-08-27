@@ -86,6 +86,12 @@
     <Compile Include="DokterForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LaporanKeluarForm.Designer.vb">
+      <DependentUpon>LaporanKeluarForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LaporanKeluarForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LaporanMasukForm.Designer.vb">
       <DependentUpon>LaporanMasukForm.vb</DependentUpon>
     </Compile>
@@ -204,6 +210,12 @@
   <ItemGroup>
     <EmbeddedResource Include="DokterForm.resx">
       <DependentUpon>DokterForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaporanKeluarForm.resx">
+      <DependentUpon>LaporanKeluarForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaporanMasukForm.resx">
+      <DependentUpon>LaporanMasukForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
