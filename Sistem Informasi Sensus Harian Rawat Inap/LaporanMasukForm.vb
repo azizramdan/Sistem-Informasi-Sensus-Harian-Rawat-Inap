@@ -93,7 +93,7 @@
         sf.Alignment = StringAlignment.Center
         sf.LineAlignment = StringAlignment.Center
 
-        e.Graphics.DrawString("Laporan Registrasi Pasien Keluar", New Font("Microsoft Sans Serif", 20, FontStyle.Bold), Brushes.Black, rect, sf)
+        e.Graphics.DrawString("Laporan Registrasi Pasien Masuk", New Font("Microsoft Sans Serif", 20, FontStyle.Bold), Brushes.Black, rect, sf)
         startY += 10
         e.Graphics.DrawString(periode, New Font("Microsoft Sans Serif", 10, FontStyle.Bold), Brushes.Black, New Rectangle(20, startY, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), Label1.Height), sf)
         startY += 20
