@@ -86,6 +86,12 @@
     <Compile Include="DokterForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LaporanMasukForm.Designer.vb">
+      <DependentUpon>LaporanMasukForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LaporanMasukForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
