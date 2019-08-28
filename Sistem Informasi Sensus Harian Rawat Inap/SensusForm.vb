@@ -121,26 +121,76 @@ Public Class SensusForm
             ppd.WindowState = FormWindowState.Maximized
             ppd.ShowDialog()
         Else
-            MsgBox("Lakukan sensus terlebih dahulu")
+            MsgBox("Cari data sensus terlebih dahulu")
         End If
     End Sub
 
     Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        Dim rect As New Rectangle(20, 20, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), 50)
+        Dim width As Integer = CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width)
+        Dim height As Integer = 50
+        Dim rect As New Rectangle(20, 20, width, height)
         Dim sf As New StringFormat
-        Dim startX As Integer = 50
+        Dim startX As Integer = 20
         Dim startY As Integer = rect.Bottom
+        Dim fontJudul As New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
 
         sf.Alignment = StringAlignment.Center
         sf.LineAlignment = StringAlignment.Center
 
-        e.Graphics.DrawString("Laporan Sensus", New Font("Microsoft Sans Serif", 20, FontStyle.Bold), Brushes.Black, rect, sf)
+        e.Graphics.DrawString("Laporan Sensus", fontJudul, Brushes.Black, rect, sf)
+        fontJudul = New Font("Microsoft Sans Serif", 12, FontStyle.Bold)
         startY += 10
-        e.Graphics.DrawString(periode, New Font("Microsoft Sans Serif", 10, FontStyle.Bold), Brushes.Black, New Rectangle(20, startY, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), Label1.Height), sf)
+        height = 20
+        e.Graphics.DrawString(periode, fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
         startY += 20
-        e.Graphics.DrawString("Ruangan: " & cbRuangan.SelectedItem, New Font("Microsoft Sans Serif", 10, FontStyle.Bold), Brushes.Black, New Rectangle(20, startY, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), Label1.Height), sf)
+        e.Graphics.DrawString("Ruangan: " & cbRuangan.SelectedItem, fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
         startY += 20
-        e.Graphics.DrawString("Kelas: " & cbKelas.SelectedItem, New Font("Microsoft Sans Serif", 10, FontStyle.Bold), Brushes.Black, New Rectangle(20, startY, CInt(PrintDocument1.DefaultPageSettings.PrintableArea.Width), Label1.Height), sf)
+        e.Graphics.DrawString("Kelas: " & cbKelas.SelectedItem, fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+
+        fontJudul = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
+        Dim fontIsi As New Font("Microsoft Sans Serif", 10)
+        sf.Alignment = StringAlignment.Near
+        sf.LineAlignment = StringAlignment.Near
+
+        startY += 60
+        e.Graphics.DrawString("Total pasien dirawat", fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Pasien awal: " & tbPasienAwal.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Pasien masuk: " & tbPasienMasuk.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Jumlah: " & tbJumlahDirawat.Text, fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+
+        startY += 40
+        e.Graphics.DrawString("Total pasien keluar hidup", fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Diizinkan pulang: " & tbDiizinkan.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Dirujuk: " & tbDirujuk.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Pindah RS lain: " & tbPindahRS.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Pulang paksa: " & tbPulangPaksa.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Melarikan diri: " & tbMelarikanDiri.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Dipindahkan: " & tbDipindahkan.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Jumlah: " & tbJumlahKeluarHidup.Text, fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+
+        startY += 40
+        e.Graphics.DrawString("Total pasien keluar mati", fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("<48 jam: " & tbKurang48.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString(">48 jam: " & tbLebih48.Text, fontIsi, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Jumlah: " & tbJumlahKeluarMati.Text, fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+
+        startY += 40
+        e.Graphics.DrawString("Lama dirawat: " & tbLamaRawat.Text, fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
+        startY += 20
+        e.Graphics.DrawString("Pasien keluar masuk dihari yang sama: " & tbKeluarMasuk.Text, fontJudul, Brushes.Black, New Rectangle(startX, startY, width, height), sf)
 
     End Sub
 End Class
