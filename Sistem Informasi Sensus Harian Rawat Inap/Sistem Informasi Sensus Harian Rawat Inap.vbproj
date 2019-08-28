@@ -157,6 +157,12 @@
     <Compile Include="RegisterMasukForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RegisterPindahForm.Designer.vb">
+      <DependentUpon>RegisterPindahForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPindahForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SensusForm.Designer.vb">
       <DependentUpon>SensusForm.vb</DependentUpon>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterMasukTambahForm.resx">
       <DependentUpon>RegisterMasukTambahForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterPindahForm.resx">
+      <DependentUpon>RegisterPindahForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SensusForm.resx">
       <DependentUpon>SensusForm.vb</DependentUpon>
