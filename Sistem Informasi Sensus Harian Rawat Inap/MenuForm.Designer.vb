@@ -30,6 +30,7 @@ Partial Class MenuForm
         Me.ProsesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegisterPasienMasukToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegisterPasienKeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegisterPindahPasienToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SensusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PasienMasukRawatInapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -75,7 +76,7 @@ Partial Class MenuForm
         '
         'ProsesToolStripMenuItem
         '
-        Me.ProsesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegisterPasienMasukToolStripMenuItem, Me.RegisterPasienKeluarToolStripMenuItem})
+        Me.ProsesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegisterPasienMasukToolStripMenuItem, Me.RegisterPasienKeluarToolStripMenuItem, Me.RegisterPindahPasienToolStripMenuItem})
         Me.ProsesToolStripMenuItem.Name = "ProsesToolStripMenuItem"
         Me.ProsesToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
         Me.ProsesToolStripMenuItem.Text = "Proses"
@@ -83,14 +84,20 @@ Partial Class MenuForm
         'RegisterPasienMasukToolStripMenuItem
         '
         Me.RegisterPasienMasukToolStripMenuItem.Name = "RegisterPasienMasukToolStripMenuItem"
-        Me.RegisterPasienMasukToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.RegisterPasienMasukToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.RegisterPasienMasukToolStripMenuItem.Text = "Register Pasien Masuk"
         '
         'RegisterPasienKeluarToolStripMenuItem
         '
         Me.RegisterPasienKeluarToolStripMenuItem.Name = "RegisterPasienKeluarToolStripMenuItem"
-        Me.RegisterPasienKeluarToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.RegisterPasienKeluarToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.RegisterPasienKeluarToolStripMenuItem.Text = "Register Pasien Keluar"
+        '
+        'RegisterPindahPasienToolStripMenuItem
+        '
+        Me.RegisterPindahPasienToolStripMenuItem.Name = "RegisterPindahPasienToolStripMenuItem"
+        Me.RegisterPindahPasienToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.RegisterPindahPasienToolStripMenuItem.Text = "Register Pindah Pasien"
         '
         'LaporanToolStripMenuItem
         '
@@ -157,4 +164,5 @@ Partial Class MenuForm
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PasienMasukRawatInapToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PasienKeluarRawatInapToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegisterPindahPasienToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

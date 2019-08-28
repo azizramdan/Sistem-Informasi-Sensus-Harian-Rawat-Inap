@@ -31,6 +31,10 @@
         ShowCenter(Me, RegisterKeluarForm)
     End Sub
 
+    Private Sub RegisterPindahPasienToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RegisterPindahPasienToolStripMenuItem.Click
+        ShowCenter(Me, RegisterPindahForm)
+    End Sub
+
     Private Sub SensusToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SensusToolStripMenuItem.Click
         ShowCenter(Me, SensusForm)
     End Sub
