@@ -2,6 +2,11 @@
 Public Class RegisterMasukEditForm
     Dim idRegMasuk, namaRuangan, namaKelas As String
 
+    Private Sub RegisterMasukEditForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        connect()
+        getRuanganKelas(cbRuangan, cbKelas)
+    End Sub
+
     Public Sub New(ByVal id As String, ByVal medrec As String, ByVal nama As String, ByVal tanggal As Date, ByVal ruangan As String, ByVal kelas As String, ByVal caraMasuk As String)
         InitializeComponent()
         idRegMasuk = id

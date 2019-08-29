@@ -108,7 +108,6 @@ Partial Class LaporanMasukForm
         'cbRuangan
         '
         Me.cbRuangan.FormattingEnabled = True
-        Me.cbRuangan.Items.AddRange(New Object() {"Berlian Barat", "Berlian Timur", "Safir Barat", "Safir Timur", "Ruby Barat", "Ruby Timur", "Topas", "Maternity", "Mutiara", "Intermediate", "Nursery", "Perina"})
         Me.cbRuangan.Location = New System.Drawing.Point(431, 15)
         Me.cbRuangan.Name = "cbRuangan"
         Me.cbRuangan.Size = New System.Drawing.Size(164, 21)
@@ -117,7 +116,6 @@ Partial Class LaporanMasukForm
         'cbKelas
         '
         Me.cbKelas.FormattingEnabled = True
-        Me.cbKelas.Items.AddRange(New Object() {"President Suite", "Suite", "Junior Suite", "Premiere", "Kelas I", "Kelas II", "Kelas III", "Isolasi"})
         Me.cbKelas.Location = New System.Drawing.Point(431, 42)
         Me.cbKelas.Name = "cbKelas"
         Me.cbKelas.Size = New System.Drawing.Size(164, 21)

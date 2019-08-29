@@ -15,6 +15,7 @@
     Dim periode As String
     Private Sub LaporanMasukForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
+        getRuanganKelas(cbRuangan, cbKelas)
     End Sub
 
     Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
