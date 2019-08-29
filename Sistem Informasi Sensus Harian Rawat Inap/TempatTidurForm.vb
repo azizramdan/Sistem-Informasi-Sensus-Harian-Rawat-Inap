@@ -23,8 +23,6 @@ Public Class TempatTidurForm
         Get_semua_tempat_tidurBindingSource.Sort = "id_ruangan"
         Me.Get_semua_tempat_tidurTableAdapter.Fill(Me.DBDataSet.get_semua_tempat_tidur)
         Jumlah()
-        RuanganComboBox.Items.Clear()
-        KelasComboBox.Items.Clear()
         getRuanganKelas(RuanganComboBox, KelasComboBox)
     End Sub
 
@@ -173,6 +171,6 @@ Public Class TempatTidurForm
     End Sub
 
     Private Sub EditRuanganKelasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditRuanganKelasToolStripMenuItem.Click
-
+        ShowCenter(Me, TempatTidurEditForm)
     End Sub
 End Class

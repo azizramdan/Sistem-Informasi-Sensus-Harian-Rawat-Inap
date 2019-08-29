@@ -83,7 +83,10 @@ Module Connection
             MsgBox("Koneksi database gagal!")
         End If
     End Sub
+
     Sub getRuanganKelas(ByVal ruangan As ComboBox, ByVal kelas As ComboBox)
+        ruangan.Items.Clear()
+        kelas.Items.Clear()
         Dim source As String = My.Settings.DBConnectionString
         Dim conn = New OleDbConnection(source)
         If conn.State = ConnectionState.Closed Then
