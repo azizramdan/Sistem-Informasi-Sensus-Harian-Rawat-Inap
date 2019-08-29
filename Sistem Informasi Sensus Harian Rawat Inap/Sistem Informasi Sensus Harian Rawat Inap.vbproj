@@ -194,10 +194,22 @@
     <Compile Include="RegisterMasukTambahForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TempatTidurEditForm.Designer.vb">
+      <DependentUpon>TempatTidurEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TempatTidurEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TempatTidurForm.Designer.vb">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
     </Compile>
     <Compile Include="TempatTidurForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TempatTidurTambahForm.Designer.vb">
+      <DependentUpon>TempatTidurTambahForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TempatTidurTambahForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserForm.Designer.vb">
@@ -262,8 +274,14 @@
     <EmbeddedResource Include="SensusForm.resx">
       <DependentUpon>SensusForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TempatTidurEditForm.resx">
+      <DependentUpon>TempatTidurEditForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TempatTidurForm.resx">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TempatTidurTambahForm.resx">
+      <DependentUpon>TempatTidurTambahForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.vb</DependentUpon>
