@@ -83,4 +83,26 @@ Module Connection
             MsgBox("Koneksi database gagal!")
         End If
     End Sub
+    Sub getRuanganKelas(ByVal ruangan As ComboBox, ByVal kelas As ComboBox)
+        Dim source As String = My.Settings.DBConnectionString
+        Dim conn = New OleDbConnection(source)
+        If conn.State = ConnectionState.Closed Then
+            conn.Open()
+            Dim query As String = "SELECT ruangan FROM ruangan"
+            Dim cmd As New OleDbCommand(query, conn)
+            Dim result As OleDbDataReader = cmd.ExecuteReader
+            While result.Read
+                ruangan.Items.Add(result.GetValue(0))
+            End While
+
+            query = "SELECT kelas FROM kelas"
+            cmd = New OleDbCommand(query, conn)
+            result = cmd.ExecuteReader
+            While result.Read
+                kelas.Items.Add(result.GetValue(0))
+            End While
+        Else
+            MsgBox("Koneksi database gagal!")
+        End If
+    End Sub
 End Module
