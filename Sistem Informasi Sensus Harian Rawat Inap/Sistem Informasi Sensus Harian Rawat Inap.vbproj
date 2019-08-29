@@ -194,12 +194,6 @@
     <Compile Include="RegisterMasukTambahForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TambahTempatTidurForm.Designer.vb">
-      <DependentUpon>TambahTempatTidurForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="TambahTempatTidurForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="TempatTidurForm.Designer.vb">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
     </Compile>
@@ -267,9 +261,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SensusForm.resx">
       <DependentUpon>SensusForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TambahTempatTidurForm.resx">
-      <DependentUpon>TambahTempatTidurForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TempatTidurForm.resx">
       <DependentUpon>TempatTidurForm.vb</DependentUpon>
