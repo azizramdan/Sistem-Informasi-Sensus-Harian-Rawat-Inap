@@ -46,4 +46,8 @@
     Private Sub PasienKeluarRawatInapToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasienKeluarRawatInapToolStripMenuItem.Click
         ShowCenter(Me, LaporanKeluarForm)
     End Sub
+
+    Private Sub TempatTidurToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TempatTidurToolStripMenuItem.Click
+        ShowCenter(Me, TempatTidurForm)
+    End Sub
 End Class
