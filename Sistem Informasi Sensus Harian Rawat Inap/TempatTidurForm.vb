@@ -167,4 +167,12 @@ Public Class TempatTidurForm
             End If
         End If
     End Sub
+
+    Private Sub TambahToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TambahToolStripMenuItem.Click
+        ShowCenter(Me, TempatTidurTambahForm)
+    End Sub
+
+    Private Sub EditRuanganKelasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditRuanganKelasToolStripMenuItem.Click
+
+    End Sub
 End Class

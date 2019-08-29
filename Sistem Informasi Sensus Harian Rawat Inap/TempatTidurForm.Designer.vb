@@ -24,6 +24,7 @@ Partial Class TempatTidurForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnTambah = New System.Windows.Forms.Button()
         Me.btnSimpan = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -37,6 +38,7 @@ Partial Class TempatTidurForm
         Me.KosongTextBox = New System.Windows.Forms.TextBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.TambahToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditRuanganKelasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -55,8 +57,6 @@ Partial Class TempatTidurForm
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.EditRuanganKelasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnTambah = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Get_semua_tempat_tidurBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,6 +84,15 @@ Partial Class TempatTidurForm
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Edit"
+        '
+        'btnTambah
+        '
+        Me.btnTambah.Location = New System.Drawing.Point(370, 31)
+        Me.btnTambah.Name = "btnTambah"
+        Me.btnTambah.Size = New System.Drawing.Size(75, 23)
+        Me.btnTambah.TabIndex = 33
+        Me.btnTambah.Text = "Tambah"
+        Me.btnTambah.UseVisualStyleBackColor = True
         '
         'btnSimpan
         '
@@ -191,6 +200,12 @@ Partial Class TempatTidurForm
         Me.TambahToolStripMenuItem.Name = "TambahToolStripMenuItem"
         Me.TambahToolStripMenuItem.Size = New System.Drawing.Size(143, 20)
         Me.TambahToolStripMenuItem.Text = "Tambah Ruangan/Kelas"
+        '
+        'EditRuanganKelasToolStripMenuItem
+        '
+        Me.EditRuanganKelasToolStripMenuItem.Name = "EditRuanganKelasToolStripMenuItem"
+        Me.EditRuanganKelasToolStripMenuItem.Size = New System.Drawing.Size(121, 20)
+        Me.EditRuanganKelasToolStripMenuItem.Text = "Edit Ruangan/Kelas"
         '
         'GroupBox2
         '
@@ -347,21 +362,6 @@ Partial Class TempatTidurForm
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(119, 17)
         Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
-        '
-        'EditRuanganKelasToolStripMenuItem
-        '
-        Me.EditRuanganKelasToolStripMenuItem.Name = "EditRuanganKelasToolStripMenuItem"
-        Me.EditRuanganKelasToolStripMenuItem.Size = New System.Drawing.Size(121, 20)
-        Me.EditRuanganKelasToolStripMenuItem.Text = "Edit Ruangan/Kelas"
-        '
-        'btnTambah
-        '
-        Me.btnTambah.Location = New System.Drawing.Point(370, 31)
-        Me.btnTambah.Name = "btnTambah"
-        Me.btnTambah.Size = New System.Drawing.Size(75, 23)
-        Me.btnTambah.TabIndex = 33
-        Me.btnTambah.Text = "Tambah"
-        Me.btnTambah.UseVisualStyleBackColor = True
         '
         'TempatTidurForm
         '
