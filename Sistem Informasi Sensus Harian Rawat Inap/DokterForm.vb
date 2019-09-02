@@ -1,6 +1,4 @@
 ﻿Public Class DokterForm
-    Dim DataChanged As Boolean
-
     Private Sub DokterForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DBDataSet1.dokter' table. You can move, or remove it, as needed.
         connect()
