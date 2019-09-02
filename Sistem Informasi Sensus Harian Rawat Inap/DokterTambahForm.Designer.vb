@@ -41,7 +41,7 @@ Partial Class DokterTambahForm
         'cbSpesialis
         '
         Me.cbSpesialis.FormattingEnabled = True
-        Me.cbSpesialis.Items.AddRange(New Object() {"Gigi", "Kulit", "Mata", "spesialis", "THT"})
+        Me.cbSpesialis.Items.AddRange(New Object() {"Dokter Umum", "Medical Check Up", "Psikolog", "Spesialis", "Spesialis Akupuntur", "Spesialis Anak", "Spesialis Anak Konsultan Gastro Hepatologi", "Spesialis Anak Konsultan Jantung Anak", "Spesialis Bedah Anak", "Spesialis Bedah Onkologi", "Spesialis Bedah Ortopedi & Traumatologi", "Spesialis Bedah Pencernaan", "Spesialis Bedah Plastik", "Spesialis Bedah Saraf", "Spesialis Bedah Thorax & Cardiovascular", "Spesialis Bedah Umum", "Spesialis Bedah Urologi", "Spesialis Dokter Gigi", "Spesialis Fisiologi Olahraga", "Spesialis Gizi Klinik", "Spesialis Internist Endokrin-Metabolik-Diabetes", "Spesialis Internist Gastro-Entero-Hepatologi", "Spesialis Internist Ginjal Dan Hipertensi", "Spesialis Internist Onkologi-Hematologi", "Spesialis Internist Rheumatologi", "Spesialis Jantung", "Spesialis Kandungan", "Spesialis Kandungan Konsultan Onkologi", "Spesialis Kesehatan Jiwa-Psychiatry", "Spesialis Kulit & Kecantikan", "Spesialis Mata", "Spesialis Nyeri Intervensi", "Spesialis Paru", "Spesialis Penyakit Dalam", "Spesialis Radiologi Intervensi", "Spesialis Rehabilitasi Medik", "Spesialis Saraf", "Spesialis THT"})
         Me.cbSpesialis.Location = New System.Drawing.Point(139, 138)
         Me.cbSpesialis.Name = "cbSpesialis"
         Me.cbSpesialis.Size = New System.Drawing.Size(173, 21)
@@ -152,7 +152,7 @@ Partial Class DokterTambahForm
         'cbStatus
         '
         Me.cbStatus.FormattingEnabled = True
-        Me.cbStatus.Items.AddRange(New Object() {"Aktif", "Cuti", "Tidak aktif"})
+        Me.cbStatus.Items.AddRange(New Object() {"Aktif", "Tidak aktif", "Cuti", "Perjanjian"})
         Me.cbStatus.Location = New System.Drawing.Point(139, 167)
         Me.cbStatus.Name = "cbStatus"
         Me.cbStatus.Size = New System.Drawing.Size(173, 21)
