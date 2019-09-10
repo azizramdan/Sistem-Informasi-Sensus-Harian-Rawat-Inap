@@ -5,6 +5,8 @@ Public Class RegisterMasukEditForm
     Private Sub RegisterMasukEditForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
         getRuanganKelas(cbRuangan, cbKelas)
+        cbRuangan.SelectedItem = namaRuangan
+        cbKelas.SelectedItem = namaKelas
     End Sub
 
     Public Sub New(ByVal id As String, ByVal medrec As String, ByVal nama As String, ByVal tanggal As Date, ByVal ruangan As String, ByVal kelas As String, ByVal caraMasuk As String)
@@ -13,9 +15,9 @@ Public Class RegisterMasukEditForm
         tbMedrec.Text = medrec
         tbNama.Text = nama
         dtpTanggal.Value = tanggal
-        cbRuangan.SelectedItem = ruangan
+        'cbRuangan.SelectedItem = ruangan
         namaRuangan = ruangan
-        cbKelas.SelectedItem = kelas
+        'cbKelas.SelectedItem = kelas
         namaKelas = kelas
         cbCaraMasuk.SelectedItem = caraMasuk
     End Sub
