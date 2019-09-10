@@ -76,8 +76,8 @@ Module Connection
                     IsKosong = False
                 Else
                     IsKosong = True
-                    IdTempatTidur = result.GetValue(0)
                 End If
+                IdTempatTidur = result.GetValue(0)
             End If
         Else
             MsgBox("Koneksi database gagal!")
