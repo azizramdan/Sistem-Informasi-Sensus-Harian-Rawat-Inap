@@ -15,9 +15,7 @@ Public Class RegisterMasukEditForm
         tbMedrec.Text = medrec
         tbNama.Text = nama
         dtpTanggal.Value = tanggal
-        'cbRuangan.SelectedItem = ruangan
         namaRuangan = ruangan
-        'cbKelas.SelectedItem = kelas
         namaKelas = kelas
         cbCaraMasuk.SelectedItem = caraMasuk
     End Sub
@@ -31,6 +29,10 @@ Public Class RegisterMasukEditForm
 
     Private Sub btnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSimpan.Click
         getTempatTidur(cbRuangan.SelectedItem, cbKelas.SelectedItem)
+        If cbRuangan.SelectedItem = namaRuangan And cbKelas.SelectedItem = namaKelas Then
+            IsKosong = True
+        End If
+
         If IsKosong Then
             Dim source As String = My.Settings.DBConnectionString
             Dim conn = New OleDbConnection(source)
