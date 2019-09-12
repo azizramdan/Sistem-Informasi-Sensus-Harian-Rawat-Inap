@@ -34,8 +34,6 @@ Partial Class LaporanMasukForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
-        Me.Register_masuk_QueryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Register_masuk_QueryTableAdapter = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.register_masuk_QueryTableAdapter()
         Me.TableAdapterManager = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -49,16 +47,23 @@ Partial Class LaporanMasukForm
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Register_masuk_QueryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
-        CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Register_masuk_QueryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cbCaraMasuk = New System.Windows.Forms.ComboBox()
+        Me.cRuangan = New System.Windows.Forms.CheckBox()
+        Me.cKelas = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.Register_masuk_QueryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Register_masuk_QueryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(374, 77)
+        Me.btnPrint.Location = New System.Drawing.Point(343, 105)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(75, 23)
         Me.btnPrint.TabIndex = 21
@@ -68,7 +73,7 @@ Partial Class LaporanMasukForm
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(371, 45)
+        Me.Label9.Location = New System.Drawing.Point(361, 72)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(33, 13)
         Me.Label9.TabIndex = 22
@@ -77,7 +82,7 @@ Partial Class LaporanMasukForm
         'rbBulanan
         '
         Me.rbBulanan.AutoSize = True
-        Me.rbBulanan.Location = New System.Drawing.Point(233, 19)
+        Me.rbBulanan.Location = New System.Drawing.Point(226, 15)
         Me.rbBulanan.Name = "rbBulanan"
         Me.rbBulanan.Size = New System.Drawing.Size(52, 17)
         Me.rbBulanan.TabIndex = 14
@@ -88,7 +93,7 @@ Partial Class LaporanMasukForm
         'rbHarian
         '
         Me.rbHarian.AutoSize = True
-        Me.rbHarian.Location = New System.Drawing.Point(139, 19)
+        Me.rbHarian.Location = New System.Drawing.Point(132, 15)
         Me.rbHarian.Name = "rbHarian"
         Me.rbHarian.Size = New System.Drawing.Size(56, 17)
         Me.rbHarian.TabIndex = 12
@@ -98,7 +103,7 @@ Partial Class LaporanMasukForm
         '
         'btnCari
         '
-        Me.btnCari.Location = New System.Drawing.Point(264, 77)
+        Me.btnCari.Location = New System.Drawing.Point(233, 105)
         Me.btnCari.Name = "btnCari"
         Me.btnCari.Size = New System.Drawing.Size(75, 23)
         Me.btnCari.TabIndex = 20
@@ -107,23 +112,25 @@ Partial Class LaporanMasukForm
         '
         'cbRuangan
         '
+        Me.cbRuangan.Enabled = False
         Me.cbRuangan.FormattingEnabled = True
-        Me.cbRuangan.Location = New System.Drawing.Point(431, 15)
+        Me.cbRuangan.Location = New System.Drawing.Point(470, 42)
         Me.cbRuangan.Name = "cbRuangan"
         Me.cbRuangan.Size = New System.Drawing.Size(164, 21)
         Me.cbRuangan.TabIndex = 18
         '
         'cbKelas
         '
+        Me.cbKelas.Enabled = False
         Me.cbKelas.FormattingEnabled = True
-        Me.cbKelas.Location = New System.Drawing.Point(431, 42)
+        Me.cbKelas.Location = New System.Drawing.Point(470, 69)
         Me.cbKelas.Name = "cbKelas"
         Me.cbKelas.Size = New System.Drawing.Size(164, 21)
         Me.cbKelas.TabIndex = 19
         '
         'dtpTanggal
         '
-        Me.dtpTanggal.Location = New System.Drawing.Point(139, 42)
+        Me.dtpTanggal.Location = New System.Drawing.Point(132, 38)
         Me.dtpTanggal.Name = "dtpTanggal"
         Me.dtpTanggal.Size = New System.Drawing.Size(200, 20)
         Me.dtpTanggal.TabIndex = 16
@@ -131,7 +138,7 @@ Partial Class LaporanMasukForm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(371, 18)
+        Me.Label3.Location = New System.Drawing.Point(361, 45)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(51, 13)
         Me.Label3.TabIndex = 17
@@ -140,7 +147,7 @@ Partial Class LaporanMasukForm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(78, 49)
+        Me.Label2.Location = New System.Drawing.Point(47, 45)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 15
@@ -150,21 +157,11 @@ Partial Class LaporanMasukForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(78, 22)
+        Me.Label1.Location = New System.Drawing.Point(47, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Periode"
-        '
-        'DBDataSet
-        '
-        Me.DBDataSet.DataSetName = "DBDataSet"
-        Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Register_masuk_QueryBindingSource
-        '
-        Me.Register_masuk_QueryBindingSource.DataMember = "register_masuk Query"
-        Me.Register_masuk_QueryBindingSource.DataSource = Me.DBDataSet
         '
         'Register_masuk_QueryTableAdapter
         '
@@ -189,7 +186,7 @@ Partial Class LaporanMasukForm
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 477)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(691, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(689, 22)
         Me.StatusStrip1.TabIndex = 24
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -206,10 +203,10 @@ Partial Class LaporanMasukForm
         Me.Register_masuk_QueryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Register_masuk_QueryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.Register_masuk_QueryDataGridView.DataSource = Me.Register_masuk_QueryBindingSource
-        Me.Register_masuk_QueryDataGridView.Location = New System.Drawing.Point(12, 117)
+        Me.Register_masuk_QueryDataGridView.Location = New System.Drawing.Point(12, 138)
         Me.Register_masuk_QueryDataGridView.Name = "Register_masuk_QueryDataGridView"
         Me.Register_masuk_QueryDataGridView.ReadOnly = True
-        Me.Register_masuk_QueryDataGridView.Size = New System.Drawing.Size(664, 357)
+        Me.Register_masuk_QueryDataGridView.Size = New System.Drawing.Size(664, 336)
         Me.Register_masuk_QueryDataGridView.TabIndex = 25
         '
         'DataGridViewTextBoxColumn1
@@ -269,14 +266,76 @@ Partial Class LaporanMasukForm
         Me.DataGridViewTextBoxColumn11.ReadOnly = True
         Me.DataGridViewTextBoxColumn11.Visible = False
         '
+        'Register_masuk_QueryBindingSource
+        '
+        Me.Register_masuk_QueryBindingSource.DataMember = "register_masuk Query"
+        Me.Register_masuk_QueryBindingSource.DataSource = Me.DBDataSet
+        '
+        'DBDataSet
+        '
+        Me.DBDataSet.DataSetName = "DBDataSet"
+        Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'PrintDocument1
         '
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(47, 73)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(64, 13)
+        Me.Label6.TabIndex = 27
+        Me.Label6.Text = "Cara Masuk"
+        '
+        'cbCaraMasuk
+        '
+        Me.cbCaraMasuk.FormattingEnabled = True
+        Me.cbCaraMasuk.Items.AddRange(New Object() {"Semua", "Rujukan", "UGD", "OPD/POLI", "Pindahan"})
+        Me.cbCaraMasuk.Location = New System.Drawing.Point(132, 70)
+        Me.cbCaraMasuk.Name = "cbCaraMasuk"
+        Me.cbCaraMasuk.Size = New System.Drawing.Size(200, 21)
+        Me.cbCaraMasuk.TabIndex = 26
+        '
+        'cRuangan
+        '
+        Me.cRuangan.AutoSize = True
+        Me.cRuangan.Location = New System.Drawing.Point(470, 17)
+        Me.cRuangan.Name = "cRuangan"
+        Me.cRuangan.Size = New System.Drawing.Size(70, 17)
+        Me.cRuangan.TabIndex = 28
+        Me.cRuangan.Text = "Ruangan"
+        Me.cRuangan.UseVisualStyleBackColor = True
+        '
+        'cKelas
+        '
+        Me.cKelas.AutoSize = True
+        Me.cKelas.Location = New System.Drawing.Point(566, 17)
+        Me.cKelas.Name = "cKelas"
+        Me.cKelas.Size = New System.Drawing.Size(52, 17)
+        Me.cKelas.TabIndex = 29
+        Me.cKelas.Text = "Kelas"
+        Me.cKelas.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(361, 17)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(89, 13)
+        Me.Label4.TabIndex = 30
+        Me.Label4.Text = "Ruangan && Kelas"
         '
         'LaporanMasukForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(691, 499)
+        Me.ClientSize = New System.Drawing.Size(689, 499)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.cKelas)
+        Me.Controls.Add(Me.cRuangan)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.cbCaraMasuk)
         Me.Controls.Add(Me.Register_masuk_QueryDataGridView)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.btnPrint)
@@ -292,11 +351,11 @@ Partial Class LaporanMasukForm
         Me.Controls.Add(Me.Label1)
         Me.Name = "LaporanMasukForm"
         Me.Text = "Laporan Pasien Masuk"
-        CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Register_masuk_QueryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         CType(Me.Register_masuk_QueryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Register_masuk_QueryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -328,4 +387,9 @@ Partial Class LaporanMasukForm
     Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents cbCaraMasuk As System.Windows.Forms.ComboBox
+    Friend WithEvents cRuangan As System.Windows.Forms.CheckBox
+    Friend WithEvents cKelas As System.Windows.Forms.CheckBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class
