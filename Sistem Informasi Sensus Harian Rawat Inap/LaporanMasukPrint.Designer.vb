@@ -46,7 +46,7 @@ Partial Class LaporanMasukPrint
         Me.ClientSize = New System.Drawing.Size(988, 485)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Name = "LaporanMasukPrint"
-        Me.Text = "Print Laporan Masuk"
+        Me.Text = "Print Laporan Register Pasien Masuk"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
