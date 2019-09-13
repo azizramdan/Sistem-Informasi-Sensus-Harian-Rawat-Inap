@@ -39,14 +39,6 @@ Partial Class LaporanKeluarForm
         Me.Laporan_keluar_QueryTableAdapter = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.laporan_keluar_QueryTableAdapter()
         Me.TableAdapterManager = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager()
         Me.Laporan_keluar_QueryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Laporan_keluar_QueryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
-        Me.cbCaraKeluar = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cKelas = New System.Windows.Forms.CheckBox()
-        Me.cRuangan = New System.Windows.Forms.CheckBox()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,6 +48,13 @@ Partial Class LaporanKeluarForm
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Laporan_keluar_QueryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
+        Me.cbCaraKeluar = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cKelas = New System.Windows.Forms.CheckBox()
+        Me.cRuangan = New System.Windows.Forms.CheckBox()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.Laporan_keluar_QueryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Laporan_keluar_QueryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -209,66 +208,6 @@ Partial Class LaporanKeluarForm
         Me.Laporan_keluar_QueryDataGridView.Size = New System.Drawing.Size(666, 423)
         Me.Laporan_keluar_QueryDataGridView.TabIndex = 36
         '
-        'Laporan_keluar_QueryBindingSource
-        '
-        Me.Laporan_keluar_QueryBindingSource.DataMember = "laporan keluar Query"
-        Me.Laporan_keluar_QueryBindingSource.DataSource = Me.DBDataSet
-        '
-        'DBDataSet
-        '
-        Me.DBDataSet.DataSetName = "DBDataSet"
-        Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PrintDocument1
-        '
-        '
-        'cbCaraKeluar
-        '
-        Me.cbCaraKeluar.FormattingEnabled = True
-        Me.cbCaraKeluar.Items.AddRange(New Object() {"Semua", "Diizinkan pulang", "Dirujuk", "Pindah RS lain", "Pulang paksa", "Melarikan diri", "Dipindahkan", "Meninggal <48 jam", "Meninggal >48 jam"})
-        Me.cbCaraKeluar.Location = New System.Drawing.Point(120, 67)
-        Me.cbCaraKeluar.Name = "cbCaraKeluar"
-        Me.cbCaraKeluar.Size = New System.Drawing.Size(200, 21)
-        Me.cbCaraKeluar.TabIndex = 37
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(46, 70)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(62, 13)
-        Me.Label6.TabIndex = 38
-        Me.Label6.Text = "Cara Keluar"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(357, 20)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(89, 13)
-        Me.Label4.TabIndex = 41
-        Me.Label4.Text = "Ruangan && Kelas"
-        '
-        'cKelas
-        '
-        Me.cKelas.AutoSize = True
-        Me.cKelas.Location = New System.Drawing.Point(562, 20)
-        Me.cKelas.Name = "cKelas"
-        Me.cKelas.Size = New System.Drawing.Size(52, 17)
-        Me.cKelas.TabIndex = 40
-        Me.cKelas.Text = "Kelas"
-        Me.cKelas.UseVisualStyleBackColor = True
-        '
-        'cRuangan
-        '
-        Me.cRuangan.AutoSize = True
-        Me.cRuangan.Location = New System.Drawing.Point(466, 20)
-        Me.cRuangan.Name = "cRuangan"
-        Me.cRuangan.Size = New System.Drawing.Size(70, 17)
-        Me.cRuangan.TabIndex = 39
-        Me.cRuangan.Text = "Ruangan"
-        Me.cRuangan.UseVisualStyleBackColor = True
-        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
@@ -341,6 +280,63 @@ Partial Class LaporanKeluarForm
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
         Me.DataGridViewTextBoxColumn9.Visible = False
         '
+        'Laporan_keluar_QueryBindingSource
+        '
+        Me.Laporan_keluar_QueryBindingSource.DataMember = "laporan keluar Query"
+        Me.Laporan_keluar_QueryBindingSource.DataSource = Me.DBDataSet
+        '
+        'DBDataSet
+        '
+        Me.DBDataSet.DataSetName = "DBDataSet"
+        Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'cbCaraKeluar
+        '
+        Me.cbCaraKeluar.FormattingEnabled = True
+        Me.cbCaraKeluar.Items.AddRange(New Object() {"Semua", "Diizinkan pulang", "Dirujuk", "Pindah RS lain", "Pulang paksa", "Melarikan diri", "Dipindahkan", "Meninggal <48 jam", "Meninggal >48 jam"})
+        Me.cbCaraKeluar.Location = New System.Drawing.Point(120, 67)
+        Me.cbCaraKeluar.Name = "cbCaraKeluar"
+        Me.cbCaraKeluar.Size = New System.Drawing.Size(200, 21)
+        Me.cbCaraKeluar.TabIndex = 37
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(46, 70)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(62, 13)
+        Me.Label6.TabIndex = 38
+        Me.Label6.Text = "Cara Keluar"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(357, 20)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(89, 13)
+        Me.Label4.TabIndex = 41
+        Me.Label4.Text = "Ruangan && Kelas"
+        '
+        'cKelas
+        '
+        Me.cKelas.AutoSize = True
+        Me.cKelas.Location = New System.Drawing.Point(562, 20)
+        Me.cKelas.Name = "cKelas"
+        Me.cKelas.Size = New System.Drawing.Size(52, 17)
+        Me.cKelas.TabIndex = 40
+        Me.cKelas.Text = "Kelas"
+        Me.cKelas.UseVisualStyleBackColor = True
+        '
+        'cRuangan
+        '
+        Me.cRuangan.AutoSize = True
+        Me.cRuangan.Location = New System.Drawing.Point(466, 20)
+        Me.cRuangan.Name = "cRuangan"
+        Me.cRuangan.Size = New System.Drawing.Size(70, 17)
+        Me.cRuangan.TabIndex = 39
+        Me.cRuangan.Text = "Ruangan"
+        Me.cRuangan.UseVisualStyleBackColor = True
+        '
         'LaporanKeluarForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -393,7 +389,6 @@ Partial Class LaporanKeluarForm
     Friend WithEvents Laporan_keluar_QueryTableAdapter As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.laporan_keluar_QueryTableAdapter
     Friend WithEvents TableAdapterManager As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager
     Friend WithEvents Laporan_keluar_QueryDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
     Friend WithEvents cbCaraKeluar As System.Windows.Forms.ComboBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label

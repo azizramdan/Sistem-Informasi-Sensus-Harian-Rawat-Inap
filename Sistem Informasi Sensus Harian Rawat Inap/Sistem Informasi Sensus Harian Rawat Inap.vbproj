@@ -100,6 +100,18 @@
     <Compile Include="LaporanKeluarForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LaporanKeluarPrint.Designer.vb">
+      <DependentUpon>LaporanKeluarPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LaporanKeluarPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaporanKeluarReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanKeluarReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LaporanMasukForm.Designer.vb">
       <DependentUpon>LaporanMasukForm.vb</DependentUpon>
     </Compile>
@@ -245,6 +257,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LaporanKeluarForm.resx">
       <DependentUpon>LaporanKeluarForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaporanKeluarPrint.resx">
+      <DependentUpon>LaporanKeluarPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaporanKeluarReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanKeluarReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="LaporanMasukForm.resx">
       <DependentUpon>LaporanMasukForm.vb</DependentUpon>
