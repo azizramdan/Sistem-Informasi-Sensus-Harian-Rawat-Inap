@@ -49,7 +49,6 @@ Partial Class LaporanMasukForm
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Register_masuk_QueryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cbCaraMasuk = New System.Windows.Forms.ComboBox()
         Me.cRuangan = New System.Windows.Forms.CheckBox()
@@ -276,9 +275,6 @@ Partial Class LaporanMasukForm
         Me.DBDataSet.DataSetName = "DBDataSet"
         Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'PrintDocument1
-        '
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -386,7 +382,6 @@ Partial Class LaporanMasukForm
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cbCaraMasuk As System.Windows.Forms.ComboBox
     Friend WithEvents cRuangan As System.Windows.Forms.CheckBox
