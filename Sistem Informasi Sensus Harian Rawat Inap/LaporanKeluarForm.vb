@@ -67,7 +67,7 @@
         Next
     End Sub
     Private Sub Jumlah()
-        ToolStripStatusLabel1.Text = "Jumlah data " & Laporan_keluar_QueryDataGridView.RowCount
+        ToolStripStatusLabel1.Text = "Jumlah data: " & Laporan_keluar_QueryDataGridView.RowCount
     End Sub
 
     Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
@@ -76,6 +76,7 @@
         Else
             Dim report As New LaporanKeluarReport
             report.SetDataSource(Laporan_keluar_QueryBindingSource.List)
+            report.SetParameterValue("jumlah", ToolStripStatusLabel1.Text)
             LaporanKeluarPrint.CrystalReportViewer1.ReportSource = report
             LaporanKeluarPrint.ShowDialog()
         End If
