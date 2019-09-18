@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SensusDataSet" targetNamespace="http://tempuri.org/SensusDataSet.xsd" xmlns:mstns="http://tempuri.org/SensusDataSet.xsd" xmlns="http://tempuri.org/SensusDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SensusDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SensusDataSet" msprop:Generator_UserDSName="SensusDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="sensus" msprop:Generator_TableClassName="sensusDataTable" msprop:Generator_TableVarName="tablesensus" msprop:Generator_RowChangedName="sensusRowChanged" msprop:Generator_TablePropName="sensus" msprop:Generator_RowDeletingName="sensusRowDeleting" msprop:Generator_RowChangingName="sensusRowChanging" msprop:Generator_RowEvHandlerName="sensusRowChangeEventHandler" msprop:Generator_RowDeletedName="sensusRowDeleted" msprop:Generator_RowClassName="sensusRow" msprop:Generator_UserTableName="sensus" msprop:Generator_RowEvArgName="sensusRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tanggal" msprop:Generator_ColumnVarNameInTable="columntanggal" msprop:Generator_ColumnPropNameInRow="tanggal" msprop:Generator_ColumnPropNameInTable="tanggalColumn" msprop:Generator_UserColumnName="tanggal" type="xs:string" minOccurs="0" />
+              <xs:element name="pasien_awal" msprop:Generator_ColumnVarNameInTable="columnpasien_awal" msprop:Generator_ColumnPropNameInRow="pasien_awal" msprop:Generator_ColumnPropNameInTable="pasien_awalColumn" msprop:Generator_UserColumnName="pasien_awal" type="xs:string" minOccurs="0" />
+              <xs:element name="pasien_masuk" msprop:Generator_ColumnVarNameInTable="columnpasien_masuk" msprop:Generator_ColumnPropNameInRow="pasien_masuk" msprop:Generator_ColumnPropNameInTable="pasien_masukColumn" msprop:Generator_UserColumnName="pasien_masuk" type="xs:string" minOccurs="0" />
+              <xs:element name="pasien_pindahan" msprop:Generator_ColumnVarNameInTable="columnpasien_pindahan" msprop:Generator_ColumnPropNameInRow="pasien_pindahan" msprop:Generator_ColumnPropNameInTable="pasien_pindahanColumn" msprop:Generator_UserColumnName="pasien_pindahan" type="xs:string" minOccurs="0" />
+              <xs:element name="jumlah_dirawat" msprop:Generator_ColumnVarNameInTable="columnjumlah_dirawat" msprop:Generator_ColumnPropNameInRow="jumlah_dirawat" msprop:Generator_ColumnPropNameInTable="jumlah_dirawatColumn" msprop:Generator_UserColumnName="jumlah_dirawat" type="xs:string" minOccurs="0" />
+              <xs:element name="diizinkan_pulang" msprop:Generator_ColumnVarNameInTable="columndiizinkan_pulang" msprop:Generator_ColumnPropNameInRow="diizinkan_pulang" msprop:Generator_ColumnPropNameInTable="diizinkan_pulangColumn" msprop:Generator_UserColumnName="diizinkan_pulang" type="xs:string" minOccurs="0" />
+              <xs:element name="dirujuk" msprop:Generator_ColumnVarNameInTable="columndirujuk" msprop:Generator_ColumnPropNameInRow="dirujuk" msprop:Generator_ColumnPropNameInTable="dirujukColumn" msprop:Generator_UserColumnName="dirujuk" type="xs:string" minOccurs="0" />
+              <xs:element name="pindah_rs" msprop:Generator_ColumnVarNameInTable="columnpindah_rs" msprop:Generator_ColumnPropNameInRow="pindah_rs" msprop:Generator_ColumnPropNameInTable="pindah_rsColumn" msprop:Generator_UserColumnName="pindah_rs" type="xs:string" minOccurs="0" />
+              <xs:element name="pulang_paksa" msprop:Generator_ColumnVarNameInTable="columnpulang_paksa" msprop:Generator_ColumnPropNameInRow="pulang_paksa" msprop:Generator_ColumnPropNameInTable="pulang_paksaColumn" msprop:Generator_UserColumnName="pulang_paksa" type="xs:string" minOccurs="0" />
+              <xs:element name="melarikan_diri" msprop:Generator_ColumnVarNameInTable="columnmelarikan_diri" msprop:Generator_ColumnPropNameInRow="melarikan_diri" msprop:Generator_ColumnPropNameInTable="melarikan_diriColumn" msprop:Generator_UserColumnName="melarikan_diri" type="xs:string" minOccurs="0" />
+              <xs:element name="dipindahkan" msprop:Generator_ColumnVarNameInTable="columndipindahkan" msprop:Generator_ColumnPropNameInRow="dipindahkan" msprop:Generator_ColumnPropNameInTable="dipindahkanColumn" msprop:Generator_UserColumnName="dipindahkan" type="xs:string" minOccurs="0" />
+              <xs:element name="jumlah_keluar_hidup" msprop:Generator_ColumnVarNameInTable="columnjumlah_keluar_hidup" msprop:Generator_ColumnPropNameInRow="jumlah_keluar_hidup" msprop:Generator_ColumnPropNameInTable="jumlah_keluar_hidupColumn" msprop:Generator_UserColumnName="jumlah_keluar_hidup" type="xs:string" minOccurs="0" />
+              <xs:element name="kurang" msprop:Generator_ColumnVarNameInTable="columnkurang" msprop:Generator_ColumnPropNameInRow="kurang" msprop:Generator_ColumnPropNameInTable="kurangColumn" msprop:Generator_UserColumnName="kurang" type="xs:string" minOccurs="0" />
+              <xs:element name="lebih" msprop:Generator_ColumnVarNameInTable="columnlebih" msprop:Generator_ColumnPropNameInRow="lebih" msprop:Generator_ColumnPropNameInTable="lebihColumn" msprop:Generator_UserColumnName="lebih" type="xs:string" minOccurs="0" />
+              <xs:element name="jumlah_keluar_mati" msprop:Generator_ColumnVarNameInTable="columnjumlah_keluar_mati" msprop:Generator_ColumnPropNameInRow="jumlah_keluar_mati" msprop:Generator_ColumnPropNameInTable="jumlah_keluar_matiColumn" msprop:Generator_UserColumnName="jumlah_keluar_mati" type="xs:string" minOccurs="0" />
+              <xs:element name="lama_dirawat" msprop:Generator_ColumnVarNameInTable="columnlama_dirawat" msprop:Generator_ColumnPropNameInRow="lama_dirawat" msprop:Generator_ColumnPropNameInTable="lama_dirawatColumn" msprop:Generator_UserColumnName="lama_dirawat" type="xs:string" minOccurs="0" />
+              <xs:element name="keluar_masuk" msprop:Generator_ColumnVarNameInTable="columnkeluar_masuk" msprop:Generator_ColumnPropNameInRow="keluar_masuk" msprop:Generator_ColumnPropNameInTable="keluar_masukColumn" msprop:Generator_UserColumnName="keluar_masuk" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

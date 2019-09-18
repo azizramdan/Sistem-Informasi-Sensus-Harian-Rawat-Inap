@@ -26,11 +26,12 @@ Partial Class SensusForm
         Me.rbBulanan = New System.Windows.Forms.RadioButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.dtpTanggal = New System.Windows.Forms.DateTimePicker()
         Me.cbKelas = New System.Windows.Forms.ComboBox()
         Me.cbRuangan = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbPasienPindahan = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.tbJumlahDirawat = New System.Windows.Forms.TextBox()
         Me.tbPasienMasuk = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -53,7 +54,6 @@ Partial Class SensusForm
         Me.tbDiizinkan = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.btnCari = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.tbJumlahKeluarMati = New System.Windows.Forms.TextBox()
@@ -66,7 +66,8 @@ Partial Class SensusForm
         Me.tbKeluarMasuk = New System.Windows.Forms.TextBox()
         Me.tbLamaRawat = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.cKelas = New System.Windows.Forms.CheckBox()
+        Me.cRuangan = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -112,15 +113,6 @@ Partial Class SensusForm
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Tanggal"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(289, 13)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Ruangan"
-        '
         'dtpTanggal
         '
         Me.dtpTanggal.Location = New System.Drawing.Point(73, 34)
@@ -130,38 +122,59 @@ Partial Class SensusForm
         '
         'cbKelas
         '
+        Me.cbKelas.Enabled = False
         Me.cbKelas.FormattingEnabled = True
-        Me.cbKelas.Location = New System.Drawing.Point(349, 37)
+        Me.cbKelas.Location = New System.Drawing.Point(380, 37)
         Me.cbKelas.Name = "cbKelas"
         Me.cbKelas.Size = New System.Drawing.Size(164, 21)
         Me.cbKelas.TabIndex = 4
         '
         'cbRuangan
         '
+        Me.cbRuangan.Enabled = False
         Me.cbRuangan.FormattingEnabled = True
-        Me.cbRuangan.Location = New System.Drawing.Point(349, 10)
+        Me.cbRuangan.Location = New System.Drawing.Point(380, 10)
         Me.cbRuangan.Name = "cbRuangan"
         Me.cbRuangan.Size = New System.Drawing.Size(164, 21)
         Me.cbRuangan.TabIndex = 3
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.tbPasienPindahan)
+        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.tbJumlahDirawat)
         Me.GroupBox1.Controls.Add(Me.tbPasienMasuk)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.tbPasienAwal)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 113)
+        Me.GroupBox1.Location = New System.Drawing.Point(31, 110)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(225, 102)
+        Me.GroupBox1.Size = New System.Drawing.Size(225, 132)
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Total Pasien Dirawat"
         '
+        'tbPasienPindahan
+        '
+        Me.tbPasienPindahan.Location = New System.Drawing.Point(105, 71)
+        Me.tbPasienPindahan.Name = "tbPasienPindahan"
+        Me.tbPasienPindahan.ReadOnly = True
+        Me.tbPasienPindahan.Size = New System.Drawing.Size(100, 20)
+        Me.tbPasienPindahan.TabIndex = 4
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 74)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(86, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Pasien pindahan"
+        '
         'tbJumlahDirawat
         '
-        Me.tbJumlahDirawat.Location = New System.Drawing.Point(93, 71)
+        Me.tbJumlahDirawat.Location = New System.Drawing.Point(105, 97)
         Me.tbJumlahDirawat.Name = "tbJumlahDirawat"
         Me.tbJumlahDirawat.ReadOnly = True
         Me.tbJumlahDirawat.Size = New System.Drawing.Size(100, 20)
@@ -169,7 +182,7 @@ Partial Class SensusForm
         '
         'tbPasienMasuk
         '
-        Me.tbPasienMasuk.Location = New System.Drawing.Point(93, 45)
+        Me.tbPasienMasuk.Location = New System.Drawing.Point(105, 45)
         Me.tbPasienMasuk.Name = "tbPasienMasuk"
         Me.tbPasienMasuk.ReadOnly = True
         Me.tbPasienMasuk.Size = New System.Drawing.Size(100, 20)
@@ -178,7 +191,7 @@ Partial Class SensusForm
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 74)
+        Me.Label6.Location = New System.Drawing.Point(6, 100)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(40, 13)
         Me.Label6.TabIndex = 3
@@ -186,7 +199,7 @@ Partial Class SensusForm
         '
         'tbPasienAwal
         '
-        Me.tbPasienAwal.Location = New System.Drawing.Point(93, 19)
+        Me.tbPasienAwal.Location = New System.Drawing.Point(105, 19)
         Me.tbPasienAwal.Name = "tbPasienAwal"
         Me.tbPasienAwal.ReadOnly = True
         Me.tbPasienAwal.Size = New System.Drawing.Size(100, 20)
@@ -197,18 +210,18 @@ Partial Class SensusForm
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(6, 22)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(65, 13)
+        Me.Label4.Size = New System.Drawing.Size(64, 13)
         Me.Label4.TabIndex = 1
-        Me.Label4.Text = "Pasien Awal"
+        Me.Label4.Text = "Pasien awal"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(6, 48)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(74, 13)
+        Me.Label5.Size = New System.Drawing.Size(73, 13)
         Me.Label5.TabIndex = 2
-        Me.Label5.Text = "Pasien Masuk"
+        Me.Label5.Text = "Pasien masuk"
         '
         'GroupBox2
         '
@@ -226,9 +239,9 @@ Partial Class SensusForm
         Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Controls.Add(Me.tbDiizinkan)
         Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Location = New System.Drawing.Point(277, 113)
+        Me.GroupBox2.Location = New System.Drawing.Point(306, 110)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(236, 211)
+        Me.GroupBox2.Size = New System.Drawing.Size(219, 211)
         Me.GroupBox2.TabIndex = 8
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Total Pasien Keluar Hidup"
@@ -354,25 +367,16 @@ Partial Class SensusForm
         '
         'btnCari
         '
-        Me.btnCari.Location = New System.Drawing.Point(165, 72)
+        Me.btnCari.Location = New System.Drawing.Point(165, 69)
         Me.btnCari.Name = "btnCari"
         Me.btnCari.Size = New System.Drawing.Size(75, 23)
         Me.btnCari.TabIndex = 5
         Me.btnCari.Text = "Cari"
         Me.btnCari.UseVisualStyleBackColor = True
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(289, 40)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(33, 13)
-        Me.Label9.TabIndex = 11
-        Me.Label9.Text = "Kelas"
-        '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(277, 72)
+        Me.btnPrint.Location = New System.Drawing.Point(277, 69)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(75, 23)
         Me.btnPrint.TabIndex = 6
@@ -387,7 +391,7 @@ Partial Class SensusForm
         Me.GroupBox3.Controls.Add(Me.tbKurang48)
         Me.GroupBox3.Controls.Add(Me.Label16)
         Me.GroupBox3.Controls.Add(Me.Label17)
-        Me.GroupBox3.Location = New System.Drawing.Point(15, 221)
+        Me.GroupBox3.Location = New System.Drawing.Point(31, 248)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(225, 103)
         Me.GroupBox3.TabIndex = 8
@@ -448,7 +452,7 @@ Partial Class SensusForm
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(21, 365)
+        Me.Label18.Location = New System.Drawing.Point(35, 391)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(187, 13)
         Me.Label18.TabIndex = 4
@@ -456,7 +460,7 @@ Partial Class SensusForm
         '
         'tbKeluarMasuk
         '
-        Me.tbKeluarMasuk.Location = New System.Drawing.Point(222, 362)
+        Me.tbKeluarMasuk.Location = New System.Drawing.Point(236, 388)
         Me.tbKeluarMasuk.Name = "tbKeluarMasuk"
         Me.tbKeluarMasuk.ReadOnly = True
         Me.tbKeluarMasuk.Size = New System.Drawing.Size(100, 20)
@@ -464,7 +468,7 @@ Partial Class SensusForm
         '
         'tbLamaRawat
         '
-        Me.tbLamaRawat.Location = New System.Drawing.Point(222, 336)
+        Me.tbLamaRawat.Location = New System.Drawing.Point(236, 362)
         Me.tbLamaRawat.Name = "tbLamaRawat"
         Me.tbLamaRawat.ReadOnly = True
         Me.tbLamaRawat.Size = New System.Drawing.Size(100, 20)
@@ -473,27 +477,45 @@ Partial Class SensusForm
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(21, 339)
+        Me.Label19.Location = New System.Drawing.Point(35, 365)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(70, 13)
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Lama dirawat"
         '
-        'PrintDocument1
+        'cKelas
         '
+        Me.cKelas.AutoSize = True
+        Me.cKelas.Location = New System.Drawing.Point(297, 39)
+        Me.cKelas.Name = "cKelas"
+        Me.cKelas.Size = New System.Drawing.Size(52, 17)
+        Me.cKelas.TabIndex = 32
+        Me.cKelas.Text = "Kelas"
+        Me.cKelas.UseVisualStyleBackColor = True
+        '
+        'cRuangan
+        '
+        Me.cRuangan.AutoSize = True
+        Me.cRuangan.Location = New System.Drawing.Point(297, 12)
+        Me.cRuangan.Name = "cRuangan"
+        Me.cRuangan.Size = New System.Drawing.Size(70, 17)
+        Me.cRuangan.TabIndex = 31
+        Me.cRuangan.Text = "Ruangan"
+        Me.cRuangan.UseVisualStyleBackColor = True
         '
         'SensusForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(530, 410)
+        Me.ClientSize = New System.Drawing.Size(558, 419)
+        Me.Controls.Add(Me.cKelas)
+        Me.Controls.Add(Me.cRuangan)
         Me.Controls.Add(Me.tbLamaRawat)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.tbKeluarMasuk)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.btnPrint)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.rbBulanan)
         Me.Controls.Add(Me.rbHarian)
         Me.Controls.Add(Me.btnCari)
@@ -502,7 +524,6 @@ Partial Class SensusForm
         Me.Controls.Add(Me.cbRuangan)
         Me.Controls.Add(Me.cbKelas)
         Me.Controls.Add(Me.dtpTanggal)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "SensusForm"
@@ -519,7 +540,6 @@ Partial Class SensusForm
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents dtpTanggal As System.Windows.Forms.DateTimePicker
     Friend WithEvents cbKelas As System.Windows.Forms.ComboBox
     Friend WithEvents cbRuangan As System.Windows.Forms.ComboBox
@@ -540,7 +560,6 @@ Partial Class SensusForm
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents tbDiizinkan As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents btnPrint As System.Windows.Forms.Button
     Friend WithEvents tbJumlahKeluarHidup As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
@@ -561,5 +580,8 @@ Partial Class SensusForm
     Friend WithEvents tbKeluarMasuk As System.Windows.Forms.TextBox
     Friend WithEvents tbLamaRawat As System.Windows.Forms.TextBox
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
+    Friend WithEvents cKelas As System.Windows.Forms.CheckBox
+    Friend WithEvents cRuangan As System.Windows.Forms.CheckBox
+    Friend WithEvents tbPasienPindahan As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

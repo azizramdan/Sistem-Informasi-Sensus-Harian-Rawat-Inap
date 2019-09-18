@@ -130,6 +130,12 @@
       <DependentUpon>LaporanMasukReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="LoadingForm.Designer.vb">
+      <DependentUpon>LoadingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -195,11 +201,31 @@
     <Compile Include="RegisterPindahForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SensusDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SensusDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SensusDataSet.vb">
+      <DependentUpon>SensusDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SensusForm.Designer.vb">
       <DependentUpon>SensusForm.vb</DependentUpon>
     </Compile>
     <Compile Include="SensusForm.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensusPrint.Designer.vb">
+      <DependentUpon>SensusPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SensusPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensusReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SensusReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Settings.vb" />
     <Compile Include="DokterTambahForm.Designer.vb">
@@ -275,6 +301,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LaporanMasukReport.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +349,13 @@
     <EmbeddedResource Include="SensusForm.resx">
       <DependentUpon>SensusForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SensusPrint.resx">
+      <DependentUpon>SensusPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensusReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SensusReport.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="TempatTidurEditForm.resx">
       <DependentUpon>TempatTidurEditForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -354,6 +390,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="SensusDataSet.xsc">
+      <DependentUpon>SensusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SensusDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SensusDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="SensusDataSet.xss">
+      <DependentUpon>SensusDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
