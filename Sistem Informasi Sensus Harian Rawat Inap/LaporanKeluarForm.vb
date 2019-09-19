@@ -1,5 +1,5 @@
 ﻿Public Class LaporanKeluarForm
-    Dim periode As String
+    Dim periode, ruangan, kelas, caraKeluar As String
 
     Private Sub LaporanKeluarForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
@@ -30,6 +30,7 @@
 
     Private Sub btnCari_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCari.Click
         Dim filter As String
+        caraKeluar = cbCaraKeluar.SelectedItem
 
         If rbHarian.Checked Then
             periode = "Periode: " & dtpTanggal.Value.ToString("d MMMM yyyy")
@@ -51,10 +52,16 @@
 
         If cRuangan.Checked Then
             filter &= " AND ruangan = '" & cbRuangan.SelectedItem & "'"
+            ruangan = cbRuangan.SelectedItem
+        Else
+            ruangan = "Semua"
         End If
 
         If cKelas.Checked Then
             filter &= " AND kelas = '" & cbKelas.SelectedItem & "'"
+            kelas = cbKelas.SelectedItem
+        Else
+            kelas = "Semua"
         End If
 
         filter &= " AND deleted_at IS NULL"
@@ -76,6 +83,9 @@
         Else
             Dim report As New LaporanKeluarReport
             report.SetDataSource(Laporan_keluar_QueryBindingSource.List)
+            report.SetParameterValue("ruangan", ruangan)
+            report.SetParameterValue("kelas", kelas)
+            report.SetParameterValue("cara_keluar", caraKeluar)
             report.SetParameterValue("jumlah", ToolStripStatusLabel1.Text)
             LaporanKeluarPrint.CrystalReportViewer1.ReportSource = report
             LaporanKeluarPrint.ShowDialog()
