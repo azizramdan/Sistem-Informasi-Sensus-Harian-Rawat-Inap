@@ -45,6 +45,7 @@ Public Class DokterTambahForm
                     Dim result2 As Integer = cmd.ExecuteNonQuery
                     If result2 > 0 Then
                         MsgBox("Data dokter berhasil disimpan")
+                        btnBersihkan_Click(sender, e)
                     Else
                         MsgBox("Data dokter gagal disimpan")
                     End If
