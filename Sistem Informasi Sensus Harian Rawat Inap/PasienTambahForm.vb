@@ -56,6 +56,7 @@ Public Class PasienTambahForm
                         Dim result2 As Integer = cmd.ExecuteNonQuery
                         If result2 > 0 Then
                             MsgBox("Data pasien berhasil disimpan")
+                            btnBersihkan_Click(sender, e)
                         Else
                             MsgBox("Data pasien gagal disimpan")
                             Debug.WriteLine("gagal")
@@ -79,6 +80,7 @@ Public Class PasienTambahForm
                     Dim result2 As Integer = cmd.ExecuteNonQuery
                     If result2 > 0 Then
                         MsgBox("Data pasien berhasil disimpan")
+                        btnBersihkan_Click(sender, e)
                     Else
                         MsgBox("Data pasien gagal disimpan")
                     End If
