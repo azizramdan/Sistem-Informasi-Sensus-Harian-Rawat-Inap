@@ -63,22 +63,31 @@ Public Class RegisterMasukTambahForm
                 Dim conn = New OleDbConnection(source)
                 If conn.State = ConnectionState.Closed Then
                     conn.Open()
-                    Dim query As String = "INSERT INTO register_masuk (no_medrec, id_tempat_tidur, tanggal_masuk, cara_pasien_masuk) "
-                    query &= "VALUES (@medrec, @idTempatTidur, @tanggalMasuk, @caraMasuk)"
+                    Dim query As String = "SELECT id FROM register_masuk WHERE no_medrec = @medrec AND keluar = FALSE AND deleted_at IS NULL"
                     Dim cmd As New OleDbCommand(query, conn)
                     cmd.Parameters.AddWithValue("@medrec", medrec)
-                    cmd.Parameters.AddWithValue("@idTempatTidur", IdTempatTidur)
-                    cmd.Parameters.AddWithValue("@tanggalMasuk", tanggalMasuk)
-                    cmd.Parameters.AddWithValue("@caraMasuk", caraMasuk)
-                    Dim result As Integer = cmd.ExecuteNonQuery
-                    If result > 0 Then
-                        If UpdateTempatTidur(IdTempatTidur, "-") Then
-                            MsgBox("Data berhasil disimpan")
+                    Dim result As OleDbDataReader = cmd.ExecuteReader
+                    If result.Read Then
+                        MsgBox("Pasien sudah ada dan belum keluar")
+                    Else
+                        query = "INSERT INTO register_masuk (no_medrec, id_tempat_tidur, tanggal_masuk, cara_pasien_masuk) "
+                        query &= "VALUES (@medrec, @idTempatTidur, @tanggalMasuk, @caraMasuk)"
+                        cmd = New OleDbCommand(query, conn)
+                        cmd.Parameters.AddWithValue("@medrec", medrec)
+                        cmd.Parameters.AddWithValue("@idTempatTidur", IdTempatTidur)
+                        cmd.Parameters.AddWithValue("@tanggalMasuk", tanggalMasuk)
+                        cmd.Parameters.AddWithValue("@caraMasuk", caraMasuk)
+                        Dim result2 As Integer = cmd.ExecuteNonQuery
+                        If result2 > 0 Then
+                            If UpdateTempatTidur(IdTempatTidur, "-") Then
+                                MsgBox("Data berhasil disimpan")
+                                btnBersihkan_Click(sender, e)
+                            Else
+                                MsgBox("Data gagal disimpan")
+                            End If
                         Else
                             MsgBox("Data gagal disimpan")
                         End If
-                    Else
-                        MsgBox("Data gagal disimpan")
                     End If
                 Else
                     MsgBox("Koneksi database gagal!")
