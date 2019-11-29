@@ -33,8 +33,8 @@ Public Class DokterTambahForm
                 If result.Read Then
                     MsgBox("Gagal! No. SIP sudah ada!")
                 Else
-                    query = "INSERT INTO dokter (sip, nama_lengkap, alamat, no_telpon, spesialis, status_kepegawaian) "
-                    query &= "VALUES (@sip, @nama, @alamat, @telp, @spesialis, @status)"
+                    query = "INSERT INTO dokter (sip, nama_lengkap, alamat, no_telpon, spesialis, status_kepegawaian, deleted_at) "
+                    query &= "VALUES (@sip, @nama, @alamat, @telp, @spesialis, @status, NULL)"
                     cmd = New OleDbCommand(query, conn)
                     cmd.Parameters.AddWithValue("@sip", sip)
                     cmd.Parameters.AddWithValue("@nama", nama)

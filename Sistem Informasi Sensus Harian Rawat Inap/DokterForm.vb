@@ -1,14 +1,12 @@
-﻿Public Class DokterForm
+﻿Imports System.Data.OleDb
+Public Class DokterForm
     Private Sub DokterForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DBDataSet1.dokter' table. You can move, or remove it, as needed.
         connect()
-        Me.DokterTableAdapter.Fill(Me.DBDataSet.dokter)
-        Jumlah()
     End Sub
 
     Private Sub Form_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible Then
-            Me.DokterTableAdapter.Fill(Me.DBDataSet.dokter)
+            Tampil()
         End If
     End Sub
 
@@ -32,10 +30,26 @@
         Dim response As MsgBoxResult
         response = MsgBox("Apakah Anda yakin ingin menghapus data ini?", MsgBoxStyle.YesNo)
         If response = MsgBoxResult.Yes Then
-            Dim index As Integer
-            index = DokterDataGridView.CurrentCell.RowIndex
-            DokterDataGridView.Rows.RemoveAt(index)
-            Simpan()
+            Dim source As String = My.Settings.DBConnectionString
+            Dim conn = New OleDbConnection(source)
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+                Dim now As Date = Today
+                Dim sip As String = DokterDataGridView(0, DokterDataGridView.CurrentRow.Index).Value
+                Dim query As String = "UPDATE [dokter] SET [deleted_at]=@now WHERE sip=@sip"
+                Dim cmd As New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@now", now.ToString("M/d/yyyy"))
+                cmd.Parameters.AddWithValue("@sip", sip)
+                Dim result As Integer = cmd.ExecuteNonQuery
+                If result > 0 Then
+                    MsgBox("Data berhasil dihapus")
+                    Tampil()
+                Else
+                    MsgBox("Data gagal dihapus")
+                End If
+            Else
+                MsgBox("Koneksi database gagal!")
+            End If
         End If
     End Sub
 
@@ -53,20 +67,26 @@
     End Sub
 
     Private Sub Cari()
-        Dim filter As String = tbCari.Text
-        If filter = "" Then
-            DokterBindingSource.RemoveFilter()
+        Dim cari As String = tbCari.Text
+        Dim filter As String
+        If cari = "" Then
+            Tampil()
         Else
-            DokterBindingSource.Filter = "sip = '" & filter & "' OR nama_lengkap LIKE '%" & filter & "%'"
+            filter = "deleted_at IS NULL AND (sip = '" & cari & "' OR nama_lengkap LIKE '%" & cari & "%')"
+            Tampil(filter)
         End If
-        Me.DokterTableAdapter.Fill(Me.DBDataSet.dokter)
-        Jumlah()
     End Sub
 
     Private Sub Simpan()
         Me.Validate()
         Me.DokterBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.DBDataSet)
+        Jumlah()
+    End Sub
+    Private Sub Tampil(Optional ByVal filter As String = "deleted_at IS NULL")
+        DokterBindingSource.Filter = filter
+        DokterBindingSource.Sort = "sip"
+        Me.DokterTableAdapter.Fill(Me.DBDataSet.dokter)
         Jumlah()
     End Sub
 End Class
