@@ -26,12 +26,30 @@ Public Class DokterTambahForm
             Dim conn = New OleDbConnection(source)
             If conn.State = ConnectionState.Closed Then
                 conn.Open()
-                Dim query As String = "SELECT * FROM [dokter] WHERE sip=@sip"
+                Dim query As String = "SELECT deleted_at FROM [dokter] WHERE sip=@sip"
                 Dim cmd As New OleDbCommand(query, conn)
                 cmd.Parameters.AddWithValue("@sip", sip)
                 Dim result As OleDbDataReader = cmd.ExecuteReader
                 If result.Read Then
-                    MsgBox("Gagal! No. SIP sudah ada!")
+                    If result.IsDBNull(0) Then
+                        MsgBox("Gagal! No. SIP sudah ada!")
+                    Else
+                        query = "UPDATE [dokter] SET [nama_lengkap]=@nama, [alamat]=@alamat, [no_telpon]=@telp, [spesialis]=@spesialis, [status_kepegawaian]=@status, [deleted_at]=NULL WHERE sip=@sip"
+                        cmd = New OleDbCommand(query, conn)
+                        cmd.Parameters.AddWithValue("@nama", nama)
+                        cmd.Parameters.AddWithValue("@alamat", alamat)
+                        cmd.Parameters.AddWithValue("@telp", telp)
+                        cmd.Parameters.AddWithValue("@spesialis", spesialis)
+                        cmd.Parameters.AddWithValue("@status", status)
+                        cmd.Parameters.AddWithValue("@sip", sip)
+                        Dim result2 As Integer = cmd.ExecuteNonQuery
+                        If result2 > 0 Then
+                            MsgBox("Data dokter berhasil disimpan")
+                            btnBersihkan_Click(sender, e)
+                        Else
+                            MsgBox("Data dokter gagal disimpan")
+                        End If
+                    End If
                 Else
                     query = "INSERT INTO dokter (sip, nama_lengkap, alamat, no_telpon, spesialis, status_kepegawaian, deleted_at) "
                     query &= "VALUES (@sip, @nama, @alamat, @telp, @spesialis, @status, NULL)"
