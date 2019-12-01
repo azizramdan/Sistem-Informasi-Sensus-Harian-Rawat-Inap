@@ -171,6 +171,12 @@
     <Compile Include="PasienForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PilihDokterForm.Designer.vb">
+      <DependentUpon>PilihDokterForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PilihDokterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RegisterKeluarEditForm.Designer.vb">
       <DependentUpon>RegisterKeluarEditForm.vb</DependentUpon>
     </Compile>
@@ -318,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PasienForm.resx">
       <DependentUpon>PasienForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PilihDokterForm.resx">
+      <DependentUpon>PilihDokterForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterKeluarEditForm.resx">
       <DependentUpon>RegisterKeluarEditForm.vb</DependentUpon>
