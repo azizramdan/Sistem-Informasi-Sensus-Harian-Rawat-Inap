@@ -35,6 +35,9 @@ Partial Class RegisterMasukEditForm
         Me.cbRuangan = New System.Windows.Forms.ComboBox()
         Me.cbKelas = New System.Windows.Forms.ComboBox()
         Me.cbCaraMasuk = New System.Windows.Forms.ComboBox()
+        Me.tbDokter = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label4
@@ -85,7 +88,7 @@ Partial Class RegisterMasukEditForm
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(12, 147)
+        Me.Label6.Location = New System.Drawing.Point(12, 173)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(64, 13)
         Me.Label6.TabIndex = 17
@@ -93,7 +96,7 @@ Partial Class RegisterMasukEditForm
         '
         'btnSimpan
         '
-        Me.btnSimpan.Location = New System.Drawing.Point(128, 186)
+        Me.btnSimpan.Location = New System.Drawing.Point(128, 205)
         Me.btnSimpan.Name = "btnSimpan"
         Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
         Me.btnSimpan.TabIndex = 56
@@ -143,16 +146,45 @@ Partial Class RegisterMasukEditForm
         '
         Me.cbCaraMasuk.FormattingEnabled = True
         Me.cbCaraMasuk.Items.AddRange(New Object() {"Rujukan", "UGD", "OPD/POLI", "Pindahan"})
-        Me.cbCaraMasuk.Location = New System.Drawing.Point(110, 144)
+        Me.cbCaraMasuk.Location = New System.Drawing.Point(110, 170)
         Me.cbCaraMasuk.Name = "cbCaraMasuk"
         Me.cbCaraMasuk.Size = New System.Drawing.Size(200, 21)
         Me.cbCaraMasuk.TabIndex = 62
+        '
+        'tbDokter
+        '
+        Me.tbDokter.Location = New System.Drawing.Point(110, 144)
+        Me.tbDokter.Name = "tbDokter"
+        Me.tbDokter.ReadOnly = True
+        Me.tbDokter.Size = New System.Drawing.Size(159, 20)
+        Me.tbDokter.TabIndex = 64
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(12, 147)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(70, 13)
+        Me.Label7.TabIndex = 63
+        Me.Label7.Text = "Nama Dokter"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(275, 142)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(35, 23)
+        Me.Button1.TabIndex = 65
+        Me.Button1.Text = "Pilih"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'RegisterMasukEditForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(325, 235)
+        Me.ClientSize = New System.Drawing.Size(325, 242)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.tbDokter)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.cbCaraMasuk)
         Me.Controls.Add(Me.cbKelas)
         Me.Controls.Add(Me.cbRuangan)
@@ -185,4 +217,7 @@ Partial Class RegisterMasukEditForm
     Friend WithEvents cbRuangan As System.Windows.Forms.ComboBox
     Friend WithEvents cbKelas As System.Windows.Forms.ComboBox
     Friend WithEvents cbCaraMasuk As System.Windows.Forms.ComboBox
+    Friend WithEvents tbDokter As System.Windows.Forms.TextBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

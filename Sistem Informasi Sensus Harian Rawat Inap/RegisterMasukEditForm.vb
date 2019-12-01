@@ -9,7 +9,7 @@ Public Class RegisterMasukEditForm
         cbKelas.SelectedItem = namaKelas
     End Sub
 
-    Public Sub New(ByVal id As String, ByVal medrec As String, ByVal nama As String, ByVal tanggal As Date, ByVal ruangan As String, ByVal kelas As String, ByVal caraMasuk As String)
+    Public Sub New(ByVal id As String, ByVal medrec As String, ByVal nama As String, ByVal tanggal As Date, ByVal ruangan As String, ByVal kelas As String, ByVal dokter As String, ByVal caraMasuk As String)
         InitializeComponent()
         idRegMasuk = id
         tbMedrec.Text = medrec
@@ -17,6 +17,7 @@ Public Class RegisterMasukEditForm
         dtpTanggal.Value = tanggal
         namaRuangan = ruangan
         namaKelas = kelas
+        tbDokter.Text = dokter
         cbCaraMasuk.SelectedItem = caraMasuk
     End Sub
 
