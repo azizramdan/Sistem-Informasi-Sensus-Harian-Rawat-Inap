@@ -37,7 +37,7 @@ Partial Class RegisterMasukEditForm
         Me.cbCaraMasuk = New System.Windows.Forms.ComboBox()
         Me.tbDokter = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnPilih = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label4
@@ -168,21 +168,21 @@ Partial Class RegisterMasukEditForm
         Me.Label7.TabIndex = 63
         Me.Label7.Text = "Nama Dokter"
         '
-        'Button1
+        'btnPilih
         '
-        Me.Button1.Location = New System.Drawing.Point(275, 142)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(35, 23)
-        Me.Button1.TabIndex = 65
-        Me.Button1.Text = "Pilih"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnPilih.Location = New System.Drawing.Point(275, 142)
+        Me.btnPilih.Name = "btnPilih"
+        Me.btnPilih.Size = New System.Drawing.Size(35, 23)
+        Me.btnPilih.TabIndex = 65
+        Me.btnPilih.Text = "Pilih"
+        Me.btnPilih.UseVisualStyleBackColor = True
         '
         'RegisterMasukEditForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(325, 242)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnPilih)
         Me.Controls.Add(Me.tbDokter)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.cbCaraMasuk)
@@ -219,5 +219,5 @@ Partial Class RegisterMasukEditForm
     Friend WithEvents cbCaraMasuk As System.Windows.Forms.ComboBox
     Friend WithEvents tbDokter As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnPilih As System.Windows.Forms.Button
 End Class

@@ -37,9 +37,10 @@ Public Class RegisterMasukForm
         Dim tanggal As Date = Register_masuk_QueryDataGridView(3, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
         Dim ruangan As String = Register_masuk_QueryDataGridView(4, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
         Dim kelas As String = Register_masuk_QueryDataGridView(5, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
-        Dim caraMasuk As String = Register_masuk_QueryDataGridView(6, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+        Dim dokter As String = Register_masuk_QueryDataGridView(6, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
+        Dim caraMasuk As String = Register_masuk_QueryDataGridView(7, Register_masuk_QueryDataGridView.CurrentRow.Index).Value
 
-        Dim form As New RegisterMasukEditForm(id, medrec, nama, tanggal, ruangan, kelas, caraMasuk)
+        Dim form As New RegisterMasukEditForm(id, medrec, nama, tanggal, ruangan, kelas, dokter, caraMasuk)
         ShowCenter(Me, form)
     End Sub
 
