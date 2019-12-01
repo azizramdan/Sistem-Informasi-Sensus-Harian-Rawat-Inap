@@ -39,15 +39,6 @@ Partial Class LaporanKeluarForm
         Me.Laporan_keluar_QueryTableAdapter = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.laporan_keluar_QueryTableAdapter()
         Me.TableAdapterManager = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager()
         Me.Laporan_keluar_QueryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Laporan_keluar_QueryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
         Me.cbCaraKeluar = New System.Windows.Forms.ComboBox()
@@ -55,6 +46,20 @@ Partial Class LaporanKeluarForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cKelas = New System.Windows.Forms.CheckBox()
         Me.cRuangan = New System.Windows.Forms.CheckBox()
+        Me.btnPilih = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.tbDokter = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pasien_nama_lengkap = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dokter_nama_lengkap = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.Laporan_keluar_QueryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Laporan_keluar_QueryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,7 +68,7 @@ Partial Class LaporanKeluarForm
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(355, 101)
+        Me.btnPrint.Location = New System.Drawing.Point(355, 133)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(75, 23)
         Me.btnPrint.TabIndex = 32
@@ -73,7 +78,7 @@ Partial Class LaporanKeluarForm
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(357, 75)
+        Me.Label9.Location = New System.Drawing.Point(369, 75)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(33, 13)
         Me.Label9.TabIndex = 33
@@ -82,7 +87,7 @@ Partial Class LaporanKeluarForm
         'rbBulanan
         '
         Me.rbBulanan.AutoSize = True
-        Me.rbBulanan.Location = New System.Drawing.Point(214, 18)
+        Me.rbBulanan.Location = New System.Drawing.Point(226, 18)
         Me.rbBulanan.Name = "rbBulanan"
         Me.rbBulanan.Size = New System.Drawing.Size(52, 17)
         Me.rbBulanan.TabIndex = 25
@@ -93,7 +98,7 @@ Partial Class LaporanKeluarForm
         'rbHarian
         '
         Me.rbHarian.AutoSize = True
-        Me.rbHarian.Location = New System.Drawing.Point(120, 18)
+        Me.rbHarian.Location = New System.Drawing.Point(132, 18)
         Me.rbHarian.Name = "rbHarian"
         Me.rbHarian.Size = New System.Drawing.Size(56, 17)
         Me.rbHarian.TabIndex = 23
@@ -103,7 +108,7 @@ Partial Class LaporanKeluarForm
         '
         'btnCari
         '
-        Me.btnCari.Location = New System.Drawing.Point(245, 101)
+        Me.btnCari.Location = New System.Drawing.Point(245, 133)
         Me.btnCari.Name = "btnCari"
         Me.btnCari.Size = New System.Drawing.Size(75, 23)
         Me.btnCari.TabIndex = 31
@@ -114,7 +119,7 @@ Partial Class LaporanKeluarForm
         '
         Me.cbRuangan.Enabled = False
         Me.cbRuangan.FormattingEnabled = True
-        Me.cbRuangan.Location = New System.Drawing.Point(466, 44)
+        Me.cbRuangan.Location = New System.Drawing.Point(478, 44)
         Me.cbRuangan.Name = "cbRuangan"
         Me.cbRuangan.Size = New System.Drawing.Size(164, 21)
         Me.cbRuangan.TabIndex = 29
@@ -123,14 +128,14 @@ Partial Class LaporanKeluarForm
         '
         Me.cbKelas.Enabled = False
         Me.cbKelas.FormattingEnabled = True
-        Me.cbKelas.Location = New System.Drawing.Point(466, 71)
+        Me.cbKelas.Location = New System.Drawing.Point(478, 71)
         Me.cbKelas.Name = "cbKelas"
         Me.cbKelas.Size = New System.Drawing.Size(164, 21)
         Me.cbKelas.TabIndex = 30
         '
         'dtpTanggal
         '
-        Me.dtpTanggal.Location = New System.Drawing.Point(120, 41)
+        Me.dtpTanggal.Location = New System.Drawing.Point(132, 41)
         Me.dtpTanggal.Name = "dtpTanggal"
         Me.dtpTanggal.Size = New System.Drawing.Size(200, 20)
         Me.dtpTanggal.TabIndex = 27
@@ -138,7 +143,7 @@ Partial Class LaporanKeluarForm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(357, 48)
+        Me.Label3.Location = New System.Drawing.Point(369, 48)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(51, 13)
         Me.Label3.TabIndex = 28
@@ -147,7 +152,7 @@ Partial Class LaporanKeluarForm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(46, 48)
+        Me.Label2.Location = New System.Drawing.Point(47, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 26
@@ -156,7 +161,7 @@ Partial Class LaporanKeluarForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(46, 21)
+        Me.Label1.Location = New System.Drawing.Point(47, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 24
@@ -165,7 +170,7 @@ Partial Class LaporanKeluarForm
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 561)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 602)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(689, 22)
         Me.StatusStrip1.TabIndex = 35
@@ -200,13 +205,105 @@ Partial Class LaporanKeluarForm
         Me.Laporan_keluar_QueryDataGridView.AllowUserToDeleteRows = False
         Me.Laporan_keluar_QueryDataGridView.AutoGenerateColumns = False
         Me.Laporan_keluar_QueryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Laporan_keluar_QueryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9})
+        Me.Laporan_keluar_QueryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.pasien_nama_lengkap, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.dokter_nama_lengkap, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9})
         Me.Laporan_keluar_QueryDataGridView.DataSource = Me.Laporan_keluar_QueryBindingSource
-        Me.Laporan_keluar_QueryDataGridView.Location = New System.Drawing.Point(12, 135)
+        Me.Laporan_keluar_QueryDataGridView.Location = New System.Drawing.Point(12, 167)
         Me.Laporan_keluar_QueryDataGridView.Name = "Laporan_keluar_QueryDataGridView"
         Me.Laporan_keluar_QueryDataGridView.ReadOnly = True
         Me.Laporan_keluar_QueryDataGridView.Size = New System.Drawing.Size(666, 423)
         Me.Laporan_keluar_QueryDataGridView.TabIndex = 36
+        '
+        'Laporan_keluar_QueryBindingSource
+        '
+        Me.Laporan_keluar_QueryBindingSource.DataMember = "laporan keluar Query"
+        Me.Laporan_keluar_QueryBindingSource.DataSource = Me.DBDataSet
+        '
+        'DBDataSet
+        '
+        Me.DBDataSet.DataSetName = "DBDataSet"
+        Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'cbCaraKeluar
+        '
+        Me.cbCaraKeluar.FormattingEnabled = True
+        Me.cbCaraKeluar.Items.AddRange(New Object() {"Semua", "Diizinkan pulang", "Dirujuk", "Pindah RS lain", "Pulang paksa", "Melarikan diri", "Dipindahkan", "Meninggal <48 jam", "Meninggal >48 jam"})
+        Me.cbCaraKeluar.Location = New System.Drawing.Point(132, 67)
+        Me.cbCaraKeluar.Name = "cbCaraKeluar"
+        Me.cbCaraKeluar.Size = New System.Drawing.Size(200, 21)
+        Me.cbCaraKeluar.TabIndex = 37
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(47, 70)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(62, 13)
+        Me.Label6.TabIndex = 38
+        Me.Label6.Text = "Cara Keluar"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(369, 20)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(89, 13)
+        Me.Label4.TabIndex = 41
+        Me.Label4.Text = "Ruangan && Kelas"
+        '
+        'cKelas
+        '
+        Me.cKelas.AutoSize = True
+        Me.cKelas.Location = New System.Drawing.Point(574, 20)
+        Me.cKelas.Name = "cKelas"
+        Me.cKelas.Size = New System.Drawing.Size(52, 17)
+        Me.cKelas.TabIndex = 40
+        Me.cKelas.Text = "Kelas"
+        Me.cKelas.UseVisualStyleBackColor = True
+        '
+        'cRuangan
+        '
+        Me.cRuangan.AutoSize = True
+        Me.cRuangan.Location = New System.Drawing.Point(478, 20)
+        Me.cRuangan.Name = "cRuangan"
+        Me.cRuangan.Size = New System.Drawing.Size(70, 17)
+        Me.cRuangan.TabIndex = 39
+        Me.cRuangan.Text = "Ruangan"
+        Me.cRuangan.UseVisualStyleBackColor = True
+        '
+        'btnPilih
+        '
+        Me.btnPilih.Location = New System.Drawing.Point(284, 92)
+        Me.btnPilih.Name = "btnPilih"
+        Me.btnPilih.Size = New System.Drawing.Size(48, 23)
+        Me.btnPilih.TabIndex = 45
+        Me.btnPilih.Text = "Pilih"
+        Me.btnPilih.UseVisualStyleBackColor = True
+        '
+        'btnClear
+        '
+        Me.btnClear.Location = New System.Drawing.Point(256, 92)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(22, 23)
+        Me.btnClear.TabIndex = 44
+        Me.btnClear.Text = "X"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
+        'tbDokter
+        '
+        Me.tbDokter.Location = New System.Drawing.Point(132, 94)
+        Me.tbDokter.Name = "tbDokter"
+        Me.tbDokter.ReadOnly = True
+        Me.tbDokter.Size = New System.Drawing.Size(118, 20)
+        Me.tbDokter.TabIndex = 43
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(47, 97)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(70, 13)
+        Me.Label5.TabIndex = 42
+        Me.Label5.Text = "Nama Dokter"
         '
         'DataGridViewTextBoxColumn1
         '
@@ -232,13 +329,12 @@ Partial Class LaporanKeluarForm
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
         Me.DataGridViewTextBoxColumn3.Width = 89
         '
-        'DataGridViewTextBoxColumn4
+        'pasien_nama_lengkap
         '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "nama_lengkap"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Nama Lengkap"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 89
+        Me.pasien_nama_lengkap.DataPropertyName = "pasien_nama_lengkap"
+        Me.pasien_nama_lengkap.HeaderText = "Nama Pasien"
+        Me.pasien_nama_lengkap.Name = "pasien_nama_lengkap"
+        Me.pasien_nama_lengkap.ReadOnly = True
         '
         'DataGridViewTextBoxColumn5
         '
@@ -255,6 +351,13 @@ Partial Class LaporanKeluarForm
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.Width = 89
+        '
+        'dokter_nama_lengkap
+        '
+        Me.dokter_nama_lengkap.DataPropertyName = "dokter_nama_lengkap"
+        Me.dokter_nama_lengkap.HeaderText = "Nama Dokter"
+        Me.dokter_nama_lengkap.Name = "dokter_nama_lengkap"
+        Me.dokter_nama_lengkap.ReadOnly = True
         '
         'DataGridViewTextBoxColumn7
         '
@@ -280,68 +383,15 @@ Partial Class LaporanKeluarForm
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
         Me.DataGridViewTextBoxColumn9.Visible = False
         '
-        'Laporan_keluar_QueryBindingSource
-        '
-        Me.Laporan_keluar_QueryBindingSource.DataMember = "laporan keluar Query"
-        Me.Laporan_keluar_QueryBindingSource.DataSource = Me.DBDataSet
-        '
-        'DBDataSet
-        '
-        Me.DBDataSet.DataSetName = "DBDataSet"
-        Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'cbCaraKeluar
-        '
-        Me.cbCaraKeluar.FormattingEnabled = True
-        Me.cbCaraKeluar.Items.AddRange(New Object() {"Semua", "Diizinkan pulang", "Dirujuk", "Pindah RS lain", "Pulang paksa", "Melarikan diri", "Dipindahkan", "Meninggal <48 jam", "Meninggal >48 jam"})
-        Me.cbCaraKeluar.Location = New System.Drawing.Point(120, 67)
-        Me.cbCaraKeluar.Name = "cbCaraKeluar"
-        Me.cbCaraKeluar.Size = New System.Drawing.Size(200, 21)
-        Me.cbCaraKeluar.TabIndex = 37
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(46, 70)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(62, 13)
-        Me.Label6.TabIndex = 38
-        Me.Label6.Text = "Cara Keluar"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(357, 20)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(89, 13)
-        Me.Label4.TabIndex = 41
-        Me.Label4.Text = "Ruangan && Kelas"
-        '
-        'cKelas
-        '
-        Me.cKelas.AutoSize = True
-        Me.cKelas.Location = New System.Drawing.Point(562, 20)
-        Me.cKelas.Name = "cKelas"
-        Me.cKelas.Size = New System.Drawing.Size(52, 17)
-        Me.cKelas.TabIndex = 40
-        Me.cKelas.Text = "Kelas"
-        Me.cKelas.UseVisualStyleBackColor = True
-        '
-        'cRuangan
-        '
-        Me.cRuangan.AutoSize = True
-        Me.cRuangan.Location = New System.Drawing.Point(466, 20)
-        Me.cRuangan.Name = "cRuangan"
-        Me.cRuangan.Size = New System.Drawing.Size(70, 17)
-        Me.cRuangan.TabIndex = 39
-        Me.cRuangan.Text = "Ruangan"
-        Me.cRuangan.UseVisualStyleBackColor = True
-        '
         'LaporanKeluarForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(689, 583)
+        Me.ClientSize = New System.Drawing.Size(689, 624)
+        Me.Controls.Add(Me.btnPilih)
+        Me.Controls.Add(Me.btnClear)
+        Me.Controls.Add(Me.tbDokter)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cKelas)
         Me.Controls.Add(Me.cRuangan)
@@ -394,12 +444,18 @@ Partial Class LaporanKeluarForm
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cKelas As System.Windows.Forms.CheckBox
     Friend WithEvents cRuangan As System.Windows.Forms.CheckBox
+    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnPilih As System.Windows.Forms.Button
+    Friend WithEvents btnClear As System.Windows.Forms.Button
+    Friend WithEvents tbDokter As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents pasien_nama_lengkap As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dokter_nama_lengkap As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn

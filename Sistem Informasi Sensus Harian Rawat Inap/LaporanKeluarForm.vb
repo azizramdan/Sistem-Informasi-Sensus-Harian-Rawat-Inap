@@ -1,5 +1,5 @@
 ﻿Public Class LaporanKeluarForm
-    Dim periode, ruangan, kelas, caraKeluar As String
+    Dim periode, ruangan, kelas, caraKeluar, dokter As String
 
     Private Sub LaporanKeluarForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
@@ -7,6 +7,8 @@
         cbCaraKeluar.SelectedIndex = 0
         cbRuangan.SelectedIndex = 0
         cbKelas.SelectedIndex = 0
+        dokter = "Semua"
+        tbDokter.Text = "Semua"
     End Sub
 
     Private Sub Form_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
@@ -48,6 +50,10 @@
 
         If Not cbCaraKeluar.SelectedIndex = 0 Then
             filter &= " AND cara_pasien_keluar = '" & cbCaraKeluar.SelectedItem & "'"
+        End If
+
+        If dokter <> "Semua" Then
+            filter &= " AND dokter_nama_lengkap = '" & dokter & "'"
         End If
 
         If cRuangan.Checked Then
@@ -105,6 +111,19 @@
             cbKelas.Enabled = True
         Else
             cbKelas.Enabled = False
+        End If
+    End Sub
+
+    Private Sub btnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClear.Click
+        tbDokter.Text = "Semua"
+        dokter = "Semua"
+    End Sub
+
+    Private Sub btnPilih_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPilih.Click
+        Dim f As New PilihDokterForm
+        If (f.ShowDialog() = DialogResult.OK) Then
+            tbDokter.Text = f.nama
+            dokter = f.nama
         End If
     End Sub
 End Class
