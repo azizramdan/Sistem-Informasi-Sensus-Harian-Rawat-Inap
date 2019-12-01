@@ -1,6 +1,7 @@
 ﻿Imports System.Data.OleDb
 Public Class RegisterMasukTambahForm
     Dim btnCek_Clicked As Boolean
+    Dim sip As String
 
     Private Sub RegisterMasukTambahForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
@@ -44,17 +45,18 @@ Public Class RegisterMasukTambahForm
     End Sub
 
     Private Sub btnTambah_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTambah.Click
-        Dim medrec, nama, ruangan, kelas, tanggalMasuk, caraMasuk As String
+        Dim medrec, nama, ruangan, kelas, dokter, tanggalMasuk, caraMasuk As String
         medrec = tbMedrec.Text
         nama = tbNama.Text
         ruangan = cbRuangan.SelectedIndex + 1
         kelas = cbKelas.SelectedIndex + 1
+        dokter = tbDokter.Text
         tanggalMasuk = dtpTanggalMasuk.Value.ToString("M/d/yyyy")
         caraMasuk = cbCaraMasuk.SelectedItem
 
         If Not btnCek_Clicked Then
             MsgBox("Cek No. Medrec terlebih dahulu!")
-        ElseIf medrec = "" Or ruangan = -1 Or kelas = -1 Or tanggalMasuk = "" Or caraMasuk = "" Then
+        ElseIf medrec = "" Or ruangan = -1 Or kelas = -1 Or dokter = "" Or tanggalMasuk = "" Or caraMasuk = "" Then
             MsgBox("Data harus diisi semua")
         Else
             getTempatTidur(cbRuangan.SelectedItem, cbKelas.SelectedItem)
@@ -70,13 +72,14 @@ Public Class RegisterMasukTambahForm
                     If result.Read Then
                         MsgBox("Pasien sudah ada dan belum keluar")
                     Else
-                        query = "INSERT INTO register_masuk (no_medrec, id_tempat_tidur, tanggal_masuk, cara_pasien_masuk) "
-                        query &= "VALUES (@medrec, @idTempatTidur, @tanggalMasuk, @caraMasuk)"
+                        query = "INSERT INTO register_masuk (no_medrec, id_tempat_tidur, tanggal_masuk, cara_pasien_masuk, sip_dokter) "
+                        query &= "VALUES (@medrec, @idTempatTidur, @tanggalMasuk, @caraMasuk, @sip)"
                         cmd = New OleDbCommand(query, conn)
                         cmd.Parameters.AddWithValue("@medrec", medrec)
                         cmd.Parameters.AddWithValue("@idTempatTidur", IdTempatTidur)
                         cmd.Parameters.AddWithValue("@tanggalMasuk", tanggalMasuk)
                         cmd.Parameters.AddWithValue("@caraMasuk", caraMasuk)
+                        cmd.Parameters.AddWithValue("@sip", sip)
                         Dim result2 As Integer = cmd.ExecuteNonQuery
                         If result2 > 0 Then
                             If UpdateTempatTidur(IdTempatTidur, "-") Then
@@ -109,6 +112,15 @@ Public Class RegisterMasukTambahForm
         tbNama.Text = ""
         cbRuangan.SelectedIndex = -1
         cbKelas.SelectedIndex = -1
+        tbDokter.Text = ""
         cbCaraMasuk.SelectedIndex = -1
+    End Sub
+
+    Private Sub btnPilih_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPilih.Click
+        Dim f As New PilihDokterForm
+        If (f.ShowDialog() = DialogResult.OK) Then
+            tbDokter.Text = f.nama
+            sip = f.sip
+        End If
     End Sub
 End Class

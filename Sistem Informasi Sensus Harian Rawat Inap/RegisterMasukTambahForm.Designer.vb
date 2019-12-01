@@ -37,6 +37,9 @@ Partial Class RegisterMasukTambahForm
         Me.btnTambah = New System.Windows.Forms.Button()
         Me.btnCek = New System.Windows.Forms.Button()
         Me.btnBersihkan = New System.Windows.Forms.Button()
+        Me.btnPilih = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.tbDokter = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -51,7 +54,7 @@ Partial Class RegisterMasukTambahForm
         'tbMedrec
         '
         Me.tbMedrec.Location = New System.Drawing.Point(129, 6)
-        Me.tbMedrec.MaxLength = 6
+        Me.tbMedrec.MaxLength = 0
         Me.tbMedrec.Name = "tbMedrec"
         Me.tbMedrec.Size = New System.Drawing.Size(181, 20)
         Me.tbMedrec.TabIndex = 9
@@ -102,7 +105,7 @@ Partial Class RegisterMasukTambahForm
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(12, 141)
+        Me.Label6.Location = New System.Drawing.Point(12, 167)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(99, 13)
         Me.Label6.TabIndex = 20
@@ -119,7 +122,7 @@ Partial Class RegisterMasukTambahForm
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 118)
+        Me.Label5.Location = New System.Drawing.Point(12, 144)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(81, 13)
         Me.Label5.TabIndex = 19
@@ -127,7 +130,7 @@ Partial Class RegisterMasukTambahForm
         '
         'dtpTanggalMasuk
         '
-        Me.dtpTanggalMasuk.Location = New System.Drawing.Point(129, 112)
+        Me.dtpTanggalMasuk.Location = New System.Drawing.Point(129, 138)
         Me.dtpTanggalMasuk.Name = "dtpTanggalMasuk"
         Me.dtpTanggalMasuk.Size = New System.Drawing.Size(225, 20)
         Me.dtpTanggalMasuk.TabIndex = 16
@@ -136,14 +139,14 @@ Partial Class RegisterMasukTambahForm
         '
         Me.cbCaraMasuk.FormattingEnabled = True
         Me.cbCaraMasuk.Items.AddRange(New Object() {"Rujukan", "UGD", "OPD/POLI"})
-        Me.cbCaraMasuk.Location = New System.Drawing.Point(129, 138)
+        Me.cbCaraMasuk.Location = New System.Drawing.Point(129, 164)
         Me.cbCaraMasuk.Name = "cbCaraMasuk"
         Me.cbCaraMasuk.Size = New System.Drawing.Size(225, 21)
         Me.cbCaraMasuk.TabIndex = 17
         '
         'btnTambah
         '
-        Me.btnTambah.Location = New System.Drawing.Point(108, 181)
+        Me.btnTambah.Location = New System.Drawing.Point(108, 197)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(75, 23)
         Me.btnTambah.TabIndex = 21
@@ -161,18 +164,48 @@ Partial Class RegisterMasukTambahForm
         '
         'btnBersihkan
         '
-        Me.btnBersihkan.Location = New System.Drawing.Point(201, 181)
+        Me.btnBersihkan.Location = New System.Drawing.Point(201, 197)
         Me.btnBersihkan.Name = "btnBersihkan"
         Me.btnBersihkan.Size = New System.Drawing.Size(75, 23)
         Me.btnBersihkan.TabIndex = 42
         Me.btnBersihkan.Text = "Bersihkan"
         Me.btnBersihkan.UseVisualStyleBackColor = True
         '
+        'btnPilih
+        '
+        Me.btnPilih.Location = New System.Drawing.Point(316, 110)
+        Me.btnPilih.Name = "btnPilih"
+        Me.btnPilih.Size = New System.Drawing.Size(38, 23)
+        Me.btnPilih.TabIndex = 45
+        Me.btnPilih.Text = "Pilih"
+        Me.btnPilih.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(12, 115)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(70, 13)
+        Me.Label7.TabIndex = 44
+        Me.Label7.Text = "Nama Dokter"
+        '
+        'tbDokter
+        '
+        Me.tbDokter.Location = New System.Drawing.Point(129, 112)
+        Me.tbDokter.MaxLength = 6
+        Me.tbDokter.Name = "tbDokter"
+        Me.tbDokter.ReadOnly = True
+        Me.tbDokter.Size = New System.Drawing.Size(181, 20)
+        Me.tbDokter.TabIndex = 43
+        '
         'RegisterMasukTambahForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(390, 216)
+        Me.ClientSize = New System.Drawing.Size(390, 231)
+        Me.Controls.Add(Me.btnPilih)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.tbDokter)
         Me.Controls.Add(Me.btnBersihkan)
         Me.Controls.Add(Me.btnCek)
         Me.Controls.Add(Me.btnTambah)
@@ -209,4 +242,7 @@ Partial Class RegisterMasukTambahForm
     Friend WithEvents btnTambah As System.Windows.Forms.Button
     Friend WithEvents btnCek As System.Windows.Forms.Button
     Friend WithEvents btnBersihkan As System.Windows.Forms.Button
+    Friend WithEvents btnPilih As System.Windows.Forms.Button
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents tbDokter As System.Windows.Forms.TextBox
 End Class
