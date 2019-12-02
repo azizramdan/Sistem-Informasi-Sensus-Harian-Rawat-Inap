@@ -904,7 +904,7 @@ Partial Public Class DBDataSet
             Me.columnnama_lengkap.MaxLength = 50
             Me.columnalamat.MaxLength = 536870910
             Me.columnno_telpon.MaxLength = 15
-            Me.columnspesialis.MaxLength = 15
+            Me.columnspesialis.MaxLength = 50
             Me.columnstatus_kepegawaian.MaxLength = 15
         End Sub
         
