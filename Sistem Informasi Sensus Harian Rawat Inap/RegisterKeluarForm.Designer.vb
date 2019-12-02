@@ -34,7 +34,6 @@ Partial Class RegisterKeluarForm
         Me.No_medrecTextBox = New System.Windows.Forms.TextBox()
         Me.Register_keluar_QueryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DBDataSet = New Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSet()
-        Me.Nama_lengkapTextBox = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Tanggal_keluarTextBox = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -52,10 +51,12 @@ Partial Class RegisterKeluarForm
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pasien_nama_lengkap = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dokter_nama_lengkap = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Pasien_nama_lengkapTextBox = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,7 +75,7 @@ Partial Class RegisterKeluarForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TambahToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(688, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(733, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -91,7 +92,7 @@ Partial Class RegisterKeluarForm
         Me.GroupBox1.Controls.Add(Me.SplitContainer1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(664, 121)
+        Me.GroupBox1.Size = New System.Drawing.Size(721, 143)
         Me.GroupBox1.TabIndex = 17
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detail"
@@ -121,10 +122,10 @@ Partial Class RegisterKeluarForm
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Pasien_nama_lengkapTextBox)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.No_medrecTextBox)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Nama_lengkapTextBox)
         '
         'SplitContainer1.Panel2
         '
@@ -172,15 +173,6 @@ Partial Class RegisterKeluarForm
         '
         Me.DBDataSet.DataSetName = "DBDataSet"
         Me.DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Nama_lengkapTextBox
-        '
-        Me.Nama_lengkapTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Register_keluar_QueryBindingSource, "nama_lengkap", True))
-        Me.Nama_lengkapTextBox.Location = New System.Drawing.Point(85, 36)
-        Me.Nama_lengkapTextBox.Name = "Nama_lengkapTextBox"
-        Me.Nama_lengkapTextBox.ReadOnly = True
-        Me.Nama_lengkapTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.Nama_lengkapTextBox.TabIndex = 29
         '
         'Label6
         '
@@ -271,7 +263,7 @@ Partial Class RegisterKeluarForm
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 549)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(688, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(733, 22)
         Me.StatusStrip1.TabIndex = 21
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -295,6 +287,7 @@ Partial Class RegisterKeluarForm
         Me.TableAdapterManager.register_keluarTableAdapter = Nothing
         Me.TableAdapterManager.register_masukTableAdapter = Nothing
         Me.TableAdapterManager.ruanganTableAdapter = Nothing
+        Me.TableAdapterManager.tempat_tidurTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.userTableAdapter = Nothing
         '
@@ -305,7 +298,7 @@ Partial Class RegisterKeluarForm
         Me.Register_keluar_QueryDataGridView.AutoGenerateColumns = False
         Me.Register_keluar_QueryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.Register_keluar_QueryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Register_keluar_QueryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9})
+        Me.Register_keluar_QueryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.pasien_nama_lengkap, Me.DataGridViewTextBoxColumn7, Me.dokter_nama_lengkap, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9})
         Me.Register_keluar_QueryDataGridView.DataSource = Me.Register_keluar_QueryBindingSource
         Me.Register_keluar_QueryDataGridView.Location = New System.Drawing.Point(12, 223)
         Me.Register_keluar_QueryDataGridView.Name = "Register_keluar_QueryDataGridView"
@@ -335,12 +328,12 @@ Partial Class RegisterKeluarForm
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn6
+        'pasien_nama_lengkap
         '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "nama_lengkap"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Nama Lengkap"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.pasien_nama_lengkap.DataPropertyName = "pasien_nama_lengkap"
+        Me.pasien_nama_lengkap.HeaderText = "Nama Pasien"
+        Me.pasien_nama_lengkap.Name = "pasien_nama_lengkap"
+        Me.pasien_nama_lengkap.ReadOnly = True
         '
         'DataGridViewTextBoxColumn7
         '
@@ -348,6 +341,13 @@ Partial Class RegisterKeluarForm
         Me.DataGridViewTextBoxColumn7.HeaderText = "Tanggal Keluar"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        '
+        'dokter_nama_lengkap
+        '
+        Me.dokter_nama_lengkap.DataPropertyName = "dokter_nama_lengkap"
+        Me.dokter_nama_lengkap.HeaderText = "Nama Dokter"
+        Me.dokter_nama_lengkap.Name = "dokter_nama_lengkap"
+        Me.dokter_nama_lengkap.ReadOnly = True
         '
         'DataGridViewTextBoxColumn8
         '
@@ -364,11 +364,20 @@ Partial Class RegisterKeluarForm
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
         Me.DataGridViewTextBoxColumn9.Visible = False
         '
+        'Pasien_nama_lengkapTextBox
+        '
+        Me.Pasien_nama_lengkapTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Register_keluar_QueryBindingSource, "pasien_nama_lengkap", True))
+        Me.Pasien_nama_lengkapTextBox.Location = New System.Drawing.Point(85, 36)
+        Me.Pasien_nama_lengkapTextBox.Name = "Pasien_nama_lengkapTextBox"
+        Me.Pasien_nama_lengkapTextBox.ReadOnly = True
+        Me.Pasien_nama_lengkapTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.Pasien_nama_lengkapTextBox.TabIndex = 27
+        '
         'RegisterKeluarForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(688, 571)
+        Me.ClientSize = New System.Drawing.Size(733, 571)
         Me.Controls.Add(Me.Register_keluar_QueryDataGridView)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox2)
@@ -421,15 +430,17 @@ Partial Class RegisterKeluarForm
     Friend WithEvents Register_keluar_QueryTableAdapter As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.register_keluar_QueryTableAdapter
     Friend WithEvents TableAdapterManager As Sistem_Informasi_Sensus_Harian_Rawat_Inap.DBDataSetTableAdapters.TableAdapterManager
     Friend WithEvents No_medrecTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents Nama_lengkapTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Tanggal_keluarTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Cara_pasien_keluarTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Register_keluar_QueryDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents pasien_nama_lengkap As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dokter_nama_lengkap As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Pasien_nama_lengkapTextBox As System.Windows.Forms.TextBox
 End Class

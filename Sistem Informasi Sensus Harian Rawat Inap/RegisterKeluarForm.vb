@@ -36,7 +36,7 @@ Public Class RegisterKeluarForm
         Dim medrec As String = Register_keluar_QueryDataGridView(2, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
         Dim nama As String = Register_keluar_QueryDataGridView(3, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
         Dim tanggal As Date = Register_keluar_QueryDataGridView(4, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
-        Dim caraKeluar As String = Register_keluar_QueryDataGridView(5, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
+        Dim caraKeluar As String = Register_keluar_QueryDataGridView(6, Register_keluar_QueryDataGridView.CurrentRow.Index).Value
 
         Dim form As New RegisterKeluarEditForm(id, idRegMasuk, medrec, nama, tanggal, caraKeluar)
         ShowCenter(Me, form)
