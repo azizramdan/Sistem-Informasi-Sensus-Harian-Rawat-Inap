@@ -84,7 +84,7 @@ Public Class RegisterKeluarForm
         If cari = "" Then
             Tampil()
         Else
-            filter = "deleted_at IS NULL AND (no_medrec = '" & cari & "' OR nama_lengkap LIKE '%" & cari & "%')"
+            filter = "deleted_at IS NULL AND (no_medrec = '" & cari & "' OR pasien_nama_lengkap LIKE '%" & cari & "%')"
             Tampil(filter)
         End If
     End Sub

@@ -1,6 +1,6 @@
 ﻿Imports System.Data.OleDb
 Public Class RegisterMasukEditForm
-    Dim idRegMasuk, namaRuangan, namaKelas, sip As String
+    Dim idRegMasuk, namaRuangan, namaKelas, sip, namaDokter As String
 
     Private Sub RegisterMasukEditForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect()
@@ -18,6 +18,7 @@ Public Class RegisterMasukEditForm
         namaRuangan = ruangan
         namaKelas = kelas
         tbDokter.Text = dokter
+        namaDokter = dokter
         cbCaraMasuk.SelectedItem = caraMasuk
     End Sub
 
@@ -42,12 +43,20 @@ Public Class RegisterMasukEditForm
                 Dim tanggalMasuk, caraMasuk As String
                 tanggalMasuk = dtpTanggal.Value.ToString("M/d/yyyy")
                 caraMasuk = cbCaraMasuk.SelectedItem
-                Dim query As String = "UPDATE [register_masuk] SET [id_tempat_tidur]=@idTempatTidur, [tanggal_masuk]=@tanggalMasuk, [cara_pasien_masuk]=@caraMasuk, [sip_dokter]=@sip WHERE id=@id"
+                Dim query As String = ""
+                If tbDokter.Text.Equals(namaDokter) Then
+                    query = "UPDATE [register_masuk] SET [id_tempat_tidur]=@idTempatTidur, [tanggal_masuk]=@tanggalMasuk, [cara_pasien_masuk]=@caraMasuk WHERE id=@id"
+                Else
+                    query = "UPDATE [register_masuk] SET [id_tempat_tidur]=@idTempatTidur, [tanggal_masuk]=@tanggalMasuk, [cara_pasien_masuk]=@caraMasuk, [sip_dokter]=@sip WHERE id=@id"
+                End If
+
                 Dim cmd As New OleDbCommand(query, conn)
                 cmd.Parameters.AddWithValue("@idTempatTidur", IdTempatTidur)
                 cmd.Parameters.AddWithValue("@tanggalMasuk", tanggalMasuk)
                 cmd.Parameters.AddWithValue("@caraMasuk", caraMasuk)
-                cmd.Parameters.AddWithValue("@sip", sip)
+                If Not tbDokter.Text.Equals(namaDokter) Then
+                    cmd.Parameters.AddWithValue("@sip", sip)
+                End If
                 cmd.Parameters.AddWithValue("@id", idRegMasuk)
                 Dim result As Integer = cmd.ExecuteNonQuery
                 If result > 0 Then
